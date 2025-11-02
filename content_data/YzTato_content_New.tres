@@ -1,0 +1,58 @@
+[gd_resource type="Resource" load_steps=37 format=2]
+
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/content_data/NewContent.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_enemy_damage.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_piercing_damage.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_reroll_price.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_burning_cooldown_reduction.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_bounce.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_consumable_heal.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_hit_protection.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_number_of_enemies.tres" type="Resource" id=9]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_bounce_damage.tres" type="Resource" id=10]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_burning_spread.tres" type="Resource" id=11]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_chance_double_gold.tres" type="Resource" id=12]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_damage_against_bosses.tres" type="Resource" id=13]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_enemy_gold_drops.tres" type="Resource" id=14]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_enemy_speed.tres" type="Resource" id=15]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_enemy_health.tres" type="Resource" id=16]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_burning_cooldown_increase.tres" type="Resource" id=17]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_explosion_size.tres" type="Resource" id=18]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_free_rerolls.tres" type="Resource" id=19]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_items_price.tres" type="Resource" id=20]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_heal_when_pickup_gold.tres" type="Resource" id=21]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_map_size.tres" type="Resource" id=22]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_knockback.tres" type="Resource" id=23]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_pickup_range.tres" type="Resource" id=24]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_piercing.tres" type="Resource" id=25]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_structure_attack_speed.tres" type="Resource" id=26]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_structure_range.tres" type="Resource" id=27]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_trees.tres" type="Resource" id=28]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_item_box_gold.tres" type="Resource" id=29]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_increase_material_value.tres" type="Resource" id=30]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_recycling_gains.tres" type="Resource" id=31]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_structure_percent_damage.tres" type="Resource" id=32]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_lose_hp_per_second.tres" type="Resource" id=33]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_gain_pct_gold_start_wave.tres" type="Resource" id=34]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_projectiles.tres" type="Resource" id=35]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/extensions/stats/stat_gold_drops.tres" type="Resource" id=36]
+
+[resource]
+script = ExtResource( 1 )
+backgrounds = null
+characters = null
+elites = null
+bosses = null
+stats = [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 34 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 30 ), ExtResource( 20 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 33 ), ExtResource( 22 ), ExtResource( 9 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 3 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 36 ) ]
+items = null
+weapons = null
+consumables = null
+upgrades = null
+sets = null
+difficulties = null
+icons = null
+title_screen_backgrounds = null
+challenges = null
+zones = null
+tracked_items = {
+}

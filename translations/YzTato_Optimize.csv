@@ -1,0 +1,36 @@
+keys,en,zh
+MENU_YZTATO_SET,Optimize,优化
+YZ_ITEM_APPEARANCES_HIDE,Hide Items' Appearance,隐藏道具外观
+YZ_UNLOCK_ALL,Unlock All,全解锁
+YZ_UNLOCK_ALL_CHARS,Unlock All Characters,全角色解锁
+YZ_UNLOCK_DIFFICULTIES,Unlock All Difficulties,全难度解锁
+YZ_UNLOCK_ALL_CHALLENGES,Unlock All Challenges,全成就解锁
+YZ_WEAPON_TRANSPARENCY,Weapon Transparency,武器不透明度
+YZ_ENEMY_TRANSPARENCY,Enemy Transparency,敌人透明度
+YZ_ENEMY_PROJ_TRANSPARENCY,Enemy Transparency,敌人子弹不透明度
+YZ_OPTIMIZE_PICK_UP,Optimize Pick Up,拾取优化
+YZ_GOLD_TRANSPARENCY,Material Transparency,材料不透明度
+YZ_CONSUMABLE_TRANSPARENCY,Consumable Transparency,消耗品不透明度
+YZ_RAINBOW_GOLD,Rainbow Material,彩虹材料
+YZ_EMPTY,Empty,空
+YZ_EXLIGHT,Extreme Light,极浅
+YZ_LIGHT,Light,浅色
+YZ_MEDIUM,Medium,中等
+YZ_DARK,Dark,深色
+YZ_EXDARK,Extreme Dark,极深
+TERTIARY,Tertiary,第三
+HIT_PROTECTION,Nullify Damage,伤害无效
+ENEMY_GOLD_DROPS,%Enemies' Material Drops,%敌人掉落材料
+GOLD_DROPS,Material Drops,%掉落材料
+INCREASE_MATERIAL_VALUE,%Material Value,%材料价值
+LOSE_HP_PER_SECOND,Hp Lose Per Second,每秒损失生命
+RECYCLING_GAINS,%Recycling Gain,%回收增益
+GAIN_PCT_GOLD_START_WAVE,%Material Per Wave,%每波增益
+YZ_STARTING_WEAPONS,Any Starting Weapon,开局任选武器
+YZ_STARTING_ITEMS,Any Starting Items,开局任选道具
+YZ_STARTING_ITEMS_TIMES,Starting Items' Number,可选道具数
+ITEM_SELECTION,Item Selection,道具选择
+YZCURSESTRENGTH,Curse: {0}%,诅咒：{0}%
+YZ_CURSE_STRENGTH,Curse Strength Display,诅咒强度显示
+YZ_GMO,GMO,GMO
+YZ_GMO_NUM,GMO Number,GMO数量
