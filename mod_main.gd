@@ -74,6 +74,9 @@ func _init():
 		
 		"main_menu.gd",
 		# SETTINGS
+
+		"main.gd",
+		# SETTING : hit_protection_display
 		
 	]
 	

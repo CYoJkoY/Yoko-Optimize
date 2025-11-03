@@ -9,4 +9,5 @@ func _ready()->void :
 
 
 func update_value(value: int)->void :
+	visible = value
 	hit_protection_label.text = str(value)
