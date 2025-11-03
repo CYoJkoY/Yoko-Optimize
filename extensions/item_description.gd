@@ -33,8 +33,7 @@ func _create_curse_strength_label() -> void:
 	_curse_strength_label.visible = false
 	_curse_strength_label.align = Label.ALIGN_LEFT
 
-	var small_font = preload("res://resources/fonts/actual/base/font_smallest_text.tres")
-	_curse_strength_label.set("custom_fonts/font", small_font)
+	_curse_strength_label.set("custom_fonts/font", ProgressData.smallest_text_font)
 	
 	var VContainer: VBoxContainer = get_node_or_null("HBoxContainer/ScrollContainer/VBoxContainer") as VBoxContainer
 	# ↓↓↓ codex_item_description ↓↓↓ #

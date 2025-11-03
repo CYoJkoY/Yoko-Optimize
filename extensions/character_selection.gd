@@ -18,6 +18,7 @@ func _on_selections_completed() -> void :
 			for character in characters:
 				if character != null:
 					RunData.add_character(character, player_index)
+			RunData.selected_characters[player_index] = characters
 		elif characters != null:
 			RunData.add_character(characters, player_index)
 	

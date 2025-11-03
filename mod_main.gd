@@ -79,7 +79,7 @@ func _init():
 	
 	var extensions2: Array = [
 		
-		["item_description.gd", "res://ui/menus/shop/item_description.gd"],
+		["item_description.gd", "res://ui/menus/shop/item_description.gd"]
 		# SETTING : curse_strength
 		
 	]
@@ -88,7 +88,7 @@ func _init():
 		ModLoaderMod.install_script_extension(ext_dir + path)
 	for path2 in extensions2:
 		YZ_extend_script(path2, ext_dir)
-
+	
 func YZ_extend_script(script: Array, _ext_dir: String) -> void:
 	var child_script_path: String = _ext_dir + script[0]
 	var parent_script_path: String = script[1]

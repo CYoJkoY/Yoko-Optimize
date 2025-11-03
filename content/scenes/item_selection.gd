@@ -112,6 +112,7 @@ func _on_selections_completed()->void :
 		for item in items:
 			if item != null:
 				RunData.add_item(item, player_index)
+		RunData.selected_items[player_index] = items
 
 		if RunData.some_player_has_weapon_slots():
 			_change_scene(MenuData.weapon_selection_scene)
