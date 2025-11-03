@@ -66,10 +66,10 @@ func _yztato_reset(restart: bool = false)->void :
 
 		for i in selected_items_chars.size():
 			var selected_items_chars_player: Array = selected_items_chars[i]
-			var items_count: int = selected_items_chars_player.size()
-			if items_count > 0:
-				for j in range(items_count - 1):
-					add_item(selected_items_chars_player[j], i)
+			if !selected_items_chars_player.empty():
+				for item in selected_items_chars_player:
+					if item.get_category() == Category.ITEM:
+						add_item(item, i)
 
 		add_starting_items_and_weapons()
 

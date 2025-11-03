@@ -41,8 +41,7 @@ func _input(event):
 
 func init()->void :
 	focus_before_created = get_focus_owner()
-	if back_button != null and !back_button.is_inside_tree():
-		back_button.grab_focus()
+	back_button.grab_focus()
 
 	init_values_from_progress_data()
 
@@ -71,8 +70,7 @@ func init_values_from_progress_data() -> void:
 
 # =========================== Save =========================== #
 func _on_BackButton_pressed():
-	if focus_before_created != null and !focus_before_created.is_inside_tree():
-		focus_before_created.grab_focus()
+	focus_before_created.grab_focus()
 	emit_signal("back_button_pressed")
 
 func _on_MenuYztatoSetOptions_hide():
