@@ -13,7 +13,13 @@ func _init():
 	dir = ModLoaderMod.get_unpacked_dir() + MYMODNAME_MOD_DIR
 	trans_dir = dir + "translations/"
 	ext_dir = dir + "extensions/"
-	
+
+	# NameSpace ~ Node: /root/ModLoader/Yoko-Optimize/Optimize
+	# progress_data.gd --> _ready --> ProgressData.Optimize
+	var Optimize_instance = load(dir + "content_data/NameSpace.gd").new()
+	Optimize_instance.name = "Optimize"
+	add_child(Optimize_instance)
+
 	#######################################
 	########## Add translations ##########
 	#####################################
@@ -46,15 +52,17 @@ func _init():
 		# SETTINGS
 		
 		"run_data.gd",
-		# SETTING : item_appearances_hide, unlock_all_challenges
+		# SETTING : item_appearances_hide, unlock_all_challenges,
+		#           starting_items[ 1/2 ], gmo[ 1/2 ]
 		
 		"character_selection.gd",
-		# SETTING : unlock_all_chars, starting_items, gmo
+		# SETTING : unlock_all_chars, starting_items[ 2/2 ], gmo[ 2/2 ]
 		
 		"difficulty_selection.gd",
 		# SETTING : unlock_difficulties
 		
 		"secondary_stat_container.gd",
+		# SETTING : number_optimize[ 1/8 ]
 		# Secondary Stats' Icons
 		
 		"stats_container.gd",
@@ -76,8 +84,29 @@ func _init():
 		# SETTINGS
 
 		"main.gd",
-		# SETTING : hit_protection_display
+		# Display Hit Protection
 		
+		"button_with_icon.gd",
+		# SETTING : number_optimize[ 2/8 ]
+
+		"ui_gold.gd",
+		# SETTING : number_optimize[ 3/8 ]
+
+		"ui_bonus_gold.gd",
+		# SETTING : number_optimize[ 4/8 ]
+
+		"stat_container.gd",
+		# SETTING : number_optimize[ 5/8 ]
+
+		"gold_label.gd",
+		# SETTING : number_optimize[ 6/8 ]
+
+		"weapon_stats.gd",
+		# SETTING : number_optimize[ 7/8 ]
+
+		"reroll_button.gd",
+		# SETTING : number_optimize[ 8/8 ]
+
 	]
 	
 	var extensions2: Array = [

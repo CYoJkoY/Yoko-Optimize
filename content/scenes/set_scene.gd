@@ -2,6 +2,7 @@ extends Control
 
 signal back_button_pressed
 
+onready var back_button: Button = $BackButton
 onready var focus_before_created: Control = get_focus_owner()
 
 onready var UnlockDifficulties = $"%UnlockDifficulties" as CheckButton
@@ -9,14 +10,14 @@ onready var UnlockAllChars = $"%UnlockAllChars" as CheckButton
 onready var UnlockAllChallenges = $"%UnlockAllChallenges" as CheckButton
 onready var OptimizePickUp = $"%OptimizePickUp" as CheckButton
 onready var StartingWeapons = $"%StartingWeapons" as CheckButton
+onready var CurseStrength = $"%CurseStrength" as CheckButton
+onready var NumberOptimize = $"%NumberOptimize" as CheckButton
 
 onready var StartingItems = $"%StartingItems" as CheckButton
 onready var SetStartingItemsTimes = $"%SetStartingItemsTimes" as HBoxContainer
 
 onready var GMO = $"%GMO" as CheckButton
 onready var SetGMONum = $"%SetGMONum" as HBoxContainer
-
-onready var CurseStrength = $"%CurseStrength" as CheckButton
 
 onready var RainbowGold = $"%RainbowGold" as OptionButton
 var colors_names: Array = [
@@ -40,7 +41,8 @@ func _input(event):
 
 func init()->void :
 	focus_before_created = get_focus_owner()
-	$BackButton.grab_focus()
+	if back_button != null and !back_button.is_inside_tree():
+		back_button.grab_focus()
 
 	init_values_from_progress_data()
 
@@ -50,14 +52,14 @@ func init_values_from_progress_data() -> void:
 	UnlockAllChallenges.pressed = ProgressData.settings.yztato_unlock_all_challenges
 	OptimizePickUp.pressed = ProgressData.settings.yztato_optimize_pickup
 	StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
+	CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
+	NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
 	
 	StartingItems.pressed = ProgressData.settings.yztato_starting_items
 	SetStartingItemsTimes.set_value(ProgressData.settings.yztato_starting_items_times)
 	
 	GMO.pressed = ProgressData.settings.yztato_gmo
 	SetGMONum.set_value(ProgressData.settings.yztato_gmo_num)
-	
-	CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
 	
 	RainbowGold.select(colors_names.find(ProgressData.settings.yztato_rainbow_gold))
 
@@ -87,6 +89,10 @@ func _on_OptimizePickUp_toggled(button_pressed: bool):
 	ProgressData.settings.yztato_optimize_pickup = button_pressed
 func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
 	ProgressData.settings.yztato_starting_weapons = button_pressed
+func _on_CurseStrength_toggled(button_pressed: bool) -> void:
+	ProgressData.settings.yztato_curse_strength = button_pressed
+func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
+	ProgressData.settings.yztato_number_optimize = button_pressed
 
 func _on_StartingItems_toggled(button_pressed: bool) -> void:
 	ProgressData.settings.yztato_starting_items = button_pressed
@@ -97,9 +103,6 @@ func _on_GMO_toggled(button_pressed: bool) -> void:
 	ProgressData.settings.yztato_gmo = button_pressed
 func _on_SetGMONum_value_changed(value) -> void:
 	ProgressData.settings.yztato_gmo_num = value
-
-func _on_CurseStrength_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_curse_strength = button_pressed
 
 func _on_RainbowGold_item_selected(index: int):
 	ProgressData.settings.yztato_rainbow_gold = colors_names[index]

@@ -1,5 +1,7 @@
 extends "res://singletons/progress_data.gd"
 
+var Optimize = null
+
 const yz_colors: Dictionary = {
 	"YZ_EXLIGHT":["#FFEBEE","#FCE4EC","#F3E5F5","#EDE7F6",
 				"#E8EAF6","#E3F2FD","#E1F5FE","#E0F7FA",
@@ -48,6 +50,8 @@ func _optimize_ready() -> void:
 
 	set_max_selectable_difficulty()
 
+	Optimize = get_node("/root/ModLoader/Yoko-Optimize/Optimize")
+
 func init_yztato_set_options() -> Dictionary:
 	return {
 		"yztato_unlock_difficulties": false,
@@ -55,6 +59,8 @@ func init_yztato_set_options() -> Dictionary:
 		"yztato_unlock_all_challenges": false,
 		"yztato_optimize_pickup": false,
 		"yztato_starting_weapons": false,
+		"yztato_curse_strength": true,
+		"yztato_number_optimize": true,
 
 		"yztato_starting_items": false,
 		"yztato_starting_items_times": 1,
@@ -62,8 +68,6 @@ func init_yztato_set_options() -> Dictionary:
 		"yztato_gmo": false,
 		"yztato_gmo_num": 1,
 		
-		"yztato_curse_strength": true,
-
 		"yztato_rainbow_gold": "YZ_EMPTY",
 		
 		"yztato_set_weapon_transparency": 1.0,

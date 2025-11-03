@@ -27,18 +27,18 @@ scroll_horizontal_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 margin_right = 1808.0
-margin_bottom = 1049.0
+margin_bottom = 1123.0
 
 [node name="EmptySpace1" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 1049.0
+margin_bottom = 1123.0
 rect_min_size = Vector2( 250, 0 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 254.0
 margin_right = 1554.0
-margin_bottom = 1049.0
+margin_bottom = 1123.0
 rect_min_size = Vector2( 1300, 0 )
 size_flags_vertical = 3
 
@@ -94,20 +94,38 @@ custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
 text = "YZ_STARTING_WEAPONS"
 
-[node name="StartingItems" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="CurseStrength" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 419.0
 margin_right = 1300.0
 margin_bottom = 489.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
+text = "YZ_CURSE_STRENGTH"
+
+[node name="NumberOptimize" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 493.0
+margin_right = 1300.0
+margin_bottom = 563.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover_pressed = ExtResource( 5 )
+text = "YZ_NUMBER_OPTIMIZE"
+
+[node name="StartingItems" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 567.0
+margin_right = 1300.0
+margin_bottom = 637.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover_pressed = ExtResource( 5 )
 text = "YZ_STARTING_ITEMS"
 
 [node name="SetStartingItemsTimes" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 493.0
+margin_top = 641.0
 margin_right = 1300.0
-margin_bottom = 538.0
+margin_bottom = 686.0
 custom_constants/separation = 20
 script = ExtResource( 8 )
 
@@ -136,18 +154,18 @@ text = "1"
 
 [node name="GMO" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 542.0
+margin_top = 690.0
 margin_right = 1300.0
-margin_bottom = 612.0
+margin_bottom = 760.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
 text = "YZ_GMO"
 
 [node name="SetGMONum" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 616.0
+margin_top = 764.0
 margin_right = 1300.0
-margin_bottom = 661.0
+margin_bottom = 809.0
 custom_constants/separation = 20
 script = ExtResource( 8 )
 
@@ -174,19 +192,10 @@ margin_right = 1300.0
 margin_bottom = 45.0
 text = "2"
 
-[node name="CurseStrength" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-margin_top = 665.0
-margin_right = 1300.0
-margin_bottom = 735.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover_pressed = ExtResource( 5 )
-text = "YZ_CURSE_STRENGTH"
-
 [node name="RainbowGold" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-margin_top = 739.0
+margin_top = 813.0
 margin_right = 1300.0
-margin_bottom = 804.0
+margin_bottom = 878.0
 
 [node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
 margin_top = 10.0
@@ -215,9 +224,9 @@ rect_min_size = Vector2( 100, 0 )
 
 [node name="SetWeaponTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 808.0
+margin_top = 882.0
 margin_right = 1300.0
-margin_bottom = 853.0
+margin_bottom = 927.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" index="0"]
@@ -242,9 +251,9 @@ margin_bottom = 45.0
 
 [node name="SetEnemyTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 857.0
+margin_top = 931.0
 margin_right = 1300.0
-margin_bottom = 902.0
+margin_bottom = 976.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" index="0"]
@@ -269,9 +278,9 @@ margin_bottom = 45.0
 
 [node name="SetEnemyProjTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 906.0
+margin_top = 980.0
 margin_right = 1300.0
-margin_bottom = 951.0
+margin_bottom = 1025.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="0"]
@@ -296,9 +305,9 @@ margin_bottom = 45.0
 
 [node name="SetGoldTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 955.0
+margin_top = 1029.0
 margin_right = 1300.0
-margin_bottom = 1000.0
+margin_bottom = 1074.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency" index="0"]
@@ -323,9 +332,9 @@ margin_bottom = 45.0
 
 [node name="SetConsumableTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 1004.0
+margin_top = 1078.0
 margin_right = 1300.0
-margin_bottom = 1049.0
+margin_bottom = 1123.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="0"]
@@ -351,7 +360,7 @@ margin_bottom = 45.0
 [node name="EmptySpace2" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_left = 1558.0
 margin_right = 1808.0
-margin_bottom = 1049.0
+margin_bottom = 1123.0
 rect_min_size = Vector2( 250, 0 )
 
 [node name="BackButton" type="Button" parent="."]
@@ -370,11 +379,12 @@ script = ExtResource( 2 )
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/UnlockAllChallenges" to="." method="_on_UnlockAllChallenges_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/OptimizePickUp" to="." method="_on_OptimizePickUp_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/StartingWeapons" to="." method="_on_StartingWeapons_toggled"]
+[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/CurseStrength" to="." method="_on_CurseStrength_toggled"]
+[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/NumberOptimize" to="." method="_on_NumberOptimize_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/StartingItems" to="." method="_on_StartingItems_toggled"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetStartingItemsTimes" to="." method="_on_SetStartingItemsTimes_value_changed"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/GMO" to="." method="_on_GMO_toggled"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetGMONum" to="." method="_on_SetGMONum_value_changed"]
-[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/CurseStrength" to="." method="_on_CurseStrength_toggled"]
 [connection signal="item_selected" from="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold/RainbowGold" to="." method="_on_RainbowGold_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" to="." method="_on_SetWeaponTransparency_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" to="." method="_on_SetEnemyTransparency_value_changed"]

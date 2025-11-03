@@ -15,20 +15,47 @@ func _on_selections_completed() -> void :
 		var characters = _player_characters[player_index]
 		
 		if ProgressData.settings.yztato_gmo and typeof(characters) == TYPE_ARRAY:
-			for character in characters:
+			var selection_characters: Array = []
+			for i in range(characters.size()):
+				var character = characters[i]
 				if character != null:
-					RunData.add_character(character, player_index)
-			RunData.selected_characters[player_index] = characters
+					if i == 0:
+						RunData.add_character(character, player_index)
+						selection_characters.push_back(character)
+					else:
+						var other_character = ProgressData.Optimize.Scripts.ItemCharacterData.new()
+						other_character.my_id = character.my_id
+						other_character.unlocked_by_default = character.unlocked_by_default
+						other_character.can_be_looted = character.can_be_looted
+						other_character.icon = character.icon
+						other_character.name = character.name
+						other_character.tier = character.tier
+						other_character.value = character.value
+						other_character.effects = character.effects
+						other_character.tracking_text = character.tracking_text
+						other_character.is_lockable = character.is_lockable
+						other_character.unlock_codex_descr_after_get_it = character.unlock_codex_descr_after_get_it
+						other_character.is_cursed = character.is_cursed
+						other_character.curse_factor = character.curse_factor
+						other_character.max_nb = character.max_nb
+						other_character.item_appearances = character.item_appearances
+						other_character.tags = character.tags
+						other_character.replaced_by = character.replaced_by
+						other_character.wanted_tags = character.wanted_tags
+						other_character.banned_item_groups = character.banned_item_groups
+						other_character.banned_items = character.banned_items
+						other_character.starting_weapons = character.starting_weapons
+
+						RunData.add_item(other_character, player_index)
+						selection_characters.push_back(other_character)
+			RunData.selected_characters[player_index] = selection_characters
 		elif characters != null:
 			RunData.add_character(characters, player_index)
 	
-	if ProgressData.settings.yztato_starting_items:
-		_change_scene(MenuData.item_selection_scene)
-	else:
-		if RunData.some_player_has_weapon_slots():
-			_change_scene(MenuData.weapon_selection_scene)
-		else :
-			_change_scene(MenuData.difficulty_selection_scene)
+	match [ProgressData.settings.yztato_starting_items, RunData.some_player_has_weapon_slots()]:
+		[true,_]: _change_scene(MenuData.item_selection_scene)
+		[false,true]: _change_scene(MenuData.weapon_selection_scene)
+		[false,false]: _change_scene(MenuData.difficulty_selection_scene)
 
 func _on_element_pressed(element: InventoryElement, inventory_player_index: int)->void :
 	if not ProgressData.settings.yztato_gmo:

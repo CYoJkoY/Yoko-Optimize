@@ -1,0 +1,17 @@
+extends "res://ui/menus/shop/reroll_button.gd"
+
+# =========================== Extention =========================== #
+func init(value: int, player_index: int)->void :
+	if ProgressData.settings.yztato_number_optimize:
+		_yztato_init(value, player_index)
+	else:
+		.init(value, player_index)	
+
+# =========================== Custom =========================== #
+func _yztato_init(value: int, player_index: int)->void:
+	set_value(value, RunData.get_player_gold(player_index))
+	var txt: String = (tr("REROLL") + " - " + ProgressData.Optimize.Methods.format_number(value)).to_upper()
+	if RunData.is_coop_run:
+		set_text(txt)
+	else :
+		set_text("      " + txt)

@@ -16,11 +16,12 @@ func _on_EntitySpawner_players_spawned(players: Array) -> void:
 			1,3: UIHitProtectionInstance.alignment = BoxContainer.ALIGN_END
 		
 		var player_ui = _players_ui[i]
+		if !is_instance_valid(player_ui) or !is_instance_valid(player_ui.hud_container):
+			continue
+
 		var gold_index = player_ui.hud_container.get_children().find(player_ui.gold)
 		player_ui.hud_container.add_child(UIHitProtectionInstance)
-		
-		if gold_index != -1:
-			player_ui.hud_container.move_child(UIHitProtectionInstance, gold_index + 1)
+		player_ui.hud_container.move_child(UIHitProtectionInstance, gold_index)
 		
 		UIHitProtectionInstance.update_value(_players[i]._hit_protection)
 		UIHitProtectionScenes[_players[i]] = UIHitProtectionInstance
