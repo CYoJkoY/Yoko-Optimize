@@ -1,40 +1,30 @@
 extends Node
 
+const scales: Array = [
+	{"value": 1000000000000000.0, "suffix": "P"},
+	{"value": 1000000000000.0, "suffix": "T"},
+	{"value": 1000000000.0, "suffix": "B"},
+	{"value": 1000000.0, "suffix": "M"},
+	{"value": 1000.0, "suffix": "K"}
+]
+
 # =========================== Custom =========================== #
 class Methods:
-	static func format_number(number: int) -> String:
-		if number < 1000:
-			return str(number)
+	static func format_number(number: float) -> String:
+		var is_negative: bool = number < 0
+		var abs_number: float = abs(number)
 		
-		elif number < 1000000:
-			if number % 1000 == 0:
-				return str(number / 1000) + "K"
-			else:
-				return str(stepify(float(number) / 1000, 0.01)) + "K"
+		var result: String = str(abs_number)
+		if abs_number >= 1000.0:
+			for scale in scales:
+				if abs_number >= scale.value:
+					result = str(stepify(abs_number / scale.value, 0.01)) + scale.suffix
+					break
 		
-		elif number < 1000000000:
-			if number % 1000000 == 0:
-				return str(number / 1000000) + "M"
-			else:
-				return str(stepify(float(number) / 1000000, 0.01)) + "M"
+		if is_negative and abs_number != 0.0:
+			result = "-" + result
 		
-		elif number < 1000000000000:
-			if number % 1000000000 == 0:
-				return str(number / 1000000000) + "B"
-			else:
-				return str(stepify(float(number) / 1000000000, 0.01)) + "B"
-		
-		elif number < 1000000000000000:
-			if number % 1000000000000 == 0:
-				return str(number / 1000000000000) + "T"
-			else:
-				return str(stepify(float(number) / 1000000000000, 0.01)) + "T"
-		
-		else:
-			if number % 1000000000000000 == 0:
-				return str(number / 1000000000000000) + "P"
-			else:
-				return str(stepify(float(number) / 1000000000000000, 0.01)) + "P"
+		return result
 
 class Scripts:
 	const ItemCharacterData = preload("res://mods-unpacked/Yoko-Optimize/content/scripts/item_character.gd")
