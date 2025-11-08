@@ -2,10 +2,9 @@ extends "res://ui/menus/shop/reroll_button.gd"
 
 # =========================== Extention =========================== #
 func init(value: int, player_index: int)->void :
+	.init(value, player_index)
 	if ProgressData.settings.yztato_number_optimize:
 		_yztato_init(value, player_index)
-	else:
-		.init(value, player_index)	
 
 # =========================== Custom =========================== #
 func _yztato_init(value: int, player_index: int)->void:

@@ -2,11 +2,12 @@ extends "res://weapons/weapon_stats/weapon_stats.gd"
 
 # =========================== Extention =========================== #
 func get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_stats: Array, nb_projectiles: int, player_index: int, effects: Array) -> String:
+	var dmg_text: String = .get_dmg_text_with_scaling_stats(base_stats, p_scaling_stats, nb_projectiles, player_index, effects)
 	if ProgressData.settings.yztato_number_optimize:
-		return _yztato_get_dmg_text_with_scaling_stats(base_stats, p_scaling_stats, nb_projectiles, player_index, effects)
-	else:
-		return .get_dmg_text_with_scaling_stats(base_stats, p_scaling_stats, nb_projectiles, player_index, effects)
+		dmg_text = _yztato_get_dmg_text_with_scaling_stats(base_stats, p_scaling_stats, nb_projectiles, player_index, effects)
+	return dmg_text
 
+# =========================== Custom =========================== #
 func _yztato_get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_stats: Array, nb_projectiles: int, player_index: int, effects: Array) -> String:
 	var displayed_damage = damage
 
@@ -26,5 +27,3 @@ func _yztato_get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_sta
 	text += " (" + WeaponService.get_scaling_stats_icon_text(p_scaling_stats) + ")"
 
 	return text
-
-# =========================== Custom =========================== #
