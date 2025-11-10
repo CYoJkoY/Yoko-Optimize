@@ -3,9 +3,18 @@ extends "res://main.gd"
 var UIHitProtectionScenes = {}
 const UI_HIT_PROTECTION_SCENE = preload("res://mods-unpacked/Yoko-Optimize/content/scenes/ui_hit_protection.tscn")
 
+# =========================== Extention =========================== #
 func _on_EntitySpawner_players_spawned(players: Array) -> void:
 	._on_EntitySpawner_players_spawned(players)
-	
+	if !ProgressData.settings.yztato_hit_protection_display: return
+	_yztato_hit_protection_display()
+
+func _process(_delta: float) -> void:
+	if !ProgressData.settings.yztato_hit_protection_display: return
+	_yztato_hit_protection_process()
+
+# =========================== Custom =========================== #
+func _yztato_hit_protection_display() -> void:
 	for i in range(_players.size()):
 		if _players[i] in UIHitProtectionScenes:
 			continue
@@ -26,7 +35,7 @@ func _on_EntitySpawner_players_spawned(players: Array) -> void:
 		UIHitProtectionInstance.update_value(_players[i]._hit_protection)
 		UIHitProtectionScenes[_players[i]] = UIHitProtectionInstance
 
-func _process(_delta: float) -> void:
+func _yztato_hit_protection_process() -> void:
 	for player in _players:
 		if player in UIHitProtectionScenes and \
 		is_instance_valid(UIHitProtectionScenes[player]):

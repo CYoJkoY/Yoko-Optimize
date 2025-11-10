@@ -106,7 +106,7 @@ func _init():
 
 		"reroll_button.gd",
 		# SETTING : number_optimize[ 8/8 ]
-
+		
 	]
 	
 	var extensions2: Array = [

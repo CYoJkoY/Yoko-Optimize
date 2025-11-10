@@ -1,15 +1,15 @@
 extends Node
 
-const scales: Array = [
-	{"value": 1000000000000000.0, "suffix": "P"},
-	{"value": 1000000000000.0, "suffix": "T"},
-	{"value": 1000000000.0, "suffix": "B"},
-	{"value": 1000000.0, "suffix": "M"},
-	{"value": 1000.0, "suffix": "K"}
-]
-
 # =========================== Custom =========================== #
 class Methods:
+	const scales: Array = [
+		{"value": 1000000000000000.0, "suffix": "P"},
+		{"value": 1000000000000.0, "suffix": "T"},
+		{"value": 1000000000.0, "suffix": "B"},
+		{"value": 1000000.0, "suffix": "M"},
+		{"value": 1000.0, "suffix": "K"}
+	]
+	
 	static func format_number(number: float) -> String:
 		var is_negative: bool = number < 0
 		var abs_number: float = abs(number)

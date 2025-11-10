@@ -40,6 +40,7 @@ func init_settings()->void :
 
 # =========================== Custom =========================== #
 func _optimize_ready() -> void:
+
 	var optimzie_data = load("res://mods-unpacked/Yoko-Optimize/content_data/YzTato_content_New.tres")
 	optimzie_data.add_resources()
 
@@ -61,6 +62,7 @@ func init_yztato_set_options() -> Dictionary:
 		"yztato_starting_weapons": false,
 		"yztato_curse_strength": true,
 		"yztato_number_optimize": true,
+		"yztato_hit_protection_display": false,
 
 		"yztato_starting_items": false,
 		"yztato_starting_items_times": 1,

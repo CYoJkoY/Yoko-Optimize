@@ -12,6 +12,7 @@ onready var OptimizePickUp = $"%OptimizePickUp" as CheckButton
 onready var StartingWeapons = $"%StartingWeapons" as CheckButton
 onready var CurseStrength = $"%CurseStrength" as CheckButton
 onready var NumberOptimize = $"%NumberOptimize" as CheckButton
+onready var HitProtectonDisplay: CheckButton = $"%HitProtectonDisplay"
 
 onready var StartingItems = $"%StartingItems" as CheckButton
 onready var SetStartingItemsTimes = $"%SetStartingItemsTimes" as HBoxContainer
@@ -53,6 +54,7 @@ func init_values_from_progress_data() -> void:
 	StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
 	CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
 	NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
+	HitProtectonDisplay.pressed = ProgressData.settings.yztato_hit_protection_display
 	
 	StartingItems.pressed = ProgressData.settings.yztato_starting_items
 	SetStartingItemsTimes.set_value(ProgressData.settings.yztato_starting_items_times)
@@ -91,6 +93,8 @@ func _on_CurseStrength_toggled(button_pressed: bool) -> void:
 	ProgressData.settings.yztato_curse_strength = button_pressed
 func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
 	ProgressData.settings.yztato_number_optimize = button_pressed
+func _on_HitProtectonDisplay_toggled(button_pressed: bool) -> void:
+	ProgressData.settings.yztato_hit_protection_display = button_pressed
 
 func _on_StartingItems_toggled(button_pressed: bool) -> void:
 	ProgressData.settings.yztato_starting_items = button_pressed
