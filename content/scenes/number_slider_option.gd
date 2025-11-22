@@ -8,14 +8,14 @@ onready var _value = $Value
 
 
 func _ready()->void :
-	_value.text = str(_slider.value)
+    _value.text = str(_slider.value)
 
 
 func set_value(value: float)->void :
-	_slider.value = value
-	_on_HSlider_value_changed(value)
+    _slider.value = value
+    _on_HSlider_value_changed(value)
 
 
 func _on_HSlider_value_changed(value: float)->void :
-	_value.text = str(value)
-	emit_signal("value_changed", value)
+    _value.text = str(value)
+    emit_signal("value_changed", value)

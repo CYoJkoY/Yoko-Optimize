@@ -5,9 +5,9 @@ onready var icon = $Icon
 
 
 func _ready()->void :
-	hit_protection_label.set_message_translation(false)
+    hit_protection_label.set_message_translation(false)
 
 
 func update_value(value: int)->void :
-	visible = value
-	hit_protection_label.text = str(value)
+    visible = value
+    hit_protection_label.text = str(value)

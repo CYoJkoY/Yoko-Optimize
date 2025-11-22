@@ -23,9 +23,9 @@ onready var SetGMONum = $"%SetGMONum" as HBoxContainer
 onready var RainbowGold = $"%RainbowGold" as OptionButton
 var colors_names: Array = [
 
-	"YZ_EMPTY", "YZ_EXLIGHT", "YZ_LIGHT", 
-	"YZ_MEDIUM", "YZ_DARK", "YZ_EXDARK"
-	
+    "YZ_EMPTY", "YZ_EXLIGHT", "YZ_LIGHT", 
+    "YZ_MEDIUM", "YZ_DARK", "YZ_EXDARK"
+    
 ]
 
 onready var SetWeaponTransparency = $"%SetWeaponTransparency" as HBoxContainer
@@ -36,86 +36,86 @@ onready var SetConsumableTransparency = $"%SetConsumableTransparency" as HBoxCon
 
 # =========================== Init =========================== #
 func _input(event):
-	if self.visible and event.is_action_pressed("ui_cancel"):
-		_on_BackButton_pressed()
-		get_tree().set_input_as_handled()
+    if self.visible and event.is_action_pressed("ui_cancel"):
+        _on_BackButton_pressed()
+        get_tree().set_input_as_handled()
 
 func init()->void :
-	focus_before_created = get_focus_owner()
-	back_button.grab_focus()
+    focus_before_created = get_focus_owner()
+    back_button.grab_focus()
 
-	init_values_from_progress_data()
+    init_values_from_progress_data()
 
 func init_values_from_progress_data() -> void:
-	UnlockDifficulties.pressed = ProgressData.settings.yztato_unlock_difficulties
-	UnlockAllChars.pressed = ProgressData.settings.yztato_unlock_all_chars
-	UnlockAllChallenges.pressed = ProgressData.settings.yztato_unlock_all_challenges
-	OptimizePickUp.pressed = ProgressData.settings.yztato_optimize_pickup
-	StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
-	CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
-	NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
-	HitProtectonDisplay.pressed = ProgressData.settings.yztato_hit_protection_display
-	
-	StartingItems.pressed = ProgressData.settings.yztato_starting_items
-	SetStartingItemsTimes.set_value(ProgressData.settings.yztato_starting_items_times)
-	
-	GMO.pressed = ProgressData.settings.yztato_gmo
-	SetGMONum.set_value(ProgressData.settings.yztato_gmo_num)
-	
-	RainbowGold.select(colors_names.find(ProgressData.settings.yztato_rainbow_gold))
+    UnlockDifficulties.pressed = ProgressData.settings.yztato_unlock_difficulties
+    UnlockAllChars.pressed = ProgressData.settings.yztato_unlock_all_chars
+    UnlockAllChallenges.pressed = ProgressData.settings.yztato_unlock_all_challenges
+    OptimizePickUp.pressed = ProgressData.settings.yztato_optimize_pickup
+    StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
+    CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
+    NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
+    HitProtectonDisplay.pressed = ProgressData.settings.yztato_hit_protection_display
+    
+    StartingItems.pressed = ProgressData.settings.yztato_starting_items
+    SetStartingItemsTimes.set_value(ProgressData.settings.yztato_starting_items_times)
+    
+    GMO.pressed = ProgressData.settings.yztato_gmo
+    SetGMONum.set_value(ProgressData.settings.yztato_gmo_num)
+    
+    RainbowGold.select(colors_names.find(ProgressData.settings.yztato_rainbow_gold))
 
-	SetWeaponTransparency.set_value(ProgressData.settings.yztato_set_weapon_transparency)
-	SetEnemyTransparency.set_value(ProgressData.settings.yztato_set_enemy_transparency)
-	SetEnemyProjTransparency.set_value(ProgressData.settings.yztato_set_enemy_proj_transparency)
-	SetGoldTransparency.set_value(ProgressData.settings.yztato_set_gold_transparency)
-	SetConsumableTransparency.set_value(ProgressData.settings.yztato_set_consumable_transparency)
+    SetWeaponTransparency.set_value(ProgressData.settings.yztato_set_weapon_transparency)
+    SetEnemyTransparency.set_value(ProgressData.settings.yztato_set_enemy_transparency)
+    SetEnemyProjTransparency.set_value(ProgressData.settings.yztato_set_enemy_proj_transparency)
+    SetGoldTransparency.set_value(ProgressData.settings.yztato_set_gold_transparency)
+    SetConsumableTransparency.set_value(ProgressData.settings.yztato_set_consumable_transparency)
 
 # =========================== Save =========================== #
 func _on_BackButton_pressed():
-	focus_before_created.grab_focus()
-	emit_signal("back_button_pressed")
+    focus_before_created.grab_focus()
+    emit_signal("back_button_pressed")
 
 func _on_MenuYztatoSetOptions_hide():
-	ProgressData.save_settings()
+    ProgressData.save_settings()
 
 # =========================== Load =========================== #
 func _on_UnlockDifficulties_toggled(button_pressed: bool):
-	ProgressData.settings.yztato_unlock_difficulties = button_pressed
+    ProgressData.settings.yztato_unlock_difficulties = button_pressed
 func _on_UnlockAllChars_toggled(button_pressed: bool):
-	ProgressData.settings.yztato_unlock_all_chars = button_pressed
+    ProgressData.settings.yztato_unlock_all_chars = button_pressed
 func _on_UnlockAllChallenges_toggled(button_pressed: bool):
-	ProgressData.settings.yztato_unlock_all_challenges = button_pressed
+    ProgressData.settings.yztato_unlock_all_challenges = button_pressed
 func _on_OptimizePickUp_toggled(button_pressed: bool):
-	ProgressData.settings.yztato_optimize_pickup = button_pressed
+    ProgressData.settings.yztato_optimize_pickup = button_pressed
 func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_starting_weapons = button_pressed
+    ProgressData.settings.yztato_starting_weapons = button_pressed
 func _on_CurseStrength_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_curse_strength = button_pressed
+    ProgressData.settings.yztato_curse_strength = button_pressed
 func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_number_optimize = button_pressed
+    ProgressData.settings.yztato_number_optimize = button_pressed
 func _on_HitProtectonDisplay_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_hit_protection_display = button_pressed
+    ProgressData.settings.yztato_hit_protection_display = button_pressed
 
 func _on_StartingItems_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_starting_items = button_pressed
+    ProgressData.settings.yztato_starting_items = button_pressed
 func _on_SetStartingItemsTimes_value_changed(value) -> void:
-	ProgressData.settings.yztato_starting_items_times = value
+    ProgressData.settings.yztato_starting_items_times = value
 
 func _on_GMO_toggled(button_pressed: bool) -> void:
-	ProgressData.settings.yztato_gmo = button_pressed
+    ProgressData.settings.yztato_gmo = button_pressed
 func _on_SetGMONum_value_changed(value) -> void:
-	ProgressData.settings.yztato_gmo_num = value
+    ProgressData.settings.yztato_gmo_num = value
 
 func _on_RainbowGold_item_selected(index: int):
-	ProgressData.settings.yztato_rainbow_gold = colors_names[index]
+    ProgressData.settings.yztato_rainbow_gold = colors_names[index]
 
 func _on_SetWeaponTransparency_value_changed(value: float):
-	ProgressData.settings.yztato_set_weapon_transparency = value
+    ProgressData.settings.yztato_set_weapon_transparency = value
 func _on_SetEnemyTransparency_value_changed(value: float):
-	ProgressData.settings.yztato_set_enemy_transparency = value
+    ProgressData.settings.yztato_set_enemy_transparency = value
 func _on_SetEnemyProjTransparency_value_changed(value: float):
-	ProgressData.settings.yztato_set_enemy_proj_transparency = value
+    ProgressData.settings.yztato_set_enemy_proj_transparency = value
 func _on_SetGoldTransparency_value_changed(value: float):
-	ProgressData.settings.yztato_set_gold_transparency = value
+    ProgressData.settings.yztato_set_gold_transparency = value
 func _on_SetConsumableTransparency_value_changed(value: float):
-	ProgressData.settings.yztato_set_consumable_transparency = value
+    ProgressData.settings.yztato_set_consumable_transparency = value
