@@ -11,7 +11,7 @@ func _physics_process(delta: float)->void :
 # =========================== Custom =========================== #
 func _yztato_rainbow_gold() -> void:
     var color_name: String = ProgressData.settings.yztato_rainbow_gold
-    var yz_colors: Dictionary = ProgressData.yz_colors
+    var yz_colors: Dictionary = ProgressData.settings.yz_colors
     if color_name != "YZ_EMPTY":
         var yz_color = yz_colors.get(color_name)
         var random_index = randi() % yz_color.size()

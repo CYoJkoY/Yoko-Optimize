@@ -21,12 +21,7 @@ onready var GMO = $"%GMO" as CheckButton
 onready var SetGMONum = $"%SetGMONum" as HBoxContainer
 
 onready var RainbowGold = $"%RainbowGold" as OptionButton
-var colors_names: Array = [
-
-    "YZ_EMPTY", "YZ_EXLIGHT", "YZ_LIGHT", 
-    "YZ_MEDIUM", "YZ_DARK", "YZ_EXDARK"
-    
-]
+onready var colors_names: Array = ProgressData.settings.yz_colors.keys()
 
 onready var SetWeaponTransparency = $"%SetWeaponTransparency" as HBoxContainer
 onready var SetEnemyTransparency = $"%SetEnemyTransparency" as HBoxContainer
