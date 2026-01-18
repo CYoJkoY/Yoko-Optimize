@@ -53,9 +53,13 @@ func _on_selections_completed() -> void :
             RunData.add_character(characters, player_index)
     
     match [ProgressData.settings.yztato_starting_items, RunData.some_player_has_weapon_slots()]:
-        [true,_]: _change_scene(MenuData.item_selection_scene)
-        [false,true]: _change_scene(MenuData.weapon_selection_scene)
-        [false,false]: _change_scene(MenuData.difficulty_selection_scene)
+        [true,_]: 
+            _change_scene(MenuData.item_selection_scene)
+        [false,true]: 
+            _change_scene(MenuData.weapon_selection_scene)
+        [false,false]: 
+            RunData.add_starting_items_and_weapons()
+            _change_scene(MenuData.difficulty_selection_scene)
 
 func _on_element_pressed(element: InventoryElement, inventory_player_index: int)->void :
     if not ProgressData.settings.yztato_gmo:
