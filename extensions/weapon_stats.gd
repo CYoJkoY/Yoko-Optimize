@@ -21,7 +21,7 @@ func _yztato_get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_sta
     var text = dmg_text if nb_projectiles == 1 else dmg_text + "x" + str(nb_projectiles)
 
     if displayed_damage != base_stats.damage:
-        var initial_dmg_text = ProgressData.Optimize.Methods.format_number(base_stats.damage) if nb_projectiles == 1 else str(base_stats.damage) + "x" + str(nb_projectiles)
+        var initial_dmg_text = ProgressData.Optimize.Methods.format_number(base_stats.damage) if nb_projectiles == 1 else ProgressData.Optimize.Methods.format_number(base_stats.damage) + "x" + str(nb_projectiles)
         text += get_init_a() + initial_dmg_text + col_b
 
     text += " (" + WeaponService.get_scaling_stats_icon_text(p_scaling_stats) + ")"

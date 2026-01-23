@@ -12,13 +12,13 @@ func _ready() -> void:
     _HBoxContainer.move_child(_icon, 0)
 
 func update_player_stat(player_index: int)->void :
-    _icon.texture = ItemService.get_stat_small_icon(key.to_lower())
+    _icon.texture = ItemService.get_stat_small_icon(key_hash)
     .update_player_stat(player_index)
     if ProgressData.settings.yztato_number_optimize:
         _yztato_update_player_stat(player_index)
 
 # =========================== Custom =========================== #
 func _yztato_update_player_stat(player_index: int)->void :
-    var stat_value = Utils.get_stat(key.to_lower(), player_index)
+    var stat_value = Utils.get_stat(key_hash, player_index)
     var value_text = ProgressData.Optimize.Methods.format_number(stat_value as int)
     _value.text = value_text

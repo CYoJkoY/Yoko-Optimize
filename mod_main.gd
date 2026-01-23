@@ -26,8 +26,6 @@ func _init():
     ModLoaderMod.add_translation(trans_dir + "YzTato_Optimize.en.translation")
     ModLoaderMod.add_translation(trans_dir + "YzTato_Optimize.zh_Hans_CN.translation")
     
-    ModLoaderLog.info("========== Add Translation Done ==========", MYMODNAME_LOG)
-    
     #####################################
     ########## Add extensions ##########
     ###################################
@@ -38,8 +36,6 @@ func _init():
         
         "shooting_attack_behavior.gd",
         # SETTING : set_enemy_proj_transparency
-        
-        "menu_data.gd", 
         
         "consumable.gd",
         # SETTING : set_consumable_transparency, optimize_pickup
@@ -52,12 +48,11 @@ func _init():
         # SETTINGS
         
         "run_data.gd",
-        # SETTING : item_appearances_hide, unlock_all_challenges,
-        #           starting_items[ 1/2 ], gmo[ 1/2 ]
+        # SETTING : unlock_all_challenges,
         
         "character_selection.gd",
-        # SETTING : unlock_all_chars, starting_items[ 2/2 ], gmo[ 2/2 ]
-        
+        # SETTING : unlock_all_chars
+
         "difficulty_selection.gd",
         # SETTING : unlock_difficulties
         
@@ -67,9 +62,6 @@ func _init():
         
         "stats_container.gd",
         # SETTING : tertiary_stats
-        
-        "weapon_selection.gd",
-        # SETTING : starting_weapons
         
         "melee_weapon.gd",
         # SETTING : set_weapon_transparency
@@ -106,50 +98,13 @@ func _init():
 
         "reroll_button.gd",
         # SETTING : number_optimize[ 8/8 ]
-        
-    ]
-    
-    var extensions2: Array = [
-        
-        ["item_description.gd", "res://ui/menus/shop/item_description.gd"]
+   
+        "item_description.gd"
         # SETTING : curse_strength
         
     ]
     
     for path in extensions:
-        ModLoaderMod.install_script_extension(ext_dir + path)
-    for path2 in extensions2:
-        YZ_extend_script(path2, ext_dir)
+        var extension_path = ext_dir + path
+        ModLoaderMod.install_script_extension(extension_path)
     
-func YZ_extend_script(script: Array, _ext_dir: String) -> void:
-    var child_script_path: String = _ext_dir + script[0]
-    var parent_script_path: String = script[1]
-    
-    var mod_id: String = _ModLoaderPath.get_mod_dir(get_script().resource_path)
-    
-    if not ModLoaderStore.saved_extension_paths.has(mod_id):
-        ModLoaderStore.saved_extension_paths[mod_id] = []
-    ModLoaderStore.saved_extension_paths[mod_id].append(child_script_path)
-    
-    if not File.new().file_exists(child_script_path):
-        ModLoaderLog.error("The child script path '%s' does not exist" % [child_script_path], MYMODNAME_LOG)
-        return
-
-    _apply_script_extension_now(child_script_path, parent_script_path)
-
-func _apply_script_extension_now(child_script_path: String, parent_script_path: String) -> void:
-    var child_script: Script = load(child_script_path)
-    child_script.set_meta("extension_script_path", child_script_path)
-    child_script.reload(true)
-
-    var parent_script: Script = load(parent_script_path)
-
-    if not ModLoaderStore.saved_scripts.has(parent_script_path):
-        ModLoaderStore.saved_scripts[parent_script_path] = []
-        ModLoaderStore.saved_scripts[parent_script_path].append(parent_script)
-
-    ModLoaderStore.saved_scripts[parent_script_path].append(child_script)
-    
-    ModLoaderLog.info("Installing script extension: %s <- %s" % [parent_script_path, child_script_path], MYMODNAME_LOG)
-
-    child_script.take_over_path(parent_script_path)

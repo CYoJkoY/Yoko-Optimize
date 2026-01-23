@@ -25,6 +25,3 @@ class Methods:
             result = "-" + result
         
         return result
-
-class Scripts:
-    const ItemCharacterData = preload("res://mods-unpacked/Yoko-Optimize/content/scripts/item_character.gd")

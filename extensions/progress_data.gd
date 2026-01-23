@@ -23,7 +23,7 @@ func _optimize_ready() -> void:
 
     set_max_selectable_difficulty()
 
-    Optimize = get_node("/root/ModLoader/Yoko-Optimize/Optimize")
+    Optimize = get_node_or_null("/root/ModLoader/Yoko-Optimize/Optimize")
 
 func init_yztato_set_options() -> Dictionary:
     return {

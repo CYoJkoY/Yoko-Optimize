@@ -9,16 +9,9 @@ onready var UnlockDifficulties = $"%UnlockDifficulties" as CheckButton
 onready var UnlockAllChars = $"%UnlockAllChars" as CheckButton
 onready var UnlockAllChallenges = $"%UnlockAllChallenges" as CheckButton
 onready var OptimizePickUp = $"%OptimizePickUp" as CheckButton
-onready var StartingWeapons = $"%StartingWeapons" as CheckButton
 onready var CurseStrength = $"%CurseStrength" as CheckButton
 onready var NumberOptimize = $"%NumberOptimize" as CheckButton
 onready var HitProtectonDisplay: CheckButton = $"%HitProtectonDisplay"
-
-onready var StartingItems = $"%StartingItems" as CheckButton
-onready var SetStartingItemsTimes = $"%SetStartingItemsTimes" as HBoxContainer
-
-onready var GMO = $"%GMO" as CheckButton
-onready var SetGMONum = $"%SetGMONum" as HBoxContainer
 
 onready var RainbowGold = $"%RainbowGold" as OptionButton
 onready var colors_names: Array = ProgressData.settings.yz_colors.keys()
@@ -46,16 +39,9 @@ func init_values_from_progress_data() -> void:
     UnlockAllChars.pressed = ProgressData.settings.yztato_unlock_all_chars
     UnlockAllChallenges.pressed = ProgressData.settings.yztato_unlock_all_challenges
     OptimizePickUp.pressed = ProgressData.settings.yztato_optimize_pickup
-    StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
     CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
     NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
     HitProtectonDisplay.pressed = ProgressData.settings.yztato_hit_protection_display
-    
-    StartingItems.pressed = ProgressData.settings.yztato_starting_items
-    SetStartingItemsTimes.set_value(ProgressData.settings.yztato_starting_items_times)
-    
-    GMO.pressed = ProgressData.settings.yztato_gmo
-    SetGMONum.set_value(ProgressData.settings.yztato_gmo_num)
     
     RainbowGold.select(colors_names.find(ProgressData.settings.yztato_rainbow_gold))
 
@@ -82,24 +68,12 @@ func _on_UnlockAllChallenges_toggled(button_pressed: bool):
     ProgressData.settings.yztato_unlock_all_challenges = button_pressed
 func _on_OptimizePickUp_toggled(button_pressed: bool):
     ProgressData.settings.yztato_optimize_pickup = button_pressed
-func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_starting_weapons = button_pressed
 func _on_CurseStrength_toggled(button_pressed: bool) -> void:
     ProgressData.settings.yztato_curse_strength = button_pressed
 func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
     ProgressData.settings.yztato_number_optimize = button_pressed
 func _on_HitProtectonDisplay_toggled(button_pressed: bool) -> void:
     ProgressData.settings.yztato_hit_protection_display = button_pressed
-
-func _on_StartingItems_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_starting_items = button_pressed
-func _on_SetStartingItemsTimes_value_changed(value) -> void:
-    ProgressData.settings.yztato_starting_items_times = value
-
-func _on_GMO_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_gmo = button_pressed
-func _on_SetGMONum_value_changed(value) -> void:
-    ProgressData.settings.yztato_gmo_num = value
 
 func _on_RainbowGold_item_selected(index: int):
     ProgressData.settings.yztato_rainbow_gold = colors_names[index]

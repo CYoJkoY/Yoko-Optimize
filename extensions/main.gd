@@ -6,15 +6,15 @@ const UI_HIT_PROTECTION_SCENE = preload("res://mods-unpacked/Yoko-Optimize/conte
 # =========================== Extention =========================== #
 func _on_EntitySpawner_players_spawned(players: Array) -> void:
     ._on_EntitySpawner_players_spawned(players)
-    if !ProgressData.settings.yztato_hit_protection_display: return
     _yztato_hit_protection_display()
 
 func _process(_delta: float) -> void:
-    if !ProgressData.settings.yztato_hit_protection_display: return
     _yztato_hit_protection_process()
 
 # =========================== Custom =========================== #
 func _yztato_hit_protection_display() -> void:
+    if !ProgressData.settings.yztato_hit_protection_display: return
+    
     for i in range(_players.size()):
         if _players[i] in UIHitProtectionScenes:
             continue
@@ -28,14 +28,16 @@ func _yztato_hit_protection_display() -> void:
         if !is_instance_valid(player_ui) or !is_instance_valid(player_ui.hud_container):
             continue
 
-        var gold_index = player_ui.hud_container.get_children().find(player_ui.gold)
+        var after_gold_index = player_ui.hud_container.get_children().find(player_ui.gold) + 1
         player_ui.hud_container.add_child(UIHitProtectionInstance)
-        player_ui.hud_container.move_child(UIHitProtectionInstance, gold_index)
+        player_ui.hud_container.move_child(UIHitProtectionInstance, after_gold_index)
         
         UIHitProtectionInstance.update_value(_players[i]._hit_protection)
         UIHitProtectionScenes[_players[i]] = UIHitProtectionInstance
 
 func _yztato_hit_protection_process() -> void:
+    if !ProgressData.settings.yztato_hit_protection_display: return
+    
     for player in _players:
         if player in UIHitProtectionScenes and \
         is_instance_valid(UIHitProtectionScenes[player]):

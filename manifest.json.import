@@ -1,0 +1,14 @@
+[remap]
+
+importer="snkkid.SpriteSheetImporter"
+type="Resource"
+path="res://.import/manifest.json-77507c50c7c5954e77e623bc3abe550d.res"
+
+[deps]
+
+source_file="res://mods-unpacked/Yoko-Optimize/manifest.json"
+dest_files=[ "res://.import/manifest.json-77507c50c7c5954e77e623bc3abe550d.res" ]
+
+[params]
+
+Import_As_Atlas=true
