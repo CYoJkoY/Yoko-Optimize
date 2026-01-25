@@ -11,9 +11,10 @@
 [node name="MenuYztatoSetOptions" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 0.972
-margin_right = -420.0
+margin_right = -100.0
 margin_bottom = 0.23999
 rect_min_size = Vector2( 1820, 1050 )
+rect_pivot_offset = Vector2( 254, 267 )
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
@@ -26,18 +27,19 @@ scroll_horizontal_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 margin_right = 1808.0
-margin_bottom = 877.0
+margin_bottom = 951.0
 
 [node name="EmptySpace1" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 877.0
+margin_bottom = 951.0
 rect_min_size = Vector2( 250, 0 )
+rect_pivot_offset = Vector2( 166, 160 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 254.0
 margin_right = 1554.0
-margin_bottom = 877.0
+margin_bottom = 951.0
 rect_min_size = Vector2( 1300, 0 )
 size_flags_vertical = 3
 
@@ -75,46 +77,55 @@ custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
 text = "YZ_UNLOCK_ALL_CHALLENGES"
 
-[node name="OptimizePickUp" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="StartingWeapons" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 271.0
 margin_right = 1300.0
 margin_bottom = 341.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
-text = "YZ_OPTIMIZE_PICK_UP"
+text = "YZ_STARTING_WEAPONS"
 
-[node name="CurseStrength" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="OptimizePickUp" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 345.0
 margin_right = 1300.0
 margin_bottom = 415.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
-text = "YZ_CURSE_STRENGTH"
+text = "YZ_OPTIMIZE_PICK_UP"
 
-[node name="NumberOptimize" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="CurseStrength" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 419.0
 margin_right = 1300.0
 margin_bottom = 489.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
-text = "YZ_NUMBER_OPTIMIZE"
+text = "YZ_CURSE_STRENGTH"
 
-[node name="HitProtectonDisplay" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="NumberOptimize" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 493.0
 margin_right = 1300.0
 margin_bottom = 563.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
+text = "YZ_NUMBER_OPTIMIZE"
+
+[node name="HitProtectonDisplay" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 567.0
+margin_right = 1300.0
+margin_bottom = 637.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover_pressed = ExtResource( 5 )
 text = "YZ_HIT_PROTECTION_DISPLAY"
 
 [node name="RainbowGold" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-margin_top = 567.0
+margin_top = 641.0
 margin_right = 1300.0
-margin_bottom = 632.0
+margin_bottom = 706.0
 
 [node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
 margin_top = 10.0
@@ -143,9 +154,9 @@ rect_min_size = Vector2( 100, 0 )
 
 [node name="SetWeaponTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 636.0
+margin_top = 710.0
 margin_right = 1300.0
-margin_bottom = 681.0
+margin_bottom = 755.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" index="0"]
@@ -170,9 +181,9 @@ margin_bottom = 45.0
 
 [node name="SetEnemyTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 685.0
+margin_top = 759.0
 margin_right = 1300.0
-margin_bottom = 730.0
+margin_bottom = 804.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" index="0"]
@@ -197,9 +208,9 @@ margin_bottom = 45.0
 
 [node name="SetEnemyProjTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 734.0
+margin_top = 808.0
 margin_right = 1300.0
-margin_bottom = 779.0
+margin_bottom = 853.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="0"]
@@ -224,9 +235,9 @@ margin_bottom = 45.0
 
 [node name="SetGoldTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 783.0
+margin_top = 857.0
 margin_right = 1300.0
-margin_bottom = 828.0
+margin_bottom = 902.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency" index="0"]
@@ -251,9 +262,9 @@ margin_bottom = 45.0
 
 [node name="SetConsumableTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 832.0
+margin_top = 906.0
 margin_right = 1300.0
-margin_bottom = 877.0
+margin_bottom = 951.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="0"]
@@ -279,7 +290,7 @@ margin_bottom = 45.0
 [node name="EmptySpace2" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_left = 1558.0
 margin_right = 1808.0
-margin_bottom = 877.0
+margin_bottom = 951.0
 rect_min_size = Vector2( 250, 0 )
 
 [node name="BackButton" type="Button" parent="."]
@@ -296,6 +307,7 @@ script = ExtResource( 2 )
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/UnlockDifficulties" to="." method="_on_UnlockDifficulties_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/UnlockAllChars" to="." method="_on_UnlockAllChars_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/UnlockAllChallenges" to="." method="_on_UnlockAllChallenges_toggled"]
+[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/StartingWeapons" to="." method="_on_StartingWeapons_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/OptimizePickUp" to="." method="_on_OptimizePickUp_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/CurseStrength" to="." method="_on_CurseStrength_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/NumberOptimize" to="." method="_on_NumberOptimize_toggled"]

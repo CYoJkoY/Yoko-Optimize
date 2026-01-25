@@ -1,6 +1,5 @@
 keys,en,zh_Hans_CN
 MENU_YZTATO_SET,Optimize,优化
-YZ_ITEM_APPEARANCES_HIDE,Hide Items' Appearance,隐藏道具外观
 YZ_UNLOCK_ALL,Unlock All,全解锁
 YZ_UNLOCK_ALL_CHARS,Unlock All Characters,全角色解锁
 YZ_UNLOCK_DIFFICULTIES,Unlock All Difficulties,全难度解锁
@@ -27,12 +26,7 @@ LOSE_HP_PER_SECOND,Hp Lose Per Second,每秒损失生命
 RECYCLING_GAINS,%Recycling Gain,%回收增益
 GAIN_PCT_GOLD_START_WAVE,%Material Per Wave,%每波增益
 YZ_STARTING_WEAPONS,Any Starting Weapon,开局任选武器
-YZ_STARTING_ITEMS,Any Starting Items,开局任选道具
-YZ_STARTING_ITEMS_TIMES,Starting Items' Number,可选道具数
-ITEM_SELECTION,Item Selection,道具选择
 YZCURSESTRENGTH,Curse: {0}%,诅咒：{0}%
 YZ_CURSE_STRENGTH,Curse Strength Display,诅咒强度显示
-YZ_GMO,GMO,GMO
-YZ_GMO_NUM,GMO Number,GMO数量
 YZ_NUMBER_OPTIMIZE,Number Optimize,数字优化
 YZ_HIT_PROTECTION_DISPLAY,Tardigrade Display,水熊虫显示

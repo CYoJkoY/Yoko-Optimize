@@ -15,7 +15,7 @@ func _yztato_unlock_all_chars(unlocked: Array, player_index: int) -> Array:
     if ProgressData.settings.yztato_unlock_all_chars:
         var all_unlocked: = []
         for element in _get_all_possible_elements(player_index):
-            all_unlocked.push_back(element.my_id)
+            all_unlocked.push_back(element.my_id_hash)
         return all_unlocked
 
     return unlocked

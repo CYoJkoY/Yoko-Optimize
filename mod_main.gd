@@ -23,8 +23,8 @@ func _init():
     #######################################
     ########## Add translations ##########
     #####################################
-    ModLoaderMod.add_translation(trans_dir + "YzTato_Optimize.en.translation")
-    ModLoaderMod.add_translation(trans_dir + "YzTato_Optimize.zh_Hans_CN.translation")
+    ModLoaderMod.add_translation(trans_dir + "Optimize.en.translation")
+    ModLoaderMod.add_translation(trans_dir + "Optimize.zh_Hans_CN.translation")
     
     #####################################
     ########## Add extensions ##########
@@ -99,8 +99,11 @@ func _init():
         "reroll_button.gd",
         # SETTING : number_optimize[ 8/8 ]
    
-        "item_description.gd"
+        "item_description.gd",
         # SETTING : curse_strength
+        
+        "weapon_selection.gd",
+        # SETTING : starting_weapons
         
     ]
     

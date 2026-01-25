@@ -8,6 +8,7 @@ onready var focus_before_created: Control = get_focus_owner()
 onready var UnlockDifficulties = $"%UnlockDifficulties" as CheckButton
 onready var UnlockAllChars = $"%UnlockAllChars" as CheckButton
 onready var UnlockAllChallenges = $"%UnlockAllChallenges" as CheckButton
+onready var StartingWeapons = $"%StartingWeapons" as CheckButton
 onready var OptimizePickUp = $"%OptimizePickUp" as CheckButton
 onready var CurseStrength = $"%CurseStrength" as CheckButton
 onready var NumberOptimize = $"%NumberOptimize" as CheckButton
@@ -38,6 +39,7 @@ func init_values_from_progress_data() -> void:
     UnlockDifficulties.pressed = ProgressData.settings.yztato_unlock_difficulties
     UnlockAllChars.pressed = ProgressData.settings.yztato_unlock_all_chars
     UnlockAllChallenges.pressed = ProgressData.settings.yztato_unlock_all_challenges
+    StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
     OptimizePickUp.pressed = ProgressData.settings.yztato_optimize_pickup
     CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
     NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
@@ -66,6 +68,8 @@ func _on_UnlockAllChars_toggled(button_pressed: bool):
     ProgressData.settings.yztato_unlock_all_chars = button_pressed
 func _on_UnlockAllChallenges_toggled(button_pressed: bool):
     ProgressData.settings.yztato_unlock_all_challenges = button_pressed
+func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
+    ProgressData.settings.yztato_starting_weapons = button_pressed
 func _on_OptimizePickUp_toggled(button_pressed: bool):
     ProgressData.settings.yztato_optimize_pickup = button_pressed
 func _on_CurseStrength_toggled(button_pressed: bool) -> void:
