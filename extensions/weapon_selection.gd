@@ -16,15 +16,18 @@ func _get_all_possible_elements(player_index: int)->Array:
 # =========================== Custom =========================== #
 func _yztato_starting_weapons_unlock(unlocked: Array) -> Array:
     if ProgressData.settings.yztato_starting_weapons:
-        var all_unlocked: Array = []
+        unlocked = []
         for weapon in ItemService.weapons:
-            all_unlocked.push_back(weapon.my_id_hash)
-        return all_unlocked
+            unlocked.push_back(weapon.my_id_hash)
+        for item in ItemService.items:
+            unlocked.push_back(item.my_id_hash)
 
     return unlocked
 
 func _yztato_starting_weapons_possible(possible_weapons: Array) -> Array:
     if ProgressData.settings.yztato_starting_weapons:
-        return ItemService.weapons
+        possible_weapons = []
+        possible_weapons.append_array(ItemService.weapons)
+        possible_weapons.append_array(ItemService.items)
 
     return possible_weapons
