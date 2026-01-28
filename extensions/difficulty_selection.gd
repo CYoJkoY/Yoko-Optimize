@@ -23,8 +23,8 @@ func _yztato_unlock_difficulties(unlocked_difficulties: Array) -> Array:
                         existing_char_diff_info = difficulty_unlocked
                         break
                 
-                # If not exists
-                if not character_difficulty_info_exists:
+                # if !exists
+                if !character_difficulty_info_exists:
                     var char_diff_info = CharacterDifficultyInfo.new(character.my_id)
                     ProgressData.difficulties_unlocked.push_back(char_diff_info)
                     existing_char_diff_info = char_diff_info
@@ -41,8 +41,8 @@ func _yztato_unlock_difficulties(unlocked_difficulties: Array) -> Array:
                             existing_zone_diff_info = zone_diff_info
                             break
                     
-                    # If not exists
-                    if not zone_difficulty_info_exists:
+                    # if !exists
+                    if !zone_difficulty_info_exists:
                         var zone_diff_info = ZoneDifficultyInfo.new(zone.my_id)
                         zone_diff_info.max_selectable_difficulty = ProgressData.MAX_DIFFICULTY
                         existing_char_diff_info.zones_difficulty_info.push_back(zone_diff_info)
@@ -50,7 +50,7 @@ func _yztato_unlock_difficulties(unlocked_difficulties: Array) -> Array:
                 
                 # Add all difficulties
                 for diff in ItemService.difficulties:
-                    if not unlocked_difficulties.has(diff.my_id):
+                    if !unlocked_difficulties.has(diff.my_id):
                         unlocked_difficulties.push_back(diff.my_id)
         
         # Save

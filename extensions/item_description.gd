@@ -37,7 +37,7 @@ func _create_curse_strength_label() -> void:
     
     var VContainer: VBoxContainer = get_node_or_null("HBoxContainer/ScrollContainer/VBoxContainer") as VBoxContainer
     # ↓↓↓ codex_item_description ↓↓↓ #
-    if !VContainer or !is_instance_valid(VContainer): VContainer = get_node_or_null("HBoxContainer/VBoxContainer")
+    if !VContainer or not is_instance_valid(VContainer): VContainer = get_node_or_null("HBoxContainer/VBoxContainer")
     VContainer.add_child(_curse_strength_label)
     
     _curse_strength_label.owner = self

@@ -100,7 +100,7 @@ func _yztato_update_tab(tab: int) -> void:
 
 func _yztato_set_focus_neighbours() -> void:
     # Ensure _tertiary_tab is added to the scene tree
-    if not _buttons_container.has_node(_tertiary_tab.name):
+    if !_buttons_container.has_node(_tertiary_tab.name):
         return
 
     if focus_neighbour_top:

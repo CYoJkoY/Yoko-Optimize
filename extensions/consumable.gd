@@ -20,7 +20,7 @@ func _yztato_physics_process(delta: float)->void :
         if push_back and current_pos.distance_squared_to(push_back_destination) > 400:
             global_position = current_pos.linear_interpolate(push_back_destination, delta * _push_back_speed)
         elif idle_time_after_pushed_back > 0:
-            if not monitorable:
+            if !monitorable:
                 monitorable = true
             push_back = false
             idle_time_after_pushed_back -= Utils.physics_one(delta)
