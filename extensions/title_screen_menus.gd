@@ -1,6 +1,6 @@
 extends "res://ui/menus/title_screen/title_screen_menus.gd"
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _ready():
     _yztato_set_options()
 

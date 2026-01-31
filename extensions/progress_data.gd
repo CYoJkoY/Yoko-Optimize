@@ -2,7 +2,7 @@ extends "res://singletons/progress_data.gd"
 
 var Optimize = null
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _ready() -> void:
     _optimize_ready()
 

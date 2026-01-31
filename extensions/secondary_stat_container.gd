@@ -3,7 +3,7 @@ extends "res://ui/menus/shop/secondary_stat_container.gd"
 onready var _icon:TextureRect = TextureRect.new()
 onready var _HBoxContainer = $HBoxContainer
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _ready() -> void:
     _icon.expand = true
     _icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT

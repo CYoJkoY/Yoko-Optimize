@@ -4,7 +4,7 @@ signal yztato_set_button_pressed
 
 onready var buttons_right = $MarginContainer/VBoxContainer/HBoxContainer/ButtonsRight
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _ready()->void :
     # After init and avoid .init()
     # Equals to init() + .init()

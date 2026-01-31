@@ -7,7 +7,7 @@ var _tertiary_tab = MyMenuButton.new()
 
 var tertiary_stats: Array = []
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _ready()->void :
     _yztato_tertiary_stat_ready()
 

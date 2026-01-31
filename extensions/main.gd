@@ -1,21 +1,35 @@
 extends "res://main.gd"
 
+var YzTimers: Array = []
+
+# ui_entry
 var UIHitProtectionScenes = {}
 const UI_HIT_PROTECTION_SCENE = preload("res://mods-unpacked/Yoko-Optimize/content/scenes/ui_hit_protection.tscn")
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _on_EntitySpawner_players_spawned(players: Array) -> void:
     ._on_EntitySpawner_players_spawned(players)
     _yztato_hit_protection_display()
 
-func _process(_delta: float) -> void:
-    _yztato_hit_protection_process()
+    _yztato_start_ui_update_timer()
+
+func clean_up_room() -> void :
+    for timer in YzTimers: timer.stop()
+    .clean_up_room()
 
 # =========================== Custom =========================== #
+func _yztato_start_ui_update_timer() -> void:
+    var timer = Timer.new()
+    timer.wait_time = 0.2
+    timer.autostart = true
+    timer.connect("timeout", self, "yz_update_all_ui_stats")
+    add_child(timer)
+    YzTimers.append(timer)
+
 func _yztato_hit_protection_display() -> void:
     if !ProgressData.settings.yztato_hit_protection_display: return
     
-    for i in range(_players.size()):
+    for i in _players.size():
         if _players[i] in UIHitProtectionScenes:
             continue
             
@@ -42,3 +56,7 @@ func _yztato_hit_protection_process() -> void:
         if player in UIHitProtectionScenes and \
         is_instance_valid(UIHitProtectionScenes[player]):
             UIHitProtectionScenes[player].update_value(player._hit_protection)
+
+# =========================== Method =========================== #
+func yz_update_all_ui_stats() -> void:
+    _yztato_hit_protection_process()

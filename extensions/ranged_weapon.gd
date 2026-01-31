@@ -1,6 +1,6 @@
 extends "res://weapons/ranged/ranged_weapon.gd"
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _ready():
     _yztato_set_weapon_transparency(ProgressData.settings.yztato_set_weapon_transparency)
 

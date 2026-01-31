@@ -1,6 +1,6 @@
 extends "res://ui/menus/shop/stat_container.gd"
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func update_player_stat(player_index: int)->void :
     .update_player_stat(player_index)
     if ProgressData.settings.yztato_number_optimize:

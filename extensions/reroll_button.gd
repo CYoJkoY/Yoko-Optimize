@@ -1,6 +1,6 @@
 extends "res://ui/menus/shop/reroll_button.gd"
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func init(value: int, player_index: int)->void :
     .init(value, player_index)
     if ProgressData.settings.yztato_number_optimize:

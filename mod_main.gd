@@ -7,7 +7,7 @@ var dir = ""
 var ext_dir = ""
 var trans_dir = ""
 
-# =========================== Extention =========================== #
+# =========================== Extension =========================== #
 func _init():
     ModLoaderLog.info("========== Add Translation ==========", MYMODNAME_LOG)
     dir = ModLoaderMod.get_unpacked_dir() + MYMODNAME_MOD_DIR
