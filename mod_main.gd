@@ -9,27 +9,14 @@ var trans_dir = ""
 
 # =========================== Extension =========================== #
 func _init():
-    ModLoaderLog.info("========== Add Translation ==========", MYMODNAME_LOG)
     dir = ModLoaderMod.get_unpacked_dir() + MYMODNAME_MOD_DIR
     trans_dir = dir + "translations/"
     ext_dir = dir + "extensions/"
 
-    # NameSpace ~ Node: /root/ModLoader/Yoko-Optimize/Optimize
-    # progress_data.gd --> _ready --> ProgressData.Optimize
-    var Optimize_instance = load(dir + "content_data/NameSpace.gd").new()
-    Optimize_instance.name = "Optimize"
-    add_child(Optimize_instance)
-
-    #######################################
-    ########## Add translations ##########
-    #####################################
     ModLoaderMod.add_translation(trans_dir + "Optimize.en.translation")
     ModLoaderMod.add_translation(trans_dir + "Optimize.zh_Hans_CN.translation")
     
-    #####################################
-    ########## Add extensions ##########
-    ###################################
-    var extensions = [
+    var extensions: Array = [
         
         "enemy.gd",
         # SETTING : set_enemy_transparency
@@ -104,10 +91,12 @@ func _init():
         
         "weapon_selection.gd",
         # SETTING : starting_weapons
+
+        "utils.gd",
+        # Methods
         
     ]
     
     for path in extensions:
         var extension_path = ext_dir + path
         ModLoaderMod.install_script_extension(extension_path)
-    

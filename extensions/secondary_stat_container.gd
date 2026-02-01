@@ -1,6 +1,6 @@
 extends "res://ui/menus/shop/secondary_stat_container.gd"
 
-onready var _icon:TextureRect = TextureRect.new()
+onready var _icon: TextureRect = TextureRect.new()
 onready var _HBoxContainer = $HBoxContainer
 
 # =========================== Extension =========================== #
@@ -11,14 +11,14 @@ func _ready() -> void:
     _HBoxContainer.add_child(_icon)
     _HBoxContainer.move_child(_icon, 0)
 
-func update_player_stat(player_index: int)->void :
+func update_player_stat(player_index: int) -> void:
     _icon.texture = ItemService.get_stat_small_icon(key_hash)
     .update_player_stat(player_index)
     if ProgressData.settings.yztato_number_optimize:
         _yztato_update_player_stat(player_index)
 
 # =========================== Custom =========================== #
-func _yztato_update_player_stat(player_index: int)->void :
+func _yztato_update_player_stat(player_index: int) -> void:
     var stat_value = Utils.get_stat(key_hash, player_index)
-    var value_text = ProgressData.Optimize.Methods.format_number(stat_value as int)
+    var value_text = Utils.format_number(stat_value as int)
     _value.text = value_text

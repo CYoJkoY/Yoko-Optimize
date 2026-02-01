@@ -1,29 +1,11 @@
 extends "res://singletons/progress_data.gd"
 
-var Optimize = null
-var op_dir: String = ModLoaderMod.get_unpacked_dir() + "Yoko-Optimize/"
-
 # =========================== Extension =========================== #
-func _ready() -> void:
-    _optimize_ready()
-
 func init_settings() -> void:
     .init_settings()
     settings.merge(init_yztato_set_options())
 
 # =========================== Custom =========================== #
-func _optimize_ready() -> void:
-    load(op_dir + "content_data/YzTato_content_New.tres").add_resources()
-
-    RunData.reset()
-
-    load_game_file()
-    add_unlocked_by_default()
-
-    set_max_selectable_difficulty()
-
-    Optimize = get_node_or_null("/root/ModLoader/Yoko-Optimize/Optimize")
-
 func init_yztato_set_options() -> Dictionary:
     return {
         "yztato_unlock_difficulties": false,
