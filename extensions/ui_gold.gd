@@ -4,4 +4,4 @@ extends "res://ui/hud/ui_gold.gd"
 func update_value(value: int) -> void:
     .update_value(value)
     if ProgressData.settings.yztato_number_optimize:
-        gold_label.text = Utils.format_number(value)
+        gold_label.text = Utils.ncl_format_number(value)

@@ -16,12 +16,12 @@ func _yztato_get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_sta
             displayed_damage += effect.get_bonus_damage(player_index)
 
     var a = get_signed_col_a(displayed_damage, base_stats.damage)
-    var dmg_text = a + Utils.format_number(displayed_damage) + col_b
+    var dmg_text = a + Utils.ncl_format_number(displayed_damage) + col_b
 
     var text = dmg_text if nb_projectiles == 1 else dmg_text + "x" + str(nb_projectiles)
 
     if displayed_damage != base_stats.damage:
-        var initial_dmg_text = Utils.format_number(base_stats.damage) if nb_projectiles == 1 else Utils.format_number(base_stats.damage) + "x" + str(nb_projectiles)
+        var initial_dmg_text = Utils.ncl_format_number(base_stats.damage) if nb_projectiles == 1 else Utils.ncl_format_number(base_stats.damage) + "x" + str(nb_projectiles)
         text += get_init_a() + initial_dmg_text + col_b
 
     text += " (" + WeaponService.get_scaling_stats_icon_text(p_scaling_stats) + ")"

@@ -20,5 +20,5 @@ func update_player_stat(player_index: int) -> void:
 # =========================== Custom =========================== #
 func _yztato_update_player_stat(player_index: int) -> void:
     var stat_value = Utils.get_stat(key_hash, player_index)
-    var value_text = Utils.format_number(stat_value as int)
+    var value_text = Utils.ncl_format_number(stat_value as int)
     _value.text = value_text

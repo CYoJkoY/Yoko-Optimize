@@ -9,7 +9,7 @@ func update_player_stat(player_index: int) -> void:
 # =========================== Custom =========================== #
 func _yztato_update_player_stat(player_index: int) -> void:
     var stat_value = Utils.get_stat(key_hash, player_index)
-    var value_text = Utils.format_number(stat_value as int)
+    var value_text = Utils.ncl_format_number(stat_value as int)
 
     var dodge_cap = RunData.get_player_effect(Keys.dodge_cap_hash, player_index)
     var hp_cap = RunData.get_player_effect(Keys.hp_cap_hash, player_index)
@@ -17,12 +17,12 @@ func _yztato_update_player_stat(player_index: int) -> void:
     var crit_chance_cap = RunData.get_player_effect(Keys.crit_chance_cap_hash, player_index)
 
     if key_hash == Keys.stat_dodge_hash and (dodge_cap < stat_value or dodge_cap < 60):
-        value_text += " | " + Utils.format_number(dodge_cap as int)
+        value_text += " | " + Utils.ncl_format_number(dodge_cap as int)
     elif key_hash == Keys.stat_max_hp_hash and hp_cap < Utils.LARGE_NUMBER:
-        value_text += " | " + Utils.format_number(hp_cap as int)
+        value_text += " | " + Utils.ncl_format_number(hp_cap as int)
     elif key_hash == Keys.stat_speed_hash and speed_cap < Utils.LARGE_NUMBER:
-        value_text += " | " + Utils.format_number(speed_cap as int)
+        value_text += " | " + Utils.ncl_format_number(speed_cap as int)
     elif key_hash == Keys.stat_crit_chance_hash and crit_chance_cap < Utils.LARGE_NUMBER:
-        value_text += " | " + Utils.format_number(crit_chance_cap as int)
+        value_text += " | " + Utils.ncl_format_number(crit_chance_cap as int)
 
     _value.text = value_text

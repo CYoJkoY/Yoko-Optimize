@@ -91,9 +91,6 @@ func _init():
         
         "weapon_selection.gd",
         # SETTING : starting_weapons
-
-        "utils.gd",
-        # Methods
         
     ]
     

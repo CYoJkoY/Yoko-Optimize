@@ -9,7 +9,7 @@ func init(value: int, player_index: int) -> void:
 # =========================== Custom =========================== #
 func _yztato_init(value: int, player_index: int) -> void:
     set_value(value, RunData.get_player_gold(player_index))
-    var txt: String = (tr("REROLL") + " - " + Utils.format_number(value)).to_upper()
+    var txt: String = (tr("REROLL") + " - " + Utils.ncl_format_number(value)).to_upper()
     if RunData.is_coop_run:
         set_text(txt)
     else:
