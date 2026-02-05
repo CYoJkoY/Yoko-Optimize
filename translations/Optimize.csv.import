@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://mods-unpacked/Yoko-Optimize/translations/Optimize.en.translation", "res://mods-unpacked/Yoko-Optimize/translations/Optimize.zh_Hans_CN.translation" ]
+files=[ "res://mods-unpacked/Yoko-Optimize/translations/Optimize.en.translation", "res://mods-unpacked/Yoko-Optimize/translations/Optimize.zh.translation" ]
 
 source_file="res://mods-unpacked/Yoko-Optimize/translations/Optimize.csv"
-dest_files=[ "res://mods-unpacked/Yoko-Optimize/translations/Optimize.en.translation", "res://mods-unpacked/Yoko-Optimize/translations/Optimize.zh_Hans_CN.translation" ]
+dest_files=[ "res://mods-unpacked/Yoko-Optimize/translations/Optimize.en.translation", "res://mods-unpacked/Yoko-Optimize/translations/Optimize.zh.translation" ]
 
 [params]
 

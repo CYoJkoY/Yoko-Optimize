@@ -1,8 +1,5 @@
 extends "res://singletons/run_data.gd"
 
-var selected_items: Array = [[], [], [], []]
-var selected_characters: Array = [[], [], [], []]
-
 # =========================== Extension =========================== #
 func _ready():
     _yztato_unlock_all_challenges()

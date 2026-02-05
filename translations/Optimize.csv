@@ -1,4 +1,4 @@
-keys,en,zh_Hans_CN
+﻿keys,en,zh
 MENU_YZTATO_SET,Optimize,优化
 YZ_UNLOCK_ALL,Unlock All,全解锁
 YZ_UNLOCK_ALL_CHARS,Unlock All Characters,全角色解锁
@@ -29,4 +29,4 @@ YZ_STARTING_WEAPONS,Any Starting Weapon,开局任选武器
 YZCURSESTRENGTH,Curse: {0}%,诅咒：{0}%
 YZ_CURSE_STRENGTH,Curse Strength Display,诅咒强度显示
 YZ_NUMBER_OPTIMIZE,Number Optimize,数字优化
-YZ_HIT_PROTECTION_DISPLAY,Tardigrade Display,水熊虫显示
+YZ_HIT_PROTECTION_DISPLAY,Tardigrade Display,水熊虫显示

@@ -14,7 +14,7 @@ func _init():
     ext_dir = dir + "extensions/"
 
     ModLoaderMod.add_translation(trans_dir + "Optimize.en.translation")
-    ModLoaderMod.add_translation(trans_dir + "Optimize.zh_Hans_CN.translation")
+    ModLoaderMod.add_translation(trans_dir + "Optimize.zh.translation")
     
     var extensions: Array = [
         
