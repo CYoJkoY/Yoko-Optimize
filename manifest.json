@@ -2,7 +2,7 @@
 	"name": "Optimize",
 	"namespace": "Yoko",
 	"version_number": "0.0.1",
-	"description": "INTP",
+	"description": "",
 	"website_url": "",
 	"dependencies": [
 		"Yoko-NewContentLoader"
