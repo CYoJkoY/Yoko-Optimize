@@ -39,24 +39,34 @@
 
 [resource]
 script = ExtResource( 36 )
-backgrounds = null
-characters = null
-entities = null
-elites = null
-bosses = null
+my_id = "optimize"
+groups_in_all_zones = [  ]
+music_tracks = [  ]
+backgrounds = [  ]
+characters = [  ]
+entities = [  ]
+elites = [  ]
+bosses = [  ]
 stats = [ ExtResource( 5 ), ExtResource( 12 ), ExtResource( 31 ), ExtResource( 4 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 1 ), ExtResource( 22 ), ExtResource( 8 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 33 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 2 ), ExtResource( 29 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 7 ), ExtResource( 35 ) ]
-items = null
-weapons = null
-effects = null
-consumables = null
-upgrades = null
-sets = null
-difficulties = null
-icons = null
-title_screen_backgrounds = null
-challenges = null
-zones = null
-tracked_items = null
-tracked_effects = null
-translation_keys_needing_operator = null
-translation_keys_needing_percent = null
+items = [  ]
+weapons = [  ]
+effects = [  ]
+consumables = [  ]
+upgrades = [  ]
+sets = [  ]
+difficulties = [  ]
+icons = [  ]
+title_screen_backgrounds = [  ]
+challenges = [  ]
+zones = [  ]
+tracked_items = {
+}
+tracked_effects = {
+}
+translation_keys_needing_operator = {
+}
+translation_keys_needing_percent = {
+}
+scene_effect_behaviors = [  ]
+enemy_effect_behaviors = [  ]
+player_effect_behaviors = [  ]
