@@ -5,7 +5,7 @@ func _ready() -> void:
     _yztato_rainbow_gold()
     _yztato_set_gold_transparency(ProgressData.settings.yztato_set_gold_transparency)
 
-func _physics_process(delta: float)->void :
+func _physics_process(delta: float) -> void:
     _yztato_physics_process(delta)
 
 # =========================== Custom =========================== #
@@ -17,11 +17,11 @@ func _yztato_rainbow_gold() -> void:
         var random_index = randi() % yz_color.size()
         modulate = Color(yz_color[random_index])
 
-func _yztato_set_gold_transparency(alpha_value: float)->void:
+func _yztato_set_gold_transparency(alpha_value: float) -> void:
     var clamped_alpha = clamp(alpha_value, 0.0, 1.0)
     modulate.a = clamped_alpha
 
-func _yztato_physics_process(delta: float)->void :
+func _yztato_physics_process(delta: float) -> void:
     # Optimize Pick Up
     if ProgressData.settings.yztato_optimize_pickup:
         var current_pos: Vector2 = global_position
@@ -37,5 +37,5 @@ func _yztato_physics_process(delta: float)->void :
             if "dead" in attracted_by and attracted_by.dead:
                 attracted_by = null
                 _current_speed = INITIAL_ATTRACT_SPEED
-            else :
+            else:
                 global_position = attracted_by.global_position

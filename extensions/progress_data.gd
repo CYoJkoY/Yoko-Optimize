@@ -16,15 +16,9 @@ func init_yztato_set_options() -> Dictionary:
         "yztato_curse_strength": true,
         "yztato_number_optimize": true,
         "yztato_hit_protection_display": false,
-
-        "yztato_starting_items": false,
-        "yztato_starting_items_times": 1,
-        
-        "yztato_gmo": false,
-        "yztato_gmo_num": 1,
-        
         "yztato_rainbow_gold": "YZ_EMPTY",
         "yz_colors": {
+            "YZ_EMPTY": [],
             "YZ_EXLIGHT": ["#FFEBEE", "#FCE4EC", "#F3E5F5", "#EDE7F6",
                         "#E8EAF6", "#E3F2FD", "#E1F5FE", "#E0F7FA",
                         "#E0F2F1", "#E8F5E9", "#F1F8E9", "#F9FBE7",
@@ -51,7 +45,6 @@ func init_yztato_set_options() -> Dictionary:
                         "#FFEE58", "#FFCA28", "#FFA726", "#FF7043",
                         "#8D6E63", "#BDBDBD", "#78909C"],
         },
-        
         "yztato_set_weapon_transparency": 1.0,
         "yztato_set_enemy_transparency": 1.0,
         "yztato_set_enemy_proj_transparency": 1.0,

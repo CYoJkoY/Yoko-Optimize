@@ -29,7 +29,7 @@ func _input(event):
         _on_BackButton_pressed()
         get_tree().set_input_as_handled()
 
-func init()->void :
+func init() -> void:
     focus_before_created = get_focus_owner()
     back_button.grab_focus()
 
