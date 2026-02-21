@@ -91,6 +91,9 @@ func _init():
         
         "weapon_selection.gd",
         # SETTING : starting_weapons
+
+        "debug_menu.gd"
+        # SETTINGS
         
     ]
     
