@@ -1,28 +1,27 @@
-﻿keys,en,zh
-MENU_OPTIMIZE_SET,Optimize,优化
-OPT_WEAPON_TRANSPARENCY,Weapon Transparency,武器不透明度
-OPT_ENEMY_TRANSPARENCY,Enemy Transparency,敌人透明度
-OPT_ENEMY_PROJ_TRANSPARENCY,Enemy Transparency,敌人子弹不透明度
-OPT_OPTIMIZE_PICK_UP,Optimize Pick Up,拾取优化
-OPT_GOLD_TRANSPARENCY,Material Transparency,材料不透明度
-OPT_CONSUMABLE_TRANSPARENCY,Consumable Transparency,消耗品不透明度
-OPT_RAINBOW_GOLD,Rainbow Material,彩虹材料
-OPT_EMPTY,Empty,空
-OPT_EXLIGHT,Extreme Light,极浅
-OPT_LIGHT,Light,浅色
-OPT_MEDIUM,Medium,中等
-OPT_DARK,Dark,深色
-OPT_EXDARK,Extreme Dark,极深
-TERTIARY,Tertiary,第三
-HIT_PROTECTION,Nullify Damage,伤害无效
-ENEMY_GOLD_DROPS,%Enemies' Material Drops,%敌人掉落材料
-GOLD_DROPS,Material Drops,%掉落材料
-INCREASE_MATERIAL_VALUE,%Material Value,%材料价值
-LOSE_HP_PER_SECOND,Hp Lose Per Second,每秒损失生命
-RECYCLING_GAINS,%Recycling Gain,%回收增益
-GAIN_PCT_GOLD_START_WAVE,%Material Per Wave,%每波增益
-OPT_STARTING_WEAPONS,Any Starting Weapon,开局任选武器
-OPT_CURSESTRENGTH,Curse: {0}%,诅咒：{0}%
-OPT_CURSE_STRENGTH,Curse Strength Display,诅咒强度显示
-OPT_NUMBER_OPTIMIZE,Number Optimize,数字优化
-OPT_HIT_PROTECTION_DISPLAY,Tardigrade Display,水熊虫显示
+﻿keys,en,fr,zh,ja,ko,zh_TW,ru,pl,es,pt,de,tr,it
+MENU_OPTIMIZE_SET,Optimize,Optimiser,优化,最適化,최적화,最佳化,Оптимизация,Optymalizacja,Optimizar,Otimizar,Optimieren,Optimize,Optimizza
+OPT_WEAPON_TRANSPARENCY,Weapon Transparency,Transparence de l'arme,武器不透明度,武器の透明度,무기 불투명도,武器不透明度,Прозрачность оружия,Przezroczystość broni,Transparencia del arma,Transparência da arma,Waffentransparenz,Silah Saydamlığı,Trasparenza arma
+OPT_ENEMY_TRANSPARENCY,Enemy Transparency,Transparence de l'ennemi,敌人透明度,敵の透明度,적 불투명도,敵人透明度,Прозрачность врагов,Przezroczystość wrogów,Transparencia del enemigo,Transparência do inimigo,Gegnertransparenz,Düşman Saydamlığı,Trasparenza nemico
+OPT_ENEMY_PROJ_TRANSPARENCY,Enemy Transparency,Transparence des projectiles ennemis,敌人子弹不透明度,敵の弾の透明度,적 투사체 불투명도,敵人子彈不透明度,Прозрачность вражеских снарядов,Przezroczystość pocisków wrogów,Transparencia de proyectiles enemigos,Transparência de projéteis inimigos,Feindliche Projektiltransparenz,Düşman Mermisi Saydamlığı,Trasparenza proiettili nemici
+OPT_OPTIMIZE_PICK_UP,Optimize Pick Up,Optimiser le ramassage,拾取优化,拾い最適化,획득 최적화,拾取最佳化,Оптимизация подбора,Optymalizacja zbierania,Optimizar recolección,Otimizar coleta,Aufheben optimieren,Toplama Optimizasyonu,Optimizza raccolta
+OPT_GOLD_TRANSPARENCY,Material Transparency,Transparence des matériaux,材料不透明度,素材の透明度,재료 불투명도,材料不透明度,Прозрачность материалов,Przezroczystość materiałów,Transparencia de materiales,Transparência de materiais,Materialtransparenz,Malzeme Saydamlığı,Trasparenza materiali
+OPT_CONSUMABLE_TRANSPARENCY,Consumable Transparency,Transparence des consommables,消耗品不透明度,消耗品の透明度,소모품 불투명도,消耗品不透明度,Прозрачность расходников,Przezroczystość przedmiotów zużywalnych,Transparencia de consumibles,Transparência de consumíveis,Verbrauchsgütertransparenz,Tüketim Malzemesi Saydamlığı,Trasparenza consumabili
+OPT_RAINBOW_GOLD,Rainbow Material,Matériau arc-en-ciel,彩虹材料,虹色素材,무지개 재료,彩虹材料,Радужный материал,Tęczowy materiał,Material arcoíris,Material arco-íris,Regenbogenmaterial,Gökkuşağı Malzemesi,Materiale arcobaleno
+OPT_EMPTY,Empty,Vide,空,空,비어 있음,空,Пусто,Puste,Vacío,Vazio,Leer,Boş,Vuoto
+OPT_EXLIGHT,Extreme Light,Extrêmement clair,极浅,極浅,극히 밝음,極淺,Сверхсветлый,Ekstremalnie jasny,Extremadamente claro,Extremamente claro,Extrem hell,Aşırı Açık,Estremamente chiaro
+OPT_LIGHT,Light,Clair,浅色,薄い,밝음,淺色,Светлый,Jasny,Claro,Claro,Hell,Açık,Chiaro
+OPT_MEDIUM,Medium,Moyen,中等,中,중간,中等,Средний,Średni,Medio,Médio,Mittel,Orta,Medio
+OPT_DARK,Dark,Foncé,深色,濃い,어두움,深色,Тёмный,Ciemny,Oscuro,Escuro,Dunkel,Koyu,Scuro
+OPT_EXDARK,Extreme Dark,Extrêmement foncé,极深,極濃,극히 어두움,極深,Сверхтёмный,Ekstremalnie ciemny,Extremadamente oscuro,Extremamente escuro,Extrem dunkel,Aşırı Koyu,Estremamente scuro
+TERTIARY,Tertiary,Tertiaire,第三,第三,제3,第三,Третичный,Trzeciorzędny,Terciario,Terciário,Tertiär,Üçüncül,Terziario
+HIT_PROTECTION,Nullify Damage,Annuler les dégâts,伤害无效,ダメージ無効,피해 무효,傷害無效,Обнуление урona,Zniweczenie obrażeń,Anular daño,Anular dano,Schadensannullierung,Hasar Yok Sayma,Annulla danno
+ENEMY_GOLD_DROPS,%Enemies' Material Drops,%Butin de matériaux des ennemis,%敌人掉落材料,%敵の素材ドロップ,%적 재료 드랍,%敵人掉落材料,%Материалы с врагов,%Łupy materiałów z wrogów,%Botín de materiales de enemigos,%Saque de materiais de inimigos,%Materialdrops von Gegnern,%Düşman Malzeme Düşürme,%Materiali dai nemici
+GOLD_DROPS,Material Drops,Butin de matériaux,%掉落材料,%素材ドロップ,%재료 드랍,%掉落材料,%Материалы,%Materiały,%Botín de materiales,%Saque de materiais,%Materialdrops,%Malzeme Düşürme,%Materiali
+INCREASE_MATERIAL_VALUE,%Material Value,%Valeur des matériaux,%材料价值,%素材の価値,%재료 가치,%材料價值,%Стоимость материалов,%Wartość materiałów,%Valor de materiales,%Valor de materiais,%Materialwert,%Malzeme Değeri,%Valore materiali
+LOSE_HP_PER_SECOND,Hp Lose Per Second,Perte de PV par seconde,每秒损失生命,毎秒のHP減少,초당 HP 감소,每秒損失生命,%Потеря ЗД в секунду,%Utrata PŻ na sekundę,%Pérdida de PV por segundo,%Perda de PV por segundo,%LP-Verlust pro Sekunde,%Saniye Başına Can Kaybı,%Perdita PV al secondo
+RECYCLING_GAINS,%Recycling Gain,%Gain de recyclage,%回收增益,%リサイクル増加,%재활용 획득,%回收增益,%Прирост переработки,%Zysk z recyklingu,%Ganancia de reciclaje,%Ganho de reciclagem,%Recycling-Gewinn,%Geri Dönüşüm Kazancı,%Guadagno riciclaggio
+GAIN_PCT_GOLD_START_WAVE,%Material Per Wave,%Matériaux par vague,%每波增益,%ウェーブごとの素材,%웨이브당 재료,%每波增益,%Материалов за волну,%Materiałów na falę,%Materiales por oleada,%Materiais por onda,%Material pro Welle,%Dalga Başına Malzeme,%Materiali per ondata
+OPT_STARTING_WEAPONS,Any Starting Weapon,Arme de départ libre,开局任选武器,初期武器自由選択,시작 무기 자유 선택,開局任選武器,Любое стартовое оружие,Dowolna broń startowa,Arma inicial libre,Arma inicial livre,Beliebige Startwaffe,Başlangıç Silahı Seçimi,Arma iniziale a scelta
+OPT_CURSESTRENGTH,Curse: {0}%,Malédiction : {0}%,诅咒：{0}%,呪い：{0}%,저주: {0}%,詛咒：{0}%,Проклятие: {0}%,Klątwa: {0}%,Maldición: {0}%,Maldição: {0}%,Fluch: {0}%,Lanet: %{0},Maledizione: {0}%
+OPT_CURSE_STRENGTH,Curse Strength Display,Affichage de la force de malédiction,诅咒强度显示,呪い強度表示,저주 강도 표시,詛咒強度顯示,Отображение силы проклятия,Wyświetlanie siły klątwy,Visualización de fuerza de maldición,Exibição de força da maldição,Fluchstärke-Anzeige,Lanet Gücü Gösterimi,Visualizzazione forza maledizione
+OPT_NUMBER_OPTIMIZE,Number Optimize,Optimisation des nombres,数字优化,数値最適化,숫자 최적화,數字最佳化,Оптимизация чисел,Optymalizacja liczb,Optimizar números,Otimizar números,Zahlenoptimierung,Sayı Optimizasyonu,Ottimizza numeri

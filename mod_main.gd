@@ -5,16 +5,11 @@ const MYMODNAME_LOG = "Yoko-Optimize"
 
 var dir = ""
 var ext_dir = ""
-var trans_dir = ""
 
 # =========================== Extension =========================== #
 func _init():
     dir = ModLoaderMod.get_unpacked_dir() + MYMODNAME_MOD_DIR
-    trans_dir = dir + "translations/"
     ext_dir = dir + "extensions/"
-
-    ModLoaderMod.add_translation(trans_dir + "Optimize.en.translation")
-    ModLoaderMod.add_translation(trans_dir + "Optimize.zh.translation")
     
     var extensions: Array = [
         
