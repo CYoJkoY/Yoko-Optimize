@@ -11,11 +11,10 @@ func _physics_process(delta: float) -> void:
 # =========================== Custom =========================== #
 func _optimize_rainbow_gold() -> void:
     var color_name: String = ProgressData.settings.optimize_rainbow_gold
-    var yz_colors: Dictionary = ProgressData.settings.yz_colors
-    if color_name != "YZ_EMPTY":
-        var yz_color = yz_colors.get(color_name)
-        var random_index = randi() % yz_color.size()
-        modulate = Color(yz_color[random_index])
+    var opt_colors: Dictionary = ProgressData.settings.opt_colors
+    if color_name != "OPT_EMPTY":
+        var opt_color = opt_colors.get(color_name)
+        modulate = Color(Utils.get_rand_element(opt_color))
 
 func _optimize_set_gold_transparency(alpha_value: float) -> void:
     var clamped_alpha = clamp(alpha_value, 0.0, 1.0)

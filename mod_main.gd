@@ -22,52 +22,43 @@ func _init():
         # Mods's Methods
 
         "enemy.gd",
-        # SETTING : set_enemy_transparency
-        
+        # SETTING: set_enemy_transparency
+
         "shooting_attack_behavior.gd",
-        # SETTING : set_enemy_proj_transparency
-        
+        # SETTING: set_enemy_proj_transparency
+
         "consumable.gd",
-        # SETTING : set_consumable_transparency, optimize_pickup
-        
+        # SETTING: set_consumable_transparency
+        #           optimize_pickup[ 1/2 ]
+
         "gold.gd",
-        # SETTING : set_gold_transparency, rainbow_gold, optimize_pickup
-        
+        # SETTING: set_gold_transparency
+        #          rainbow_gold
+        #          optimize_pickup[ 2/2 ]
+
         "progress_data.gd",
         # Mod's Contents
         # SETTINGS
-        
-        "run_data.gd",
-        # SETTING : unlock_all_challenges,
-        
-        "character_selection.gd",
-        # SETTING : unlock_all_chars
 
-        "difficulty_selection.gd",
-        # SETTING : unlock_difficulties
-        
         "secondary_stat_container.gd",
         # SETTING : number_optimize[ 1/8 ]
         # Secondary Stats' Icons
-        
+
         "stats_container.gd",
         # SETTING : tertiary_stats
-        
+
         "melee_weapon.gd",
-        # SETTING : set_weapon_transparency
-        
+        # SETTING : set_weapon_transparency[ 1/2 ]
+
         "ranged_weapon.gd",
-        # SETTING : set_weapon_transparency
-        
+        # SETTING : set_weapon_transparency[ 2/2 ]
+
         "title_screen_menus.gd",
         # SETTINGS
-        
+
         "main_menu.gd",
         # SETTINGS
 
-        "main.gd",
-        # Display Hit Protection
-        
         "button_with_icon.gd",
         # SETTING : number_optimize[ 2/8 ]
 
@@ -88,10 +79,10 @@ func _init():
 
         "reroll_button.gd",
         # SETTING : number_optimize[ 8/8 ]
-   
+
         "item_description.gd",
         # SETTING : curse_strength
-        
+
         "weapon_selection.gd",
         # SETTING : starting_weapons
         

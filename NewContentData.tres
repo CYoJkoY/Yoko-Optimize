@@ -39,7 +39,7 @@
 
 [resource]
 script = ExtResource( 36 )
-my_id = "optimize"
+my_id = ""
 groups_in_all_zones = [  ]
 music_tracks = [  ]
 backgrounds = [  ]
@@ -57,6 +57,7 @@ sets = [  ]
 difficulties = [  ]
 icons = [  ]
 title_screen_backgrounds = [  ]
+translations = [  ]
 challenges = [  ]
 zones = [  ]
 tracked_items = {

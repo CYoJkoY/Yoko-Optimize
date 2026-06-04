@@ -5,14 +5,10 @@ signal back_button_pressed
 onready var back_button: Button = $BackButton
 onready var focus_before_created: Control = get_focus_owner()
 
-onready var UnlockDifficulties: CheckButton = $"%UnlockDifficulties"
-onready var UnlockAllChars: CheckButton = $"%UnlockAllChars"
-onready var UnlockAllChallenges: CheckButton = $"%UnlockAllChallenges"
 onready var StartingWeapons: CheckButton = $"%StartingWeapons"
 onready var OptimizePickUp: CheckButton = $"%OptimizePickUp"
 onready var CurseStrength: CheckButton = $"%CurseStrength"
 onready var NumberOptimize: CheckButton = $"%NumberOptimize"
-onready var HitProtectonDisplay: CheckButton = $"%HitProtectonDisplay"
 
 onready var RainbowGold: OptionButton = $"%RainbowGold"
 onready var colors_names: Array = ProgressData.settings.opt_colors.keys()
@@ -36,14 +32,10 @@ func init() -> void:
     init_values_from_progress_data()
 
 func init_values_from_progress_data() -> void:
-    UnlockDifficulties.pressed = ProgressData.settings.optimize_unlock_difficulties
-    UnlockAllChars.pressed = ProgressData.settings.optimize_unlock_all_chars
-    UnlockAllChallenges.pressed = ProgressData.settings.optimize_unlock_all_challenges
     StartingWeapons.pressed = ProgressData.settings.optimize_starting_weapons
     OptimizePickUp.pressed = ProgressData.settings.optimize_optimize_pickup
     CurseStrength.pressed = ProgressData.settings.optimize_curse_strength
     NumberOptimize.pressed = ProgressData.settings.optimize_number_optimize
-    HitProtectonDisplay.pressed = ProgressData.settings.optimize_hit_protection_display
     
     RainbowGold.select(colors_names.find(ProgressData.settings.optimize_rainbow_gold))
 
@@ -62,12 +54,6 @@ func _on_MenuoptimizeSetOptions_hide():
     ProgressData.save_settings()
 
 # =========================== Load =========================== #
-func _on_UnlockDifficulties_toggled(button_pressed: bool):
-    ProgressData.settings.optimize_unlock_difficulties = button_pressed
-func _on_UnlockAllChars_toggled(button_pressed: bool):
-    ProgressData.settings.optimize_unlock_all_chars = button_pressed
-func _on_UnlockAllChallenges_toggled(button_pressed: bool):
-    ProgressData.settings.optimize_unlock_all_challenges = button_pressed
 func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
     ProgressData.settings.optimize_starting_weapons = button_pressed
 func _on_OptimizePickUp_toggled(button_pressed: bool):
@@ -76,8 +62,6 @@ func _on_CurseStrength_toggled(button_pressed: bool) -> void:
     ProgressData.settings.optimize_curse_strength = button_pressed
 func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
     ProgressData.settings.optimize_number_optimize = button_pressed
-func _on_HitProtectonDisplay_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.optimize_hit_protection_display = button_pressed
 
 func _on_RainbowGold_item_selected(index: int):
     ProgressData.settings.optimize_rainbow_gold = colors_names[index]
