@@ -1,6 +1,6 @@
 extends "res://singletons/utils.gd"
 
-# =========================== Extension =========================== #
+# =========================== Methods =========================== #
 func opt_format_number(value: int) -> String:
     if value < 1000:
         return str(value)
@@ -28,15 +28,18 @@ func opt_format_number(value: int) -> String:
         suffix = "K"
         base = 1000
 
-    var integer_part = abs_value / base
-    var decimal_part = (abs_value % base) / (base / 100)
-    
+    var integer_part: int = abs_value / base
+    var decimal_part: int = (abs_value % base) * 100 / base
+
+    if decimal_part >= 100:
+        integer_part += 1
+        decimal_part = 0
+
     var result = str(integer_part)
     if decimal_part > 0:
-        var dec_str = str(decimal_part).pad_zeros(2)
-        result += "." + dec_str.rstrip("0")
-    
-    if value < 0:
-        result = "-" + result
-        
+        if decimal_part % 10 == 0: result = "%s.%s" % [result, str(decimal_part / 10)]
+        else: result = "%s.%s" % [result, str(decimal_part)]
+
+    if value < 0: result = "-%s" % [result]
+
     return result + suffix

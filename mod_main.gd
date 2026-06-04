@@ -18,6 +18,9 @@ func _init():
     
     var extensions: Array = [
         
+        "utils.gd",
+        # Mods's Methods
+
         "enemy.gd",
         # SETTING : set_enemy_transparency
         
