@@ -3,14 +3,13 @@ extends "res://ui/menus/shop/item_description.gd"
 onready var _curse_strength_label: Label
 
 # =========================== Extension =========================== #
-func set_item(item_data: ItemParentData, player_index: int, item_count: int = 1)->void :
+func set_item(item_data: ItemParentData, player_index: int, item_count: int = 1) -> void:
     .set_item(item_data, player_index, item_count)
     _update_curse_strength_display(item_data)
 
 # =========================== Custom =========================== #
 func _update_curse_strength_display(item_data: ItemParentData) -> void:
-    
-    if !ProgressData.settings.yztato_curse_strength: return
+    if !ProgressData.settings.optimize_curse_strength: return
     
     _create_curse_strength_label()
     

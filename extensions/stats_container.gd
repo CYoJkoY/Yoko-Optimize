@@ -9,25 +9,25 @@ var tertiary_stats: Array = []
 
 # =========================== Extension =========================== #
 func _ready() -> void:
-    _yztato_tertiary_stat_ready()
+    _optimize_tertiary_stat_ready()
 
 func set_focus_neighbours() -> void:
-    _yztato_set_focus_neighbours()
+    _optimize_set_focus_neighbours()
 
 func _reset_focus_neighbours() -> void:
-    _yztato_reset_focus_neighbours()
+    _optimize_reset_focus_neighbours()
 
 func update_tab(tab: int) -> void:
-    _yztato_update_tab(tab)
+    _optimize_update_tab(tab)
 
 func _input(event: InputEvent) -> void:
-    _yztato_input(event)
+    _optimize_input(event)
 
 func update_player_stats(player_index: int) -> void:
-    _yztato_update_player_stats(player_index)
+    _optimize_update_player_stats(player_index)
 
 # =========================== Custom =========================== #
-func _yztato_tertiary_stat_ready() -> void:
+func _optimize_tertiary_stat_ready() -> void:
     # Create TertiaryStats VBoxContainer
     _tertiary_stats.name = "TertiaryStats"
     _VBoxContainer2.add_child(_tertiary_stats)
@@ -66,7 +66,7 @@ func _yztato_tertiary_stat_ready() -> void:
     
     _buttons_container.add_child(_tertiary_tab)
 
-func _yztato_update_tab(tab: int) -> void:
+func _optimize_update_tab(tab: int) -> void:
     focused_tab = tab
 
     if tab == Tab.PRIMARY:
@@ -98,7 +98,7 @@ func _yztato_update_tab(tab: int) -> void:
 
     set_focus_neighbours()
 
-func _yztato_set_focus_neighbours() -> void:
+func _optimize_set_focus_neighbours() -> void:
     # Ensure _tertiary_tab is added to the scene tree
     if !_buttons_container.has_node(_tertiary_tab.name): return
 
@@ -127,7 +127,7 @@ func _yztato_set_focus_neighbours() -> void:
         _secondary_tab.focus_neighbour_right = _secondary_tab.get_path_to(_tertiary_tab)
         _tertiary_tab.focus_neighbour_right = _tertiary_tab.get_path_to(right_node) if right_node else NodePath("")
 
-func _yztato_reset_focus_neighbours() -> void:
+func _optimize_reset_focus_neighbours() -> void:
     for margin in [MARGIN_TOP, MARGIN_BOTTOM, MARGIN_LEFT, MARGIN_RIGHT]:
         if margin == MARGIN_TOP and focus_neighbour_top != NodePath(""): continue
 
@@ -141,7 +141,7 @@ func _yztato_reset_focus_neighbours() -> void:
         stat.focus_neighbour_left = NodePath("")
         stat.focus_neighbour_right = NodePath("")
 
-func _yztato_input(event: InputEvent) -> void:
+func _optimize_input(event: InputEvent) -> void:
     if event is InputEventJoypadButton and show_buttons:
         if event.is_action_pressed("ltrigger"):
             match focused_tab:
@@ -155,7 +155,7 @@ func _yztato_input(event: InputEvent) -> void:
                 Tab.SECONDARY: update_tab(2)
                 2: update_tab(Tab.PRIMARY)
 
-func _yztato_update_player_stats(player_index: int) -> void:
+func _optimize_update_player_stats(player_index: int) -> void:
     var update_stats
     match [show_buttons, focused_tab]:
         [true, _]: update_stats = primary_stats + secondary_stats + tertiary_stats

@@ -5,23 +5,23 @@ signal back_button_pressed
 onready var back_button: Button = $BackButton
 onready var focus_before_created: Control = get_focus_owner()
 
-onready var UnlockDifficulties = $"%UnlockDifficulties" as CheckButton
-onready var UnlockAllChars = $"%UnlockAllChars" as CheckButton
-onready var UnlockAllChallenges = $"%UnlockAllChallenges" as CheckButton
-onready var StartingWeapons = $"%StartingWeapons" as CheckButton
-onready var OptimizePickUp = $"%OptimizePickUp" as CheckButton
-onready var CurseStrength = $"%CurseStrength" as CheckButton
-onready var NumberOptimize = $"%NumberOptimize" as CheckButton
+onready var UnlockDifficulties: CheckButton = $"%UnlockDifficulties"
+onready var UnlockAllChars: CheckButton = $"%UnlockAllChars"
+onready var UnlockAllChallenges: CheckButton = $"%UnlockAllChallenges"
+onready var StartingWeapons: CheckButton = $"%StartingWeapons"
+onready var OptimizePickUp: CheckButton = $"%OptimizePickUp"
+onready var CurseStrength: CheckButton = $"%CurseStrength"
+onready var NumberOptimize: CheckButton = $"%NumberOptimize"
 onready var HitProtectonDisplay: CheckButton = $"%HitProtectonDisplay"
 
-onready var RainbowGold = $"%RainbowGold" as OptionButton
-onready var colors_names: Array = ProgressData.settings.yz_colors.keys()
+onready var RainbowGold: OptionButton = $"%RainbowGold"
+onready var colors_names: Array = ProgressData.settings.opt_colors.keys()
 
-onready var SetWeaponTransparency = $"%SetWeaponTransparency" as HBoxContainer
-onready var SetEnemyTransparency = $"%SetEnemyTransparency" as HBoxContainer
-onready var SetEnemyProjTransparency = $"%SetEnemyProjTransparency" as HBoxContainer
-onready var SetGoldTransparency = $"%SetGoldTransparency" as HBoxContainer
-onready var SetConsumableTransparency = $"%SetConsumableTransparency" as HBoxContainer
+onready var SetWeaponTransparency: HBoxContainer = $"%SetWeaponTransparency"
+onready var SetEnemyTransparency: HBoxContainer = $"%SetEnemyTransparency"
+onready var SetEnemyProjTransparency: HBoxContainer = $"%SetEnemyProjTransparency"
+onready var SetGoldTransparency: HBoxContainer = $"%SetGoldTransparency"
+onready var SetConsumableTransparency: HBoxContainer = $"%SetConsumableTransparency"
 
 # =========================== Init =========================== #
 func _input(event):
@@ -36,59 +36,59 @@ func init() -> void:
     init_values_from_progress_data()
 
 func init_values_from_progress_data() -> void:
-    UnlockDifficulties.pressed = ProgressData.settings.yztato_unlock_difficulties
-    UnlockAllChars.pressed = ProgressData.settings.yztato_unlock_all_chars
-    UnlockAllChallenges.pressed = ProgressData.settings.yztato_unlock_all_challenges
-    StartingWeapons.pressed = ProgressData.settings.yztato_starting_weapons
-    OptimizePickUp.pressed = ProgressData.settings.yztato_optimize_pickup
-    CurseStrength.pressed = ProgressData.settings.yztato_curse_strength
-    NumberOptimize.pressed = ProgressData.settings.yztato_number_optimize
-    HitProtectonDisplay.pressed = ProgressData.settings.yztato_hit_protection_display
+    UnlockDifficulties.pressed = ProgressData.settings.optimize_unlock_difficulties
+    UnlockAllChars.pressed = ProgressData.settings.optimize_unlock_all_chars
+    UnlockAllChallenges.pressed = ProgressData.settings.optimize_unlock_all_challenges
+    StartingWeapons.pressed = ProgressData.settings.optimize_starting_weapons
+    OptimizePickUp.pressed = ProgressData.settings.optimize_optimize_pickup
+    CurseStrength.pressed = ProgressData.settings.optimize_curse_strength
+    NumberOptimize.pressed = ProgressData.settings.optimize_number_optimize
+    HitProtectonDisplay.pressed = ProgressData.settings.optimize_hit_protection_display
     
-    RainbowGold.select(colors_names.find(ProgressData.settings.yztato_rainbow_gold))
+    RainbowGold.select(colors_names.find(ProgressData.settings.optimize_rainbow_gold))
 
-    SetWeaponTransparency.set_value(ProgressData.settings.yztato_set_weapon_transparency)
-    SetEnemyTransparency.set_value(ProgressData.settings.yztato_set_enemy_transparency)
-    SetEnemyProjTransparency.set_value(ProgressData.settings.yztato_set_enemy_proj_transparency)
-    SetGoldTransparency.set_value(ProgressData.settings.yztato_set_gold_transparency)
-    SetConsumableTransparency.set_value(ProgressData.settings.yztato_set_consumable_transparency)
+    SetWeaponTransparency.set_value(ProgressData.settings.optimize_set_weapon_transparency)
+    SetEnemyTransparency.set_value(ProgressData.settings.optimize_set_enemy_transparency)
+    SetEnemyProjTransparency.set_value(ProgressData.settings.optimize_set_enemy_proj_transparency)
+    SetGoldTransparency.set_value(ProgressData.settings.optimize_set_gold_transparency)
+    SetConsumableTransparency.set_value(ProgressData.settings.optimize_set_consumable_transparency)
 
 # =========================== Save =========================== #
 func _on_BackButton_pressed():
     focus_before_created.grab_focus()
     emit_signal("back_button_pressed")
 
-func _on_MenuYztatoSetOptions_hide():
+func _on_MenuoptimizeSetOptions_hide():
     ProgressData.save_settings()
 
 # =========================== Load =========================== #
 func _on_UnlockDifficulties_toggled(button_pressed: bool):
-    ProgressData.settings.yztato_unlock_difficulties = button_pressed
+    ProgressData.settings.optimize_unlock_difficulties = button_pressed
 func _on_UnlockAllChars_toggled(button_pressed: bool):
-    ProgressData.settings.yztato_unlock_all_chars = button_pressed
+    ProgressData.settings.optimize_unlock_all_chars = button_pressed
 func _on_UnlockAllChallenges_toggled(button_pressed: bool):
-    ProgressData.settings.yztato_unlock_all_challenges = button_pressed
+    ProgressData.settings.optimize_unlock_all_challenges = button_pressed
 func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_starting_weapons = button_pressed
+    ProgressData.settings.optimize_starting_weapons = button_pressed
 func _on_OptimizePickUp_toggled(button_pressed: bool):
-    ProgressData.settings.yztato_optimize_pickup = button_pressed
+    ProgressData.settings.optimize_optimize_pickup = button_pressed
 func _on_CurseStrength_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_curse_strength = button_pressed
+    ProgressData.settings.optimize_curse_strength = button_pressed
 func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_number_optimize = button_pressed
+    ProgressData.settings.optimize_number_optimize = button_pressed
 func _on_HitProtectonDisplay_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.yztato_hit_protection_display = button_pressed
+    ProgressData.settings.optimize_hit_protection_display = button_pressed
 
 func _on_RainbowGold_item_selected(index: int):
-    ProgressData.settings.yztato_rainbow_gold = colors_names[index]
+    ProgressData.settings.optimize_rainbow_gold = colors_names[index]
 
 func _on_SetWeaponTransparency_value_changed(value: float):
-    ProgressData.settings.yztato_set_weapon_transparency = value
+    ProgressData.settings.optimize_set_weapon_transparency = value
 func _on_SetEnemyTransparency_value_changed(value: float):
-    ProgressData.settings.yztato_set_enemy_transparency = value
+    ProgressData.settings.optimize_set_enemy_transparency = value
 func _on_SetEnemyProjTransparency_value_changed(value: float):
-    ProgressData.settings.yztato_set_enemy_proj_transparency = value
+    ProgressData.settings.optimize_set_enemy_proj_transparency = value
 func _on_SetGoldTransparency_value_changed(value: float):
-    ProgressData.settings.yztato_set_gold_transparency = value
+    ProgressData.settings.optimize_set_gold_transparency = value
 func _on_SetConsumableTransparency_value_changed(value: float):
-    ProgressData.settings.yztato_set_consumable_transparency = value
+    ProgressData.settings.optimize_set_consumable_transparency = value

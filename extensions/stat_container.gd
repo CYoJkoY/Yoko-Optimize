@@ -3,11 +3,11 @@ extends "res://ui/menus/shop/stat_container.gd"
 # =========================== Extension =========================== #
 func update_player_stat(player_index: int) -> void:
     .update_player_stat(player_index)
-    if ProgressData.settings.yztato_number_optimize:
-        _yztato_update_player_stat(player_index)
+    if ProgressData.settings.optimize_number_optimize:
+        _optimize_update_player_stat(player_index)
 
 # =========================== Custom =========================== #
-func _yztato_update_player_stat(player_index: int) -> void:
+func _optimize_update_player_stat(player_index: int) -> void:
     var stat_value = Utils.get_stat(key_hash, player_index)
     var value_text = Utils.opt_format_number(stat_value as int)
 

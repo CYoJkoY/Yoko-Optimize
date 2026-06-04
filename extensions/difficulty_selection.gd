@@ -1,15 +1,15 @@
 extends "res://ui/menus/run/difficulty_selection/difficulty_selection.gd"
 
 # =========================== Extension =========================== #
-func _get_unlocked_elements(_player_index: int)->Array:
-    var unlocked_difficulties = ._get_unlocked_elements(_player_index)
-    unlocked_difficulties = _yztato_unlock_difficulties(unlocked_difficulties)
+func _get_unlocked_elements(_player_index: int) -> Array:
+    var unlocked_difficulties =._get_unlocked_elements(_player_index)
+    unlocked_difficulties = _optimize_unlock_difficulties(unlocked_difficulties)
 
     return unlocked_difficulties
 
 # =========================== Custom =========================== #
-func _yztato_unlock_difficulties(unlocked_difficulties: Array) -> Array:
-    if ProgressData.settings.yztato_unlock_difficulties:
+func _optimize_unlock_difficulties(unlocked_difficulties: Array) -> Array:
+    if ProgressData.settings.optimize_unlock_difficulties:
         for player_data in RunData.players_data:
             # Unlock all difficulties
             for character in ItemService.characters:

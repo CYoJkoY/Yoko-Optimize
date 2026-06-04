@@ -14,11 +14,11 @@ func _ready() -> void:
 func update_player_stat(player_index: int) -> void:
     _icon.texture = ItemService.get_stat_small_icon(key_hash)
     .update_player_stat(player_index)
-    if ProgressData.settings.yztato_number_optimize:
-        _yztato_update_player_stat(player_index)
+    if ProgressData.settings.optimize_number_optimize:
+        _optimize_update_player_stat(player_index)
 
 # =========================== Custom =========================== #
-func _yztato_update_player_stat(player_index: int) -> void:
+func _optimize_update_player_stat(player_index: int) -> void:
     var stat_value = Utils.get_stat(key_hash, player_index)
     var value_text = Utils.opt_format_number(stat_value as int)
     _value.text = value_text

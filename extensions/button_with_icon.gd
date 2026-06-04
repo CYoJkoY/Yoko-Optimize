@@ -3,5 +3,5 @@ extends "res://ui/menus/shop/button_with_icon.gd"
 # =========================== Extension =========================== #
 func set_value(value: int, currency: int) -> void:
     .set_value(value, currency)
-    if ProgressData.settings.yztato_number_optimize:
+    if ProgressData.settings.optimize_number_optimize:
         _label.text = Utils.opt_format_number(value)
