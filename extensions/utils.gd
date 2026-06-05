@@ -2,8 +2,7 @@ extends "res://singletons/utils.gd"
 
 # =========================== Methods =========================== #
 func opt_format_number(value: int) -> String:
-    if value < 1000:
-        return str(value)
+    if value < 1000: return str(value)
     
     var abs_value = abs(value)
     var suffix = ""

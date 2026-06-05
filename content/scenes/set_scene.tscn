@@ -8,7 +8,7 @@
 [ext_resource path="res://ui/menus/global/slider_option.tscn" type="PackedScene" id=6]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/content/scenes/RainbowGoldButton.gd" type="Script" id=7]
 
-[node name="MenuYztatoSetOptions" type="VBoxContainer"]
+[node name="MenuOptimizeSetOptions" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 0.972
 margin_right = -100.0
@@ -27,11 +27,11 @@ scroll_horizontal_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 margin_right = 1808.0
-margin_bottom = 729.0
+margin_bottom = 751.0
 
 [node name="EmptySpace1" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 729.0
+margin_bottom = 751.0
 rect_min_size = Vector2( 250, 0 )
 rect_pivot_offset = Vector2( 166, 160 )
 
@@ -39,14 +39,14 @@ rect_pivot_offset = Vector2( 166, 160 )
 unique_name_in_owner = true
 margin_left = 254.0
 margin_right = 1554.0
-margin_bottom = 729.0
+margin_bottom = 751.0
 rect_min_size = Vector2( 1300, 0 )
 size_flags_vertical = 3
 
-[node name="YztatoSetLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="SetLabel" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 margin_right = 1300.0
 margin_bottom = 45.0
-text = "MENU_YZTATO_SET"
+text = "MENU_OPTIMIZE_SET"
 align = 1
 
 [node name="StartingWeapons" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
@@ -85,28 +85,19 @@ custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
 text = "OPT_NUMBER_OPTIMIZE"
 
-[node name="HitProtectonDisplay" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="RainbowGold" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 margin_top = 345.0
 margin_right = 1300.0
-margin_bottom = 415.0
-custom_fonts/font = ExtResource( 4 )
-custom_styles/hover_pressed = ExtResource( 5 )
-text = "OPT_HIT_PROTECTION_DISPLAY"
-
-[node name="RainbowGold" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-margin_top = 419.0
-margin_right = 1300.0
-margin_bottom = 484.0
+margin_bottom = 410.0
 
 [node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
 margin_top = 10.0
-margin_right = 378.0
+margin_right = 405.0
 margin_bottom = 55.0
 text = "OPT_RAINBOW_GOLD"
 
 [node name="EmptySpace" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
-margin_left = 382.0
+margin_left = 409.0
 margin_right = 1128.0
 margin_bottom = 65.0
 size_flags_horizontal = 3
@@ -126,9 +117,9 @@ rect_min_size = Vector2( 100, 0 )
 
 [node name="SetWeaponTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 488.0
+margin_top = 414.0
 margin_right = 1300.0
-margin_bottom = 533.0
+margin_bottom = 459.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" index="0"]
@@ -153,9 +144,9 @@ margin_bottom = 45.0
 
 [node name="SetEnemyTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 537.0
+margin_top = 463.0
 margin_right = 1300.0
-margin_bottom = 582.0
+margin_bottom = 508.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" index="0"]
@@ -180,36 +171,36 @@ margin_bottom = 45.0
 
 [node name="SetEnemyProjTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 586.0
+margin_top = 512.0
 margin_right = 1300.0
-margin_bottom = 631.0
+margin_bottom = 605.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="0"]
 margin_top = 0.0
 margin_right = 670.0
-margin_bottom = 45.0
+margin_bottom = 93.0
 text = "OPT_ENEMY_PROJ_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="1"]
 margin_left = 690.0
 margin_right = 1190.0
-margin_bottom = 45.0
+margin_bottom = 93.0
 rect_min_size = Vector2( 500, 0 )
 step = 0.01
 value = 1.0
 
 [node name="Value" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="2"]
 margin_left = 1210.0
-margin_top = 0.0
+margin_top = 24.0
 margin_right = 1300.0
-margin_bottom = 45.0
+margin_bottom = 69.0
 
 [node name="SetGoldTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 635.0
+margin_top = 609.0
 margin_right = 1300.0
-margin_bottom = 680.0
+margin_bottom = 654.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency" index="0"]
@@ -234,35 +225,35 @@ margin_bottom = 45.0
 
 [node name="SetConsumableTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 684.0
+margin_top = 658.0
 margin_right = 1300.0
-margin_bottom = 729.0
+margin_bottom = 751.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="0"]
 margin_top = 0.0
 margin_right = 670.0
-margin_bottom = 45.0
+margin_bottom = 93.0
 text = "OPT_CONSUMABLE_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="1"]
 margin_left = 690.0
 margin_right = 1190.0
-margin_bottom = 45.0
+margin_bottom = 93.0
 rect_min_size = Vector2( 500, 0 )
 step = 0.01
 value = 1.0
 
 [node name="Value" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="2"]
 margin_left = 1210.0
-margin_top = 0.0
+margin_top = 24.0
 margin_right = 1300.0
-margin_bottom = 45.0
+margin_bottom = 69.0
 
 [node name="EmptySpace2" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_left = 1558.0
 margin_right = 1808.0
-margin_bottom = 729.0
+margin_bottom = 751.0
 rect_min_size = Vector2( 250, 0 )
 
 [node name="BackButton" type="Button" parent="."]
@@ -279,7 +270,6 @@ script = ExtResource( 2 )
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/OptimizePickUp" to="." method="_on_OptimizePickUp_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/CurseStrength" to="." method="_on_CurseStrength_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/NumberOptimize" to="." method="_on_NumberOptimize_toggled"]
-[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/HitProtectonDisplay" to="." method="_on_HitProtectonDisplay_toggled"]
 [connection signal="item_selected" from="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold/RainbowGold" to="." method="_on_RainbowGold_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" to="." method="_on_SetWeaponTransparency_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" to="." method="_on_SetEnemyTransparency_value_changed"]
