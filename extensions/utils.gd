@@ -42,3 +42,19 @@ func opt_format_number(value: int) -> String:
     if value < 0: result = "-%s" % [result]
 
     return result + suffix
+
+func opt_get_stat_small_icon(stat_hash: int) -> Resource:
+    var stat: Resource = opt_get_stat(stat_hash)
+
+    if stat: return stat.small_icon
+
+    return null
+
+func opt_get_stat(stat_hash: int) -> Resource:
+    for stat in ItemService.stats:
+        if stat.stat_hash != stat_hash or \
+        stat.get("is_tertiary_stat") == null: continue
+
+        return stat
+
+    return null

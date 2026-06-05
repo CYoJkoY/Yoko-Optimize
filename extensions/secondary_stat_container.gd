@@ -12,7 +12,7 @@ func _ready() -> void:
     _HBoxContainer.move_child(_icon, 0)
 
 func update_player_stat(player_index: int) -> void:
-    _icon.texture = ItemService.get_stat_small_icon(key_hash)
+    _icon.texture = Utils.opt_get_stat_small_icon(key_hash)
     .update_player_stat(player_index)
     if ProgressData.settings.optimize_number_optimize:
         _optimize_update_player_stat(player_index)

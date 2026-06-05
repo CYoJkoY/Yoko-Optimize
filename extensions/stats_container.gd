@@ -32,17 +32,19 @@ func _optimize_tertiary_stat_ready() -> void:
     _tertiary_stats.name = "TertiaryStats"
     _VBoxContainer2.add_child(_tertiary_stats)
     for stat in ItemService.stats:
-        if stat.get("is_tertiary_stat") != null:
-            if stat.is_tertiary_stat:
-                var teriary_stat = _secondary_stats.get_child(0).duplicate()
-                teriary_stat.key = stat.stat_name.to_upper()
-                tertiary_stats_keys.append(teriary_stat.key)
-                teriary_stat.reverse = stat.reverse
-                _tertiary_stats.add_child(teriary_stat)
-                teriary_stat.disable_focus()
-    
+        if stat.get("is_tertiary_stat") == null: continue
+
+        if !stat.is_tertiary_stat: continue
+
+        var teriary_stat = _secondary_stats.get_child(0).duplicate()
+        teriary_stat.key = stat.stat_name.to_upper()
+        tertiary_stats_keys.append(teriary_stat.key)
+        teriary_stat.reverse = stat.reverse
+        _tertiary_stats.add_child(teriary_stat)
+        teriary_stat.disable_focus()
+
     tertiary_stats = _tertiary_stats.get_children()
-    
+
     # Remove Tertiary Stat From Primary
     for primary in primary_stats:
         if primary.key in tertiary_stats_keys:
