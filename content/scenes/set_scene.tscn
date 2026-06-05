@@ -265,7 +265,7 @@ size_flags_horizontal = 4
 text = "MENU_BACK"
 script = ExtResource( 2 )
 
-[connection signal="hide" from="." to="." method="_on_MenuYztatoSetOptions_hide"]
+[connection signal="hide" from="." to="." method="_on_MenuOptimizeSetOptions_hide"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/StartingWeapons" to="." method="_on_StartingWeapons_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/OptimizePickUp" to="." method="_on_OptimizePickUp_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/CurseStrength" to="." method="_on_CurseStrength_toggled"]

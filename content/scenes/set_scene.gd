@@ -50,7 +50,7 @@ func _on_BackButton_pressed():
     focus_before_created.grab_focus()
     emit_signal("back_button_pressed")
 
-func _on_MenuoptimizeSetOptions_hide():
+func _on_MenuOptimizeSetOptions_hide():
     ProgressData.save_settings()
 
 # =========================== Load =========================== #
