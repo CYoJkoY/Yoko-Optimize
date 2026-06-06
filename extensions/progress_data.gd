@@ -1,6 +1,11 @@
 extends "res://singletons/progress_data.gd"
 
+var current_opt_color: Array = []
+
 # =========================== Extension =========================== #
+func _ready() -> void:
+    _optimize_current_color_ready()
+
 func init_settings() -> void:
     .init_settings()
     settings.merge(init_optimize_set_options())
@@ -51,3 +56,10 @@ func init_optimize_set_options() -> Dictionary:
         "optimize_set_gold_transparency": 1.0,
         "optimize_set_consumable_transparency": 1.0,
     }
+
+func _optimize_current_color_ready():
+    if settings.optimize_rainbow_gold == "OPT_EMPTY": return
+
+    var color_name: String = settings.optimize_rainbow_gold
+    var opt_colors: Dictionary = settings.opt_colors
+    current_opt_color = opt_colors.get(color_name)

@@ -2,19 +2,18 @@ extends "res://items/materials/gold.gd"
 
 # =========================== Extension =========================== #
 func _ready() -> void:
-    _optimize_rainbow_gold()
     _optimize_set_gold_transparency(ProgressData.settings.optimize_set_gold_transparency)
+
+func drop(pos: Vector2, p_rotation: float, p_push_back_destiation: Vector2) -> void:
+    _optimize_rainbow_gold()
+    .drop(pos, p_rotation, p_push_back_destiation)
 
 func _physics_process(delta: float) -> void:
     _optimize_physics_process(delta)
 
 # =========================== Custom =========================== #
 func _optimize_rainbow_gold() -> void:
-    var color_name: String = ProgressData.settings.optimize_rainbow_gold
-    var opt_colors: Dictionary = ProgressData.settings.opt_colors
-    if color_name != "OPT_EMPTY":
-        var opt_color = opt_colors.get(color_name)
-        modulate = Color(Utils.get_rand_element(opt_color))
+    modulate = Color(Utils.get_rand_element(ProgressData.current_opt_color))
 
 func _optimize_set_gold_transparency(alpha_value: float) -> void:
     var clamped_alpha = clamp(alpha_value, 0.0, 1.0)
