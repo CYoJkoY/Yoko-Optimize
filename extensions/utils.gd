@@ -1,45 +1,32 @@
 extends "res://singletons/utils.gd"
 
+const THRESHOLDS = [
+    [1000000000000000000, "Qi"],
+    [1000000000000000, "Qa"],
+    [1000000000000, "T"],
+    [1000000000, "B"],
+    [1000000, "M"],
+    [1000, "K"]
+]
+
 # =========================== Methods =========================== #
 func opt_format_number(value: int) -> String:
     if value < 1000: return str(value)
-    
-    var abs_value = abs(value)
-    var suffix = ""
-    var base = 1
-    
-    if abs_value >= 1000000000000000000:
-        suffix = "Qi"
-        base = 1000000000000000000
-    elif abs_value >= 1000000000000000:
-        suffix = "Qa"
-        base = 1000000000000000
-    elif abs_value >= 1000000000000:
-        suffix = "T"
-        base = 1000000000000
-    elif abs_value >= 1000000000:
-        suffix = "B"
-        base = 1000000000
-    elif abs_value >= 1000000:
-        suffix = "M"
-        base = 1000000
-    elif abs_value >= 1000:
-        suffix = "K"
-        base = 1000
 
-    var integer_part: int = abs_value / base
-    var decimal_part: int = (abs_value % base) * 100 / base
+    var abs_val: int = int(abs(value))
+    var suffix: String = ""
+    var base: int = 1
 
-    if decimal_part >= 100:
-        integer_part += 1
-        decimal_part = 0
+    for item in THRESHOLDS:
+        if abs_val < item[0]: continue
 
-    var result = str(integer_part)
-    if decimal_part > 0:
-        if decimal_part % 10 == 0: result = "%s.%s" % [result, str(decimal_part / 10)]
-        else: result = "%s.%s" % [result, str(decimal_part)]
+        base = item[0]
+        suffix = item[1]
+        break
 
-    if value < 0: result = "-%s" % [result]
+    var value_formatted: float = abs_val / float(base)
+    var result: String = str(stepify(value_formatted, 0.01))
+    if value < 0: result = "-" + result
 
     return result + suffix
 

@@ -5,13 +5,13 @@ onready var _curse_strength_label: Label
 # =========================== Extension =========================== #
 func set_item(item_data: ItemParentData, player_index: int, item_count: int = 1) -> void:
 	.set_item(item_data, player_index, item_count)
-	_update_curse_strength_display(item_data)
+	_optimize_update_curse_strength_display(item_data)
 
 # =========================== Custom =========================== #
-func _update_curse_strength_display(item_data: ItemParentData) -> void:
+func _optimize_update_curse_strength_display(item_data: ItemParentData) -> void:
 	if !ProgressData.settings.optimize_curse_strength: return
 
-	_create_curse_strength_label()
+	_optimize_create_curse_strength_label()
 
 	if item_data.is_cursed:
 		_curse_strength_label.visible = true
@@ -23,7 +23,7 @@ func _update_curse_strength_display(item_data: ItemParentData) -> void:
 
 	else: _curse_strength_label.visible = false
 
-func _create_curse_strength_label() -> void:
+func _optimize_create_curse_strength_label() -> void:
 	if is_instance_valid(_curse_strength_label): return
 	
 	_curse_strength_label = Label.new()

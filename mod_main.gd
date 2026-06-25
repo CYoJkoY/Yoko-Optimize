@@ -36,17 +36,17 @@ func _init():
         # SETTINGS
 
         "secondary_stat_container.gd",
-        # SETTING : number_optimize[ 1/8 ]
+        # SETTING: number_optimize[ 1/8 ]
         # Secondary Stats' Icons
 
         "stats_container.gd",
-        # SETTING : tertiary_stats
+        # SETTING: tertiary_stats
 
         "melee_weapon.gd",
-        # SETTING : set_weapon_transparency[ 1/2 ]
+        # SETTING: set_weapon_transparency[ 1/2 ]
 
         "ranged_weapon.gd",
-        # SETTING : set_weapon_transparency[ 2/2 ]
+        # SETTING: set_weapon_transparency[ 2/2 ]
 
         "title_screen_menus.gd",
         # SETTINGS
@@ -55,32 +55,42 @@ func _init():
         # SETTINGS
 
         "button_with_icon.gd",
-        # SETTING : number_optimize[ 2/8 ]
+        # SETTING: number_optimize[ 2/8 ]
 
         "ui_gold.gd",
-        # SETTING : number_optimize[ 3/8 ]
+        # SETTING: number_optimize[ 3/8 ]
 
         "ui_bonus_gold.gd",
-        # SETTING : number_optimize[ 4/8 ]
+        # SETTING: number_optimize[ 4/8 ]
 
         "stat_container.gd",
-        # SETTING : number_optimize[ 5/8 ]
+        # SETTING: number_optimize[ 5/8 ]
 
         "gold_label.gd",
-        # SETTING : number_optimize[ 6/8 ]
+        # SETTING: number_optimize[ 6/8 ]
 
         "weapon_stats.gd",
-        # SETTING : number_optimize[ 7/8 ]
+        # SETTING: number_optimize[ 7/8 ]
 
         "reroll_button.gd",
-        # SETTING : number_optimize[ 8/8 ]
+        # SETTING: number_optimize[ 8/8 ]
 
         "item_description.gd",
-        # SETTING : curse_strength
+        # SETTING: curse_strength
 
         "weapon_selection.gd",
-        # SETTING : starting_weapons
-        
+        # SETTING: starting_weapons
+
+        "character_selection.gd",
+        # SETTING: GMO[ 1/2 ]
+
+        "menu_data.gd",
+        # SETTING: starting_items[ 1/2 ]
+
+        "run_data.gd",
+        # SETTING: starting_items[ 2/2 ],
+        #          GMO[ 2/2 ]
+
     ]
     
     for path in extensions:

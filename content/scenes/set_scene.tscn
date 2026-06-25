@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/content/scenes/set_scene.gd" type="Script" id=1]
 [ext_resource path="res://ui/menus/global/my_menu_button.gd" type="Script" id=2]
 [ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=3]
-[ext_resource path="res://resources/fonts/actual/base/font_40_outline.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/fonts/actual/base/font_35_outline.tres" type="DynamicFont" id=4]
 [ext_resource path="res://resources/themes/button_styles/button_hover.tres" type="StyleBox" id=5]
 [ext_resource path="res://ui/menus/global/slider_option.tscn" type="PackedScene" id=6]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/content/scenes/RainbowGoldButton.gd" type="Script" id=7]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/content/scenes/number_slider_option.gd" type="Script" id=8]
 
 [node name="MenuOptimizeSetOptions" type="VBoxContainer"]
 anchor_right = 1.0
@@ -27,11 +28,11 @@ scroll_horizontal_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
 margin_right = 1808.0
-margin_bottom = 751.0
+margin_bottom = 896.0
 
 [node name="EmptySpace1" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_right = 250.0
-margin_bottom = 751.0
+margin_bottom = 896.0
 rect_min_size = Vector2( 250, 0 )
 rect_pivot_offset = Vector2( 166, 160 )
 
@@ -39,7 +40,7 @@ rect_pivot_offset = Vector2( 166, 160 )
 unique_name_in_owner = true
 margin_left = 254.0
 margin_right = 1554.0
-margin_bottom = 751.0
+margin_bottom = 896.0
 rect_min_size = Vector2( 1300, 0 )
 size_flags_vertical = 3
 
@@ -58,74 +59,63 @@ custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
 text = "OPT_STARTING_WEAPONS"
 
-[node name="OptimizePickUp" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="StartingItems" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 123.0
 margin_right = 1300.0
 margin_bottom = 193.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
-text = "OPT_OPTIMIZE_PICK_UP"
+text = "OPT_STARTING_ITEMS"
 
-[node name="CurseStrength" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="OptimizePickUp" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 197.0
 margin_right = 1300.0
 margin_bottom = 267.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
-text = "OPT_CURSE_STRENGTH"
+text = "OPT_OPTIMIZE_PICK_UP"
 
-[node name="NumberOptimize" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="CurseStrength" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 271.0
 margin_right = 1300.0
 margin_bottom = 341.0
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover_pressed = ExtResource( 5 )
-text = "OPT_NUMBER_OPTIMIZE"
+text = "OPT_CURSE_STRENGTH"
 
-[node name="RainbowGold" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+[node name="NumberOptimize" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 345.0
 margin_right = 1300.0
-margin_bottom = 410.0
+margin_bottom = 415.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover_pressed = ExtResource( 5 )
+text = "OPT_NUMBER_OPTIMIZE"
 
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
-margin_top = 10.0
-margin_right = 405.0
-margin_bottom = 55.0
-text = "OPT_RAINBOW_GOLD"
-
-[node name="EmptySpace" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
-margin_left = 409.0
-margin_right = 1128.0
-margin_bottom = 65.0
-size_flags_horizontal = 3
-
-[node name="RainbowGold" type="OptionButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
+[node name="GMO" type="CheckButton" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_left = 1132.0
-margin_right = 1196.0
-margin_bottom = 65.0
-script = ExtResource( 7 )
-
-[node name="EmptySpace2" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
-margin_left = 1200.0
+margin_top = 419.0
 margin_right = 1300.0
-margin_bottom = 65.0
-rect_min_size = Vector2( 100, 0 )
+margin_bottom = 489.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover_pressed = ExtResource( 5 )
+text = "OPT_GMO"
 
 [node name="SetWeaponTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 414.0
+margin_top = 493.0
 margin_right = 1300.0
-margin_bottom = 459.0
+margin_bottom = 538.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" index="0"]
-margin_top = 0.0
+margin_top = 2.0
 margin_right = 670.0
-margin_bottom = 45.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
 text = "OPT_WEAPON_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" index="1"]
@@ -144,15 +134,16 @@ margin_bottom = 45.0
 
 [node name="SetEnemyTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 463.0
+margin_top = 542.0
 margin_right = 1300.0
-margin_bottom = 508.0
+margin_bottom = 587.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" index="0"]
-margin_top = 0.0
+margin_top = 2.0
 margin_right = 670.0
-margin_bottom = 45.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
 text = "OPT_ENEMY_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" index="1"]
@@ -171,42 +162,44 @@ margin_bottom = 45.0
 
 [node name="SetEnemyProjTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 512.0
+margin_top = 591.0
 margin_right = 1300.0
-margin_bottom = 605.0
+margin_bottom = 636.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="0"]
-margin_top = 0.0
+margin_top = 2.0
 margin_right = 670.0
-margin_bottom = 93.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
 text = "OPT_ENEMY_PROJ_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="1"]
 margin_left = 690.0
 margin_right = 1190.0
-margin_bottom = 93.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 500, 0 )
 step = 0.01
 value = 1.0
 
 [node name="Value" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" index="2"]
 margin_left = 1210.0
-margin_top = 24.0
+margin_top = 0.0
 margin_right = 1300.0
-margin_bottom = 69.0
+margin_bottom = 45.0
 
 [node name="SetGoldTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 609.0
+margin_top = 640.0
 margin_right = 1300.0
-margin_bottom = 654.0
+margin_bottom = 685.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency" index="0"]
-margin_top = 0.0
+margin_top = 2.0
 margin_right = 670.0
-margin_bottom = 45.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
 text = "OPT_GOLD_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency" index="1"]
@@ -225,35 +218,132 @@ margin_bottom = 45.0
 
 [node name="SetConsumableTransparency" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
 unique_name_in_owner = true
-margin_top = 658.0
+margin_top = 689.0
 margin_right = 1300.0
-margin_bottom = 751.0
+margin_bottom = 734.0
 custom_constants/separation = 20
 
 [node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="0"]
-margin_top = 0.0
+margin_top = 2.0
 margin_right = 670.0
-margin_bottom = 93.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
 text = "OPT_CONSUMABLE_TRANSPARENCY"
 
 [node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="1"]
 margin_left = 690.0
 margin_right = 1190.0
-margin_bottom = 93.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 500, 0 )
 step = 0.01
 value = 1.0
 
 [node name="Value" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" index="2"]
 margin_left = 1210.0
-margin_top = 24.0
+margin_top = 0.0
 margin_right = 1300.0
-margin_bottom = 69.0
+margin_bottom = 45.0
+
+[node name="SetStartingItemsNum" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+margin_top = 738.0
+margin_right = 1300.0
+margin_bottom = 783.0
+custom_constants/separation = 20
+script = ExtResource( 8 )
+
+[node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetStartingItemsNum" index="0"]
+margin_top = 2.0
+margin_right = 670.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
+text = "OPT_STARTING_ITEMS_NUM"
+
+[node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetStartingItemsNum" index="1"]
+margin_left = 690.0
+margin_right = 1190.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 500, 0 )
+min_value = 1.0
+max_value = 100.0
+step = 1.0
+value = 1.0
+
+[node name="Value" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetStartingItemsNum" index="2"]
+margin_left = 1210.0
+margin_top = 0.0
+margin_right = 1300.0
+margin_bottom = 45.0
+text = "1"
+
+[node name="SetGMONum" parent="ScrollContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+margin_top = 787.0
+margin_right = 1300.0
+margin_bottom = 832.0
+custom_constants/separation = 20
+script = ExtResource( 8 )
+
+[node name="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGMONum" index="0"]
+margin_top = 2.0
+margin_right = 670.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
+text = "OPT_GMO_NUM"
+
+[node name="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGMONum" index="1"]
+margin_left = 690.0
+margin_right = 1190.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 500, 0 )
+min_value = 2.0
+max_value = 100.0
+step = 1.0
+value = 2.0
+
+[node name="Value" parent="ScrollContainer/HBoxContainer/VBoxContainer/SetGMONum" index="2"]
+margin_left = 1210.0
+margin_top = 0.0
+margin_right = 1300.0
+margin_bottom = 45.0
+text = "1"
+
+[node name="RainbowGold" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+margin_top = 836.0
+margin_right = 1300.0
+margin_bottom = 896.0
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
+margin_top = 10.0
+margin_right = 350.0
+margin_bottom = 50.0
+custom_fonts/font = ExtResource( 4 )
+text = "OPT_RAINBOW_GOLD"
+
+[node name="EmptySpace1" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
+margin_left = 354.0
+margin_right = 1128.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="RainbowGold" type="OptionButton" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
+unique_name_in_owner = true
+margin_left = 1132.0
+margin_right = 1196.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 4 )
+script = ExtResource( 7 )
+
+[node name="EmptySpace2" type="Control" parent="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold"]
+margin_left = 1200.0
+margin_right = 1300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 0 )
 
 [node name="EmptySpace2" type="Control" parent="ScrollContainer/HBoxContainer"]
 margin_left = 1558.0
 margin_right = 1808.0
-margin_bottom = 751.0
+margin_bottom = 896.0
 rect_min_size = Vector2( 250, 0 )
 
 [node name="BackButton" type="Button" parent="."]
@@ -267,15 +357,19 @@ script = ExtResource( 2 )
 
 [connection signal="hide" from="." to="." method="_on_MenuOptimizeSetOptions_hide"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/StartingWeapons" to="." method="_on_StartingWeapons_toggled"]
+[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/StartingItems" to="." method="_on_StartingItems_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/OptimizePickUp" to="." method="_on_OptimizePickUp_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/CurseStrength" to="." method="_on_CurseStrength_toggled"]
 [connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/NumberOptimize" to="." method="_on_NumberOptimize_toggled"]
-[connection signal="item_selected" from="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold/RainbowGold" to="." method="_on_RainbowGold_item_selected"]
+[connection signal="toggled" from="ScrollContainer/HBoxContainer/VBoxContainer/GMO" to="." method="_on_GMO_toggled"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency" to="." method="_on_SetWeaponTransparency_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyTransparency" to="." method="_on_SetEnemyTransparency_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency" to="." method="_on_SetEnemyProjTransparency_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency" to="." method="_on_SetGoldTransparency_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency" to="." method="_on_SetConsumableTransparency_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetStartingItemsNum" to="." method="_on_SetStartingItemsNum_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/HBoxContainer/VBoxContainer/SetGMONum" to="." method="_on_SetGMONum_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/HBoxContainer/VBoxContainer/RainbowGold/RainbowGold" to="." method="_on_RainbowGold_item_selected"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 
 [editable path="ScrollContainer/HBoxContainer/VBoxContainer/SetWeaponTransparency"]
@@ -283,3 +377,5 @@ script = ExtResource( 2 )
 [editable path="ScrollContainer/HBoxContainer/VBoxContainer/SetEnemyProjTransparency"]
 [editable path="ScrollContainer/HBoxContainer/VBoxContainer/SetGoldTransparency"]
 [editable path="ScrollContainer/HBoxContainer/VBoxContainer/SetConsumableTransparency"]
+[editable path="ScrollContainer/HBoxContainer/VBoxContainer/SetStartingItemsNum"]
+[editable path="ScrollContainer/HBoxContainer/VBoxContainer/SetGMONum"]

@@ -18,9 +18,18 @@ func init_optimize_set_options() -> Dictionary:
         "optimize_unlock_all_challenges": false,
         "optimize_optimize_pickup": false,
         "optimize_starting_weapons": false,
+        "optimize_starting_items": false,
         "optimize_curse_strength": true,
         "optimize_number_optimize": true,
         "optimize_hit_protection_display": false,
+        "optimize_gmo": false,
+        "optimize_set_weapon_transparency": 1.0,
+        "optimize_set_enemy_transparency": 1.0,
+        "optimize_set_enemy_proj_transparency": 1.0,
+        "optimize_set_gold_transparency": 1.0,
+        "optimize_set_consumable_transparency": 1.0,
+        "optimize_set_starting_items_num": 1,
+        "optimize_set_gmo_num": 2,
         "optimize_rainbow_gold": "OPT_EMPTY",
         "opt_colors": {
             "OPT_EMPTY": [],
@@ -50,11 +59,6 @@ func init_optimize_set_options() -> Dictionary:
                         "#FFEE58", "#FFCA28", "#FFA726", "#FF7043",
                         "#8D6E63", "#BDBDBD", "#78909C"],
         },
-        "optimize_set_weapon_transparency": 1.0,
-        "optimize_set_enemy_transparency": 1.0,
-        "optimize_set_enemy_proj_transparency": 1.0,
-        "optimize_set_gold_transparency": 1.0,
-        "optimize_set_consumable_transparency": 1.0,
     }
 
 func _optimize_current_color_ready():
