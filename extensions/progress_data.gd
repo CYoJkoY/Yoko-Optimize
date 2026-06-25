@@ -1,17 +1,24 @@
 extends "res://singletons/progress_data.gd"
 
+const OPTIMIZE_CONFIG_FILE: String = "optimize_config.json"
+
+var optimize_settings: Dictionary = {}
+var optimize_config_path: String = ""
 var current_opt_color: Array = []
 
 # =========================== Extension =========================== #
 func _ready() -> void:
-    _optimize_current_color_ready()
-
-func init_settings() -> void:
-    .init_settings()
-    settings.merge(init_optimize_set_options())
+    _optimize_ready()
 
 # =========================== Custom =========================== #
-func init_optimize_set_options() -> Dictionary:
+func _optimize_ready():
+    optimize_config_path = SAVE_DIR + OPTIMIZE_CONFIG_FILE
+    optimize_settings = op_get_default_optimize_settings()
+    op_load_optimize_settings()
+    op_update_runtime_palette()
+
+# =========================== Method =========================== #
+func op_get_default_optimize_settings() -> Dictionary:
     return {
         "optimize_unlock_difficulties": false,
         "optimize_unlock_all_chars": false,
@@ -30,40 +37,121 @@ func init_optimize_set_options() -> Dictionary:
         "optimize_set_consumable_transparency": 1.0,
         "optimize_set_starting_items_num": 1,
         "optimize_set_gmo_num": 2,
-        "optimize_rainbow_gold": "OPT_EMPTY",
-        "opt_colors": {
-            "OPT_EMPTY": [],
-            "OPT_EXLIGHT": ["#FFEBEE", "#FCE4EC", "#F3E5F5", "#EDE7F6",
-                        "#E8EAF6", "#E3F2FD", "#E1F5FE", "#E0F7FA",
-                        "#E0F2F1", "#E8F5E9", "#F1F8E9", "#F9FBE7",
-                        "#FFFDE7", "#FFF8E1", "#FFF3E0", "#FBE9E7",
-                        "#EFEBE9", "#FAFAFA", "#ECEFF1"],
-            "OPT_LIGHT": ["#FFCDD2", "#F8BBD0", "#E1BEE7", "#D1C4E9",
-                        "#C5CAE9", "#BBDEFB", "#B3E5FC", "#B2EBF2",
-                        "#B2DFDB", "#C8E6C9", "#DCEDC8", "#F0F4C3",
-                        "#FFF9C4", "#FFECB3", "#FFE0B2", "#FFCCBC",
-                        "#D7CCC8", "#F5F5F5", "#CFD8DC"],
-            "OPT_MEDIUM": ["#EF9A9A", "#F48FB1", "#CE93D8", "#B39DDB",
-                        "#9FA8DA", "#90CAF9", "#81D4FA", "#80DEEA",
-                        "#80CBC4", "#A5D6A7", "#C5E1A5", "#E6EE9C",
-                        "#FFF59D", "#FFE082", "#FFCC80", "#FFAB91",
-                        "#BCAAA4", "#EEEEEE", "#B0BEC5"],
-            "OPT_DARK": ["#E57373", "#F06292", "#BA68C8", "#9575CD",
-                        "#7986CB", "#64B5F6", "#4FC3F7", "#4DD0E1",
-                        "#4DB6AC", "#81C784", "#AED581", "#DCE775",
-                        "#FFF176", "#FFD54F", "#FFB74D", "#FF8A65",
-                        "#A1887F", "#E0E0E0", "#90A4AE"],
-            "OPT_EXDARK": ["#EF5350", "#EC407A", "#AB47BC", "#7E57C2",
-                        "#5C6BC0", "#42A5F5", "#29B6F6", "#26C6DA",
-                        "#26A69A", "#66BB6A", "#9CCC65", "#D4E157",
-                        "#FFEE58", "#FFCA28", "#FFA726", "#FF7043",
-                        "#8D6E63", "#BDBDBD", "#78909C"],
+        "optimize_palettes": {
+            "default": {
+                "name": "Default",
+                "colors": ["#990000", "#009900", "#000099", "#999900", "#990099", "#009999"]
+            }
         },
+        "optimize_active_palette_ids": ["default"],
     }
 
-func _optimize_current_color_ready():
-    if settings.optimize_rainbow_gold == "OPT_EMPTY": return
+func op_update_runtime_palette() -> void:
+    current_opt_color.clear()
+    var palettes: Dictionary = optimize_settings.get("optimize_palettes", {})
+    var active_ids: Array = optimize_settings.get("optimize_active_palette_ids", [])
+    for id in active_ids:
+        if !palettes.has(id): continue
 
-    var color_name: String = settings.optimize_rainbow_gold
-    var opt_colors: Dictionary = settings.opt_colors
-    current_opt_color = opt_colors.get(color_name)
+        var colors: Array = palettes[id].get("colors", [])
+        current_opt_color.append_array(colors)
+
+    if current_opt_color.empty(): current_opt_color = ["#FFFFFF"]
+
+func op_get_palettes() -> Dictionary:
+    return optimize_settings.get("optimize_palettes", {})
+
+func op_get_active_palette_ids() -> Array:
+    return optimize_settings.get("optimize_active_palette_ids", [])
+
+func op_set_active_palette_ids(ids: Array) -> void:
+    optimize_settings["optimize_active_palette_ids"] = ids
+    op_save_optimize_settings()
+    op_update_runtime_palette()
+
+func op_add_palette(name: String, colors: Array) -> String:
+    var palettes: Dictionary = optimize_settings["optimize_palettes"]
+    var id: String = str(Time.get_ticks_msec())
+    palettes[id] = {"name": name, "colors": colors}
+    op_save_optimize_settings()
+    return id
+
+func op_remove_palette(id: String) -> void:
+    var palettes: Dictionary = optimize_settings["optimize_palettes"]
+    if !palettes.has(id): return
+
+    palettes.erase(id)
+    var active = optimize_settings["optimize_active_palette_ids"]
+    if active.has(id):
+        active.erase(id)
+        op_update_runtime_palette()
+    op_save_optimize_settings()
+
+func op_update_palette(id: String, new_name: String, new_colors: Array) -> void:
+    var palettes: Dictionary = optimize_settings["optimize_palettes"]
+    if !palettes.has(id): return
+
+    palettes[id]["name"] = new_name
+    palettes[id]["colors"] = new_colors
+    if optimize_settings["optimize_active_palette_ids"].has(id): op_update_runtime_palette()
+    op_save_optimize_settings()
+
+func op_get_runtime_colors() -> Array:
+    return current_opt_color
+
+func op_load_optimize_settings() -> void:
+    var file: File = File.new()
+    if !file.file_exists(optimize_config_path):
+        ModLoaderLog.info("No config file found, using defaults.", "Yoko-Optimize")
+        return
+
+    var err: int = file.open(optimize_config_path, File.READ)
+    if err != OK:
+        ModLoaderLog.error("Could not open config file: %s" % [optimize_config_path], "Yoko-Optimize")
+        return
+
+    var content: String = file.get_as_text()
+    file.close()
+
+    var parse: JSONParseResult = JSON.parse(content)
+    if parse.error != OK:
+        ModLoaderLog.error("Error parsing config: %s" % [parse.error_string], "Yoko-Optimize")
+        return
+
+    var data: Dictionary = parse.result
+    if typeof(data) != TYPE_DICTIONARY:
+        ModLoaderLog.error("Config is not a dictionary", "Yoko-Optimize")
+        return
+
+    for key in data.keys():
+        if !optimize_settings.has(key): continue
+
+        optimize_settings[key] = data[key]
+
+    ModLoaderLog.info("Config loaded successfully.", "Yoko-Optimize")
+
+func op_save_optimize_settings() -> void:
+    var tmp_path: String = optimize_config_path + ".tmp"
+    var file: File = File.new()
+    var err: int = file.open(tmp_path, File.WRITE)
+    if err != OK:
+        ModLoaderLog.error("Could not create temp file: %s" % [tmp_path], "Yoko-Optimize")
+        return
+
+    var json_str: String = JSON.print(optimize_settings, "  ")
+    file.store_string(json_str)
+    file.close()
+
+    var dir: Directory = Directory.new()
+    if dir.file_exists(optimize_config_path):
+        err = dir.remove(optimize_config_path)
+        if err != OK:
+            ModLoaderLog.error("Could not remove old config file: %s" % [optimize_config_path], "Yoko-Optimize")
+            return
+
+    err = dir.rename(tmp_path, optimize_config_path)
+    if err != OK:
+        ModLoaderLog.error("Could not rename temp file to config file: %s" % [optimize_config_path], "Yoko-Optimize")
+        return
+
+    ModLoaderLog.info("Mod settings saved.", "Yoko-Optimize")

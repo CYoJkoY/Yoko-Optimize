@@ -13,11 +13,14 @@ func _physics_process(delta: float) -> void:
 
 # =========================== Custom =========================== #
 func _optimize_rainbow_gold() -> void:
-    modulate = Color(Utils.get_rand_element(ProgressData.current_opt_color))
+    var colors: Array = ProgressData.op_get_runtime_colors()
+    if colors.empty(): return
+
+    var color_str: String = Utils.get_rand_element(colors)
+    modulate = Color(color_str)
 
 func _optimize_set_gold_transparency(alpha_value: float) -> void:
-    var clamped_alpha = clamp(alpha_value, 0.0, 1.0)
-    modulate.a = clamped_alpha
+    modulate.a = clamp(alpha_value, 0.0, 1.0)
 
 func _optimize_physics_process(delta: float) -> void:
     # Optimize Pick Up

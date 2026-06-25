@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/content/scenes/color_item.gd" type="Script" id=1]
+
+[node name="ColorItem" type="Control"]
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
+focus_mode = 0
+mouse_filter = 2
+color = Color( 1, 1, 1, 1 )
+
+[node name="HoldMask" type="ColorRect" parent="."]
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="HoldButton" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
+focus_mode = 0
+mouse_filter = 2

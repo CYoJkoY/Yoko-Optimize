@@ -2,6 +2,8 @@ extends Control
 
 signal back_button_pressed
 
+onready var scroll_container: ScrollContainer = $"ScrollContainer"
+onready var palette_manager: WindowDialog = $"PaletteManager"
 onready var back_button: Button = $BackButton
 onready var focus_before_created: Control = get_focus_owner()
 
@@ -20,75 +22,80 @@ onready var SetConsumableTransparency: HBoxContainer = $"%SetConsumableTranspare
 onready var SetStartingItemsNum: HBoxContainer = $"%SetStartingItemsNum"
 onready var SetGMONum: HBoxContainer = $"%SetGMONum"
 
-onready var RainbowGold: OptionButton = $"%RainbowGold"
-onready var colors_names: Array = ProgressData.settings.opt_colors.keys()
-
-# =========================== Init =========================== #
 func _input(event) -> void:
-    if self.visible and event.is_action_pressed("ui_cancel"):
+    if visible and event.is_action_pressed("ui_cancel"):
         _on_BackButton_pressed()
         get_tree().set_input_as_handled()
 
 func init() -> void:
     focus_before_created = get_focus_owner()
+    scroll_container.show()
+    back_button.show()
     back_button.grab_focus()
-
     init_values_from_progress_data()
 
 func init_values_from_progress_data() -> void:
-    StartingWeapons.pressed = ProgressData.settings.optimize_starting_weapons
-    StartingItems.pressed = ProgressData.settings.optimize_starting_items
-    OptimizePickUp.pressed = ProgressData.settings.optimize_optimize_pickup
-    CurseStrength.pressed = ProgressData.settings.optimize_curse_strength
-    NumberOptimize.pressed = ProgressData.settings.optimize_number_optimize
-    Gmo.pressed = ProgressData.settings.optimize_gmo
+    var opt = ProgressData.optimize_settings
+    StartingWeapons.pressed = opt.optimize_starting_weapons
+    StartingItems.pressed = opt.optimize_starting_items
+    OptimizePickUp.pressed = opt.optimize_optimize_pickup
+    CurseStrength.pressed = opt.optimize_curse_strength
+    NumberOptimize.pressed = opt.optimize_number_optimize
+    Gmo.pressed = opt.optimize_gmo
 
-    SetWeaponTransparency.set_value(ProgressData.settings.optimize_set_weapon_transparency)
-    SetEnemyTransparency.set_value(ProgressData.settings.optimize_set_enemy_transparency)
-    SetEnemyProjTransparency.set_value(ProgressData.settings.optimize_set_enemy_proj_transparency)
-    SetGoldTransparency.set_value(ProgressData.settings.optimize_set_gold_transparency)
-    SetConsumableTransparency.set_value(ProgressData.settings.optimize_set_consumable_transparency)
-    SetStartingItemsNum.set_value(ProgressData.settings.optimize_set_starting_items_num)
-    SetGMONum.set_value(ProgressData.settings.optimize_set_gmo_num)
+    SetWeaponTransparency.set_value(opt.optimize_set_weapon_transparency)
+    SetEnemyTransparency.set_value(opt.optimize_set_enemy_transparency)
+    SetEnemyProjTransparency.set_value(opt.optimize_set_enemy_proj_transparency)
+    SetGoldTransparency.set_value(opt.optimize_set_gold_transparency)
+    SetConsumableTransparency.set_value(opt.optimize_set_consumable_transparency)
+    SetStartingItemsNum.set_value(opt.optimize_set_starting_items_num)
+    SetGMONum.set_value(opt.optimize_set_gmo_num)
 
-    RainbowGold.select(colors_names.find(ProgressData.settings.optimize_rainbow_gold))
-
-# =========================== Save =========================== #
 func _on_BackButton_pressed() -> void:
+    palette_manager.hide()
     focus_before_created.grab_focus()
     emit_signal("back_button_pressed")
+    ProgressData.op_save_optimize_settings()
+
+func _on_PaletteManagerButton_pressed() -> void:
+    palette_manager.popup_centered()
+    scroll_container.hide()
+    back_button.hide()
+
+func _on_PaletteManager_popup_hide() -> void:
+    scroll_container.show()
+    back_button.show()
 
 func _on_MenuOptimizeSetOptions_hide() -> void:
-    ProgressData.save_settings()
+    ProgressData.op_save_optimize_settings()
 
-# =========================== Load =========================== #
-func _on_StartingWeapons_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.optimize_starting_weapons = button_pressed
-func _on_StartingItems_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.optimize_starting_items = button_pressed
-func _on_OptimizePickUp_toggled(button_pressed: bool):
-    ProgressData.settings.optimize_optimize_pickup = button_pressed
-func _on_CurseStrength_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.optimize_curse_strength = button_pressed
-func _on_NumberOptimize_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.optimize_number_optimize = button_pressed
-func _on_GMO_toggled(button_pressed: bool) -> void:
-    ProgressData.settings.optimize_gmo = button_pressed
+func _on_StartingWeapons_toggled(pressed: bool) -> void:
+    ProgressData.optimize_settings.optimize_starting_weapons = pressed
+func _on_StartingItems_toggled(pressed: bool) -> void:
+    ProgressData.optimize_settings.optimize_starting_items = pressed
+func _on_OptimizePickUp_toggled(pressed: bool) -> void:
+    ProgressData.optimize_settings.optimize_optimize_pickup = pressed
+func _on_CurseStrength_toggled(pressed: bool) -> void:
+    ProgressData.optimize_settings.optimize_curse_strength = pressed
+func _on_NumberOptimize_toggled(pressed: bool) -> void:
+    ProgressData.optimize_settings.optimize_number_optimize = pressed
+func _on_GMO_toggled(pressed: bool) -> void:
+    ProgressData.optimize_settings.optimize_gmo = pressed
 
 func _on_SetWeaponTransparency_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_weapon_transparency = value
+    ProgressData.optimize_settings.optimize_set_weapon_transparency = value
 func _on_SetEnemyTransparency_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_enemy_transparency = value
+    ProgressData.optimize_settings.optimize_set_enemy_transparency = value
 func _on_SetEnemyProjTransparency_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_enemy_proj_transparency = value
+    ProgressData.optimize_settings.optimize_set_enemy_proj_transparency = value
 func _on_SetGoldTransparency_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_gold_transparency = value
+    ProgressData.optimize_settings.optimize_set_gold_transparency = value
 func _on_SetConsumableTransparency_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_consumable_transparency = value
+    ProgressData.optimize_settings.optimize_set_consumable_transparency = value
 func _on_SetStartingItemsNum_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_starting_items_num = value
+    ProgressData.optimize_settings.optimize_set_starting_items_num = value
 func _on_SetGMONum_value_changed(value: float) -> void:
-    ProgressData.settings.optimize_set_gmo_num = value
+    ProgressData.optimize_settings.optimize_set_gmo_num = value
 
-func _on_RainbowGold_item_selected(index: int) -> void:
-    ProgressData.settings.optimize_rainbow_gold = colors_names[index]
+func _on_PaletteManager_palette_changed() -> void:
+    ProgressData.op_save_optimize_settings()

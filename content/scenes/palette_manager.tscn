@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/content/scenes/palette_manager.gd" type="Script" id=1]
+[ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/themes/special_button_theme.tres" type="Theme" id=3]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/content/icons/cross_icon.webp" type="Texture" id=4]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/content/icons/cross_highlight_icon.webp" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color( 1, 0.772549, 0, 0.6 )
+shadow_size = 20
+
+[node name="PaletteManager" type="WindowDialog"]
+visible = true
+margin_right = 1600.0
+margin_bottom = 1050.0
+rect_min_size = Vector2( 1600, 1050 )
+theme = ExtResource( 2 )
+custom_constants/close_h_ofs = 70
+custom_constants/close_v_ofs = -25
+custom_icons/close_highlight = ExtResource( 5 )
+custom_icons/close = ExtResource( 4 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="EmptySpace" type="Control" parent="HBoxContainer"]
+margin_right = 350.0
+margin_bottom = 1050.0
+rect_min_size = Vector2( 350, 0 )
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 354.0
+margin_right = 1454.0
+margin_bottom = 1050.0
+rect_min_size = Vector2( 1100, 1050 )
+
+[node name="EmptySpace" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_right = 1100.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 0, 15 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 1100.0
+margin_bottom = 64.0
+text = "PALETTE_MANAGER"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 1100.0
+margin_bottom = 878.0
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="PaletteList" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 1100.0
+size_flags_horizontal = 3
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 882.0
+margin_right = 1100.0
+margin_bottom = 962.0
+rect_min_size = Vector2( 0, 80 )
+scroll_horizontal_enabled = false
+
+[node name="PreviewContainer" type="HFlowContainer" parent="HBoxContainer/VBoxContainer/ScrollContainer2"]
+unique_name_in_owner = true
+margin_right = 1100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+
+[node name="AddPaletteBtn" type="Button" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 966.0
+margin_right = 1100.0
+margin_bottom = 1031.0
+theme = ExtResource( 3 )
+text = "ADD_NEW_PALETTE"
+
+[node name="EmptySpace2" type="Control" parent="HBoxContainer/VBoxContainer"]
+margin_top = 1035.0
+margin_right = 1100.0
+margin_bottom = 1050.0
+rect_min_size = Vector2( 0, 15 )
+mouse_filter = 2
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/AddPaletteBtn" to="." method="_on_AddPaletteBtn_pressed"]
