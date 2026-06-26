@@ -52,7 +52,11 @@ func init_values_from_progress_data() -> void:
     SetGMONum.set_value(opt.optimize_set_gmo_num)
 
 func _on_BackButton_pressed() -> void:
-    palette_manager.hide()
+    if palette_manager.visible:
+        palette_manager.hide()
+        ProgressData.op_save_optimize_settings()
+        return
+
     focus_before_created.grab_focus()
     emit_signal("back_button_pressed")
     ProgressData.op_save_optimize_settings()

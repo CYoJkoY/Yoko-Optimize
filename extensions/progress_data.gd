@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # =========================== Custom =========================== #
 func _optimize_ready():
-    optimize_config_path = SAVE_DIR + OPTIMIZE_CONFIG_FILE
+    optimize_config_path = SAVE_DIR.plus_file(OPTIMIZE_CONFIG_FILE)
     optimize_settings = op_get_default_optimize_settings()
     op_load_optimize_settings()
     op_update_runtime_palette()

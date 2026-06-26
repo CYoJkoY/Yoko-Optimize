@@ -25,6 +25,12 @@ margin_left = 140.0
 margin_right = 242.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 100, 30 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
 size_flags_horizontal = 3
 
 [node name="DeletePaletteBtn" type="Button" parent="TopRow"]

@@ -31,4 +31,3 @@ margin_right = 45.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 45, 45 )
 focus_mode = 0
-mouse_filter = 2
