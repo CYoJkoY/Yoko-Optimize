@@ -3,14 +3,29 @@ extends Node
 const MYMODNAME_MOD_DIR = "Yoko-Optimize/"
 const MYMODNAME_LOG = "Yoko-Optimize"
 
-var dir = ""
-var ext_dir = ""
+var dir: String = ""
+var content_dir: String = ""
+var ext_dir: String = ""
 
 # =========================== Extension =========================== #
 func _init():
     dir = ModLoaderMod.get_unpacked_dir() + MYMODNAME_MOD_DIR
+    content_dir = dir + "content/"
     ext_dir = dir + "extensions/"
     
+    # Add Classes
+    var classes: Array = [
+        {
+            "base": "CharacterData",
+            "class": "ItemCharacterData",
+            "language": "GDScript",
+            "path": "res://mods-unpacked/Yoko-Optimize/content/scripts/item_character.gd"
+        },
+    ]
+
+    ModLoaderMod.register_global_classes_from_array(classes)
+
+    # Add Extensions
     var extensions: Array = [
         
         "utils.gd",

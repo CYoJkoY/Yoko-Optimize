@@ -1,4 +1,5 @@
-extends "res://items/characters/character_data.gd"
+class_name ItemCharacterData
+extends CharacterData
 
 func clone(character: CharacterData) -> void:
     my_id = character.my_id

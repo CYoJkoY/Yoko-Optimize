@@ -21,7 +21,7 @@ func _ready() -> void:
 
     if RunData.get_player_count() > 1:
         base_columns = 16
-    
+
     var columns = int(base_columns / RunData.get_player_count())
 
     for inventory in inventories:
@@ -32,7 +32,7 @@ func _ready() -> void:
         _back_button.set_focus_neighbour(margin, _back_button.get_path_to(_back_button))
 
     _background.texture = ZoneService.get_zone_data(RunData.current_zone).ui_background
-    
+
 func _on_BackButton_pressed():
     _manage_back()
 
@@ -60,7 +60,8 @@ func _go_back() -> void:
 func _get_all_possible_elements(_player_index: int) -> Array:
     var items = []
     for item in ItemService.items:
-        if not item.is_locked: items.append(item)
+        if !item.is_locked:
+            items.append(item)
     return items
 
 func _get_reward_type() -> int:
@@ -70,7 +71,7 @@ func _on_element_pressed(element: InventoryElement, inventory_player_index: int)
     if element.is_random:
         var available_elements := []
         for element in displayed_elements[inventory_player_index]:
-            if not element.is_locked:
+            if !element.is_locked:
                 available_elements.push_back(element)
         var item = Utils.get_rand_element(available_elements)
         _player_items[inventory_player_index].append(item)
@@ -97,7 +98,7 @@ func _add_number_to_item(element: InventoryElement) -> void:
 func _on_selections_completed() -> void:
     for player_index in _player_items.size():
         var items = _player_items[player_index]
-        
+
         for item in items:
             if item != null:
                 RunData.add_item(item, player_index)

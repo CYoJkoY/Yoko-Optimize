@@ -25,7 +25,8 @@ func setup(p_id: String, p_palette_id: String, p_color_index: int, initial_color
     _initial_color = initial_color
     set_meta("color_id", p_id)
 
-    if picker: picker.color = initial_color
+    if picker:
+        picker.color = initial_color
 
 func _ready() -> void:
     picker.color = _initial_color
@@ -41,8 +42,9 @@ func _process(_delta: float) -> void:
 
     var elapsed: float = (OS.get_ticks_msec() / 1000.0) - _press_time
     var progress: float = min(elapsed / HOLD_DURATION, 1.0)
-    
-    if mask: mask.color.a = progress * 0.6
+
+    if mask:
+        mask.color.a = progress * 0.6
 
     if progress >= 1.0:
         _is_holding = false
@@ -59,11 +61,12 @@ func _on_hold_button_down() -> void:
 
 func _on_hold_button_up() -> void:
     if !_is_holding: return
-    
+
     _is_holding = false
     set_process(false)
-    if mask: mask.color.a = 0.0
-        
+    if mask:
+        mask.color.a = 0.0
+
     var elapsed: float = (OS.get_ticks_msec() / 1000.0) - _press_time
     if elapsed < CLICK_THRESHOLD:
         var popup: PopupPanel = picker.get_popup()

@@ -1,6 +1,5 @@
 extends "res://ui/menus/run/character_selection.gd"
 
-const ItemCharacterData = preload("res://mods-unpacked/Yoko-Optimize/content/scripts/item_character.gd")
 const FONT_RESOURCE = preload("res://resources/fonts/actual/base/font_40_outline_thick.tres")
 var _player_gmo_num: int = ProgressData.settings.optimize_set_gmo_num
 
@@ -18,7 +17,7 @@ func _on_selections_completed() -> void:
                         RunData.add_character(character, player_index)
                         selection_characters.push_back(character)
                     else:
-                        var other_character = ItemCharacterData.new()
+                        var other_character: ItemCharacterData = ItemCharacterData.new()
                         other_character.clone(character)
 
                         RunData.add_item(other_character, player_index)
