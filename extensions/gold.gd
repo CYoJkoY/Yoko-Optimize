@@ -2,7 +2,7 @@ extends "res://items/materials/gold.gd"
 
 # =========================== Extension =========================== #
 func _ready() -> void:
-    _optimize_set_gold_transparency(ProgressData.settings.optimize_set_gold_transparency)
+    _optimize_set_gold_transparency(ProgressData.optimize_settings.optimize_set_gold_transparency)
 
 func drop(pos: Vector2, p_rotation: float, p_push_back_destiation: Vector2) -> void:
     _optimize_rainbow_gold()
@@ -24,7 +24,7 @@ func _optimize_set_gold_transparency(alpha_value: float) -> void:
 
 func _optimize_physics_process(delta: float) -> void:
     # Optimize Pick Up
-    if ProgressData.settings.optimize_optimize_pickup:
+    if ProgressData.optimize_settings.optimize_optimize_pickup:
         var current_pos: Vector2 = global_position
 
         if push_back and current_pos.distance_squared_to(push_back_destination) > 400:

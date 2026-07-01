@@ -1,9 +1,16 @@
 class_name ItemCharacterData
-extends CharacterData
+extends ItemData
+
+export(Array, String) var wanted_tags
+export(Array, String) var banned_item_groups
+export(Array, String) var banned_items
+export(Array, String) var banned_upgrades
+export(Array, Resource) var starting_weapons
+export(Array, Resource) var starting_items
 
 func clone(character: CharacterData) -> void:
-    my_id = character.my_id
-    my_id_hash = character.my_id_hash
+    my_id = "item_" + character.my_id
+    my_id_hash = Keys.generate_hash(my_id)
     is_locked = character.is_locked
     unlocked_by_default = character.unlocked_by_default
     can_be_looted = character.can_be_looted

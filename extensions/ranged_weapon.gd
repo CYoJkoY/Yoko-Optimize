@@ -2,7 +2,7 @@ extends "res://weapons/ranged/ranged_weapon.gd"
 
 # =========================== Extension =========================== #
 func _ready():
-    _optimize_set_weapon_transparency(ProgressData.settings.optimize_set_weapon_transparency)
+    _optimize_set_weapon_transparency(ProgressData.optimize_settings.optimize_set_weapon_transparency)
 
 # =========================== Custom =========================== #
 func _optimize_set_weapon_transparency(alpha_value: float) -> void:

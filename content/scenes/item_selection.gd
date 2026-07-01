@@ -1,7 +1,7 @@
 extends BaseSelection
 
 var _player_items := []
-var _player_items_max_count: int = ProgressData.settings.optimize_set_starting_items_num
+var _player_items_max_count: int = ProgressData.optimize_settings.optimize_set_starting_items_num
 
 onready var _back_button: Button = $"%BackButton"
 onready var _character_panel: ItemPanelUI = $"%CharacterPanelUI"

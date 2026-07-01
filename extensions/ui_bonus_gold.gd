@@ -2,10 +2,10 @@ extends "res://ui/hud/ui_bonus_gold.gd"
 
 # =========================== Extension =========================== #
 func _ready() -> void:
-    if ProgressData.settings.optimize_number_optimize:
+    if ProgressData.optimize_settings.optimize_number_optimize:
         _gold_label.text = Utils.opt_format_number(RunData.bonus_gold)
 
 func update_value(new_value: int) -> void:
     .update_value(new_value)
-    if ProgressData.settings.optimize_number_optimize:
+    if ProgressData.optimize_settings.optimize_number_optimize:
         _gold_label.text = Utils.opt_format_number(new_value)

@@ -3,7 +3,7 @@ extends "res://ui/menus/shop/stat_container.gd"
 # =========================== Extension =========================== #
 func update_player_stat(player_index: int) -> void:
     .update_player_stat(player_index)
-    if ProgressData.settings.optimize_number_optimize:
+    if ProgressData.optimize_settings.optimize_number_optimize:
         _optimize_update_player_stat(player_index)
 
 # =========================== Custom =========================== #

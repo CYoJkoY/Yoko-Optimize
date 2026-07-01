@@ -23,7 +23,18 @@ func _init():
         },
     ]
 
-    ModLoaderMod.register_global_classes_from_array(classes)
+    var registered_classes: Array = ProjectSettings.get_setting("_global_script_classes")
+    var registered_names: Dictionary = {}
+    for old_class in registered_classes:
+        registered_names[old_class.class ] = true
+
+    var classes_to_register: Array = []
+    for new_class in classes:
+        if !registered_names.has(new_class.class ):
+            classes_to_register.append(new_class)
+
+    if !classes_to_register.empty():
+        ModLoaderMod.register_global_classes_from_array(classes_to_register)
 
     # Add Extensions
     var extensions: Array = [
@@ -43,12 +54,14 @@ func _init():
 
         "gold.gd",
         # SETTING: set_gold_transparency
-        #          rainbow_gold
+        #          rainbow_gold[ 1/2 ]
         #          optimize_pickup[ 2/2 ]
 
         "progress_data.gd",
         # Mod's Contents
         # SETTINGS
+        # SETTING: GMO[ 1/5 ],
+        #          rainbo_gold[ 2/2 ]
 
         "secondary_stat_container.gd",
         # SETTING: number_optimize[ 1/8 ]
@@ -97,17 +110,23 @@ func _init():
         # SETTING: starting_weapons
 
         "character_selection.gd",
-        # SETTING: GMO[ 1/2 ]
+        # SETTING: GMO[ 2/5 ]
 
         "menu_data.gd",
         # SETTING: starting_items[ 1/2 ]
 
         "run_data.gd",
         # SETTING: starting_items[ 2/2 ],
-        #          GMO[ 2/2 ]
+        #          GMO[ 3/5 ]
+
+        "progress_data_loader_v3.gd",
+        # SETTING: GMO[ 4/5 ]
+
+        "progress_data_loader_beta.gd",
+        # SETTING: GMO[ 5/5 ]
 
     ]
-    
+
     for path in extensions:
         var extension_path = ext_dir + path
         ModLoaderMod.install_script_extension(extension_path)

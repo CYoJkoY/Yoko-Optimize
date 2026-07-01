@@ -35,7 +35,7 @@
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/content/stats/stat_free_rerolls.tres" type="Resource" id=33]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/content/stats/stat_item_box_gold.tres" type="Resource" id=34]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/content/stats/stat_gold_drops.tres" type="Resource" id=35]
-[ext_resource path="res://mods-unpacked/Yoko-NewContentLoader/NewContent.gd" type="Script" id=36]
+[ext_resource path="res://mods-unpacked/Yoko-Optimize/OptimizeNewContent.gd" type="Script" id=36]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/translations/Optimize.ru.translation" type="Translation" id=37]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/translations/Optimize.tr.translation" type="Translation" id=38]
 [ext_resource path="res://mods-unpacked/Yoko-Optimize/translations/Optimize.zh.translation" type="Translation" id=39]
@@ -79,6 +79,7 @@ tracked_items = {
 }
 tracked_effects = {
 }
+quiet_stat_keys = [  ]
 primary_stats_list = [  ]
 effect_keys_full_serialization = [  ]
 effect_keys_with_weapon_stats = [  ]

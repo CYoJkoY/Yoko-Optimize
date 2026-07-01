@@ -15,7 +15,7 @@ func _get_all_possible_elements(player_index: int) -> Array:
 
 # =========================== Custom =========================== #
 func _optimize_starting_weapons_unlock(unlocked: Array = []) -> Array:
-    if ProgressData.settings.optimize_starting_weapons:
+    if ProgressData.optimize_settings.optimize_starting_weapons:
         unlocked = []
         for weapon in ItemService.weapons:
             unlocked.append(weapon.my_id_hash)
@@ -25,7 +25,7 @@ func _optimize_starting_weapons_unlock(unlocked: Array = []) -> Array:
     return unlocked
 
 func _optimize_starting_weapons_possible(possible_weapons: Array = []) -> Array:
-    if ProgressData.settings.optimize_starting_weapons:
+    if ProgressData.optimize_settings.optimize_starting_weapons:
         possible_weapons = []
         possible_weapons.append_array(ItemService.weapons)
         possible_weapons.append_array(ItemService.items)

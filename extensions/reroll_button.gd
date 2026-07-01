@@ -3,7 +3,7 @@ extends "res://ui/menus/shop/reroll_button.gd"
 # =========================== Extension =========================== #
 func init(value: int, player_index: int) -> void:
     .init(value, player_index)
-    if ProgressData.settings.optimize_number_optimize:
+    if ProgressData.optimize_settings.optimize_number_optimize:
         _optimize_init(value, player_index)
 
 # =========================== Custom =========================== #

@@ -5,9 +5,18 @@ var selected_characters: Array = [[], [], [], []]
 
 # =========================== Extension =========================== #
 func reset(restart: bool = false) -> void:
-    if ProgressData.settings.optimize_gmo or ProgressData.settings.optimize_starting_items: _optimize_reset(restart)
-    else :.reset(restart)
+    if (
+        !ProgressData.optimize_settings.empty() and \
+        (
+            ProgressData.optimize_settings.optimize_gmo or \
+            ProgressData.optimize_settings.optimize_starting_items
+        )
+    ):
+        _optimize_reset(restart)
+    else:
+        .reset(restart)
 
+# =========================== Custom =========================== #
 func _optimize_reset(restart: bool = false) -> void:
     current_run_accessibility_settings = ProgressData.settings.enemy_scaling.duplicate()
     constant_projectile = ProgressData.settings.constant_projectile_option
