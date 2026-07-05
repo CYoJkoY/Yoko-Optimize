@@ -36,7 +36,7 @@ func _optimize_create_curse_strength_label() -> void:
     
     var VContainer: VBoxContainer = get_node_or_null("HBoxContainer/ScrollContainer/VBoxContainer") as VBoxContainer
     # ↓↓↓ codex_item_description ↓↓↓ #
-    if !VContainer or not is_instance_valid(VContainer): VContainer = get_node_or_null("HBoxContainer/VBoxContainer")
+    if !VContainer or !is_instance_valid(VContainer): VContainer = get_node_or_null("HBoxContainer/VBoxContainer")
     VContainer.add_child(_curse_strength_label)
     
     _curse_strength_label.owner = self
@@ -44,5 +44,5 @@ func _optimize_create_curse_strength_label() -> void:
 func _optimize_update_item_character_category_text(item_data: ItemParentData) -> void:
     if !ProgressData.optimize_settings.optimize_gmo: return
 
-    if item_data is ItemCharacterData:
+    if item_data.get("is_item_character") != null and item_data.get("is_item_character") == true:
         _category.text = tr("OPT_ITEM_CHARACTER")

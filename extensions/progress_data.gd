@@ -1,17 +1,11 @@
 extends "res://singletons/progress_data.gd"
 
-const MOD_ID: String = "Yoko-Optimize"
-const SETTINGS_CONFIG_NAME: String = "optimize_settings"
-const DEFAULT_SCHEMA: Dictionary = {
-    "type": "object"
-}
-
 var optimize_settings: Dictionary = {}
 var current_opt_color: Array = []
 
 # =========================== Extension =========================== #
 func _init() -> void:
-    call_deferred("_optimize_init")
+    _optimize_init()
 
 # =========================== Custom =========================== #
 func _optimize_init() -> void:
@@ -20,27 +14,27 @@ func _optimize_init() -> void:
     op_update_runtime_palette()
 
 func _init_mod_config() -> void:
-    if !ModLoaderStore.mod_data.has(MOD_ID):
-        ModLoaderLog.error("Mod not found in ModLoaderStore.", MOD_ID)
-        return
-
-    var mod_manifest: ModManifest = ModLoaderStore.mod_data[MOD_ID].manifest
+    var mod_manifest: ModManifest = ModLoaderStore.mod_data["Yoko-Optimize"].manifest
     if typeof(mod_manifest.config_schema) != TYPE_DICTIONARY:
-        mod_manifest.config_schema = DEFAULT_SCHEMA
+        mod_manifest.config_schema = {
+            "type": "object"
+        }
 
-    var configs: Dictionary = ModLoaderStore.mod_data[MOD_ID].configs
+    var configs: Dictionary = ModLoaderStore.mod_data["Yoko-Optimize"].configs
 
     if !configs.has("default"):
-        var default_config_path: String = _ModLoaderPath.get_path_to_mod_configs_dir(MOD_ID).plus_file("default.json")
-        var default_config: ModConfig = ModConfig.new(MOD_ID, {}, default_config_path, DEFAULT_SCHEMA)
+        var default_config_path: String = _ModLoaderPath.get_path_to_mod_configs_dir("Yoko-Optimize").plus_file("default.json")
+        var default_config: ModConfig = ModConfig.new("Yoko-Optimize", {}, default_config_path, {"type": "object"})
         default_config.name = "default"
-        default_config.schema = DEFAULT_SCHEMA
+        default_config.schema = {
+            "type": "object"
+        }
         default_config.is_valid = true
         configs["default"] = default_config
-        ModLoaderLog.info("Placeholder default config created.", MOD_ID)
+        ModLoaderLog.info("Placeholder default config created.", "Yoko-Optimize")
 
-    if !configs.has(SETTINGS_CONFIG_NAME):
-        var config_file_path: String = _ModLoaderPath.get_path_to_mod_configs_dir(MOD_ID).plus_file("%s.json" % SETTINGS_CONFIG_NAME)
+    if !configs.has("optimize_settings"):
+        var config_file_path: String = _ModLoaderPath.get_path_to_mod_configs_dir("Yoko-Optimize").plus_file("%s.json" % "optimize_settings")
         var file: File = File.new()
 
         if file.file_exists(config_file_path):
@@ -51,35 +45,39 @@ func _init_mod_config() -> void:
 
                 var parse: JSONParseResult = JSON.parse(content)
                 if parse.error == OK and typeof(parse.result) == TYPE_DICTIONARY:
-                    var user_config: ModConfig = ModConfig.new(MOD_ID, parse.result, config_file_path, DEFAULT_SCHEMA)
+                    var user_config: ModConfig = ModConfig.new("Yoko-Optimize", parse.result, config_file_path, {"type": "object"})
                     if user_config.is_valid:
-                        user_config.name = SETTINGS_CONFIG_NAME
-                        configs[SETTINGS_CONFIG_NAME] = user_config
-                        ModLoaderLog.info("Loaded existing settings from disk.", MOD_ID)
+                        user_config.name = "optimize_settings"
+                        configs["optimize_settings"] = user_config
+                        ModLoaderLog.info("Loaded existing settings from disk.", "Yoko-Optimize")
                         return
+
                     else:
-                        ModLoaderLog.error("Existing settings file failed validation, replacing with defaults.", MOD_ID)
+                        ModLoaderLog.error("Existing settings file failed validation, replacing with defaults.", "Yoko-Optimize")
+                
                 else:
-                    ModLoaderLog.error("Existing settings file is corrupt, replacing with defaults.", MOD_ID)
+                    ModLoaderLog.error("Existing settings file is corrupt, replacing with defaults.", "Yoko-Optimize")
+            
             else:
-                ModLoaderLog.error("Cannot read existing settings file, replacing with defaults.", MOD_ID)
+                ModLoaderLog.error("Cannot read existing settings file, replacing with defaults.", "Yoko-Optimize")
 
         var default_data: Dictionary = op_get_default_optimize_settings()
-        var user_config: ModConfig = ModConfig.new(MOD_ID, default_data, config_file_path, DEFAULT_SCHEMA)
+        var user_config: ModConfig = ModConfig.new("Yoko-Optimize", default_data, config_file_path, {"type": "object"})
         if user_config.is_valid:
-            user_config.name = SETTINGS_CONFIG_NAME
-            configs[SETTINGS_CONFIG_NAME] = user_config
+            user_config.name = "optimize_settings"
+            configs["optimize_settings"] = user_config
             user_config.save_to_file()
-            ModLoaderLog.info("New user settings config created.", MOD_ID)
+            ModLoaderLog.info("New user settings config created.", "Yoko-Optimize")
+
         else:
-            ModLoaderLog.error("Failed to create valid settings config. Using in-memory defaults.", MOD_ID)
+            ModLoaderLog.error("Failed to create valid settings config. Using in-memory defaults.", "Yoko-Optimize")
             optimize_settings = default_data
 
 func _load_optimize_settings() -> void:
-    var configs: Dictionary = ModLoaderStore.mod_data[MOD_ID].configs
-    var user_config: ModConfig = configs.get(SETTINGS_CONFIG_NAME) as ModConfig
+    var configs: Dictionary = ModLoaderStore.mod_data["Yoko-Optimize"].configs
+    var user_config: ModConfig = configs.get("optimize_settings")
     if !user_config:
-        ModLoaderLog.error("Settings config not found. Using defaults.", MOD_ID)
+        ModLoaderLog.error("Settings config not found. Using defaults.", "Yoko-Optimize")
         optimize_settings = op_get_default_optimize_settings()
         return
 
@@ -96,22 +94,24 @@ func _load_optimize_settings() -> void:
         if !user_data.has(key):
             need_save = true
             break
+
     if need_save:
         user_config.data = optimize_settings
         user_config.save_to_file()
-        ModLoaderLog.info("New default keys merged and saved.", MOD_ID)
+        ModLoaderLog.info("New default keys merged and saved.", "Yoko-Optimize")
 
 func _save_optimize_settings() -> void:
-    var user_config: ModConfig = ModLoaderConfig.get_config(MOD_ID, SETTINGS_CONFIG_NAME)
+    var user_config: ModConfig = ModLoaderConfig.get_config("Yoko-Optimize", "optimize_settings")
     if !user_config:
-        ModLoaderLog.error("Cannot save settings, config not found.", MOD_ID)
+        ModLoaderLog.error("Cannot save settings, config not found.", "Yoko-Optimize")
         return
+
     user_config.data = optimize_settings
     var updated: ModConfig = ModLoaderConfig.update_config(user_config)
     if !updated:
-        ModLoaderLog.error("Failed to save settings.", MOD_ID)
+        ModLoaderLog.error("Failed to save settings.", "Yoko-Optimize")
     else:
-        ModLoaderLog.debug("Settings saved.", MOD_ID)
+        ModLoaderLog.debug("Settings saved.", "Yoko-Optimize")
 
 # =========================== Method =========================== #
 func op_get_default_optimize_settings() -> Dictionary:

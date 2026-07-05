@@ -31,7 +31,7 @@ func _optimize_reset(restart: bool = false) -> void:
     for player_index in tracked_item_effects.size():
         tracked_item_effects[player_index] = init_tracked_effects()
 
-    if not restart:
+    if !restart:
         set_player_count(1, true)
         set_coop_run(false)
         is_endless_run = false

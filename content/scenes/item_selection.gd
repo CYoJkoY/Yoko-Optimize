@@ -13,7 +13,7 @@ func _ready() -> void:
 
     var player_index_0: int = 0
     _character_panel.set_data(RunData.players_data[player_index_0].current_character, player_index_0)
-    _character_panel.visible = not RunData.is_coop_run
+    _character_panel.visible = !RunData.is_coop_run
 
     var inventories = _get_inventories()
 

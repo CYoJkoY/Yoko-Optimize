@@ -145,7 +145,7 @@ func op_base_on_element_focused(element: InventoryElement, inventory_player_inde
             panel._show_random()
         panel.visible = true
     else:
-        panel.visible = not element.is_special
+        panel.visible = !element.is_special
 
     _latest_focused_element[player_index] = element
     if panel.visible and displayPanelData:
