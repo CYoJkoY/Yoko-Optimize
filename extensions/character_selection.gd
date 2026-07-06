@@ -89,6 +89,7 @@ func _optimize_gmo_on_selections_completed() -> void:
 
     for player_index in RunData.get_player_count():
         var characters: Array = _player_characters[player_index]
+        var other_characters: Array = []
 
         for i in range(characters.size()):
             var character: CharacterData = characters[i]
@@ -101,15 +102,18 @@ func _optimize_gmo_on_selections_completed() -> void:
                 other_character.clone(character)
 
                 ProgressData.op_add_gmo_character(other_character)
+                other_characters.append(other_character)
 
-                RunData.op_add_starting_item_character(other_character, player_index)
+        RunData.op_add_starting_characters(other_characters, player_index)
 
     if Utils.on_nintendo_nx_or_ounce and RunData.is_coop_run: OS.set_max_controller_count(RunData.get_player_count())
 
     match [ProgressData.optimize_settings.optimize_starting_items, RunData.some_player_has_weapon_slots()]:
         [true, _]: _change_scene(MenuData.item_selection_scene)
         [false, true]: _change_scene(MenuData.weapon_selection_scene)
-        [false, false]: _change_scene(MenuData.difficulty_selection_scene)
+        [false, false]:
+            RunData.add_starting_items_and_weapons()
+            _change_scene(MenuData.difficulty_selection_scene)
             
 # =========================== Method =========================== #
 func op_add_number_to_character(element: InventoryElement) -> void:

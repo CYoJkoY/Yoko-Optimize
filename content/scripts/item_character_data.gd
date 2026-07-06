@@ -14,9 +14,9 @@ export(Array, Resource) var starting_items
 func clone(character: CharacterData) -> void:
     my_id = "item_" + character.my_id
     my_id_hash = Keys.generate_hash(my_id)
-    is_locked = character.is_locked
-    unlocked_by_default = character.unlocked_by_default
-    can_be_looted = character.can_be_looted
+    is_locked = true
+    unlocked_by_default = false
+    can_be_looted = false
     icon = character.icon
     name = character.name
     tier = character.tier
@@ -37,6 +37,13 @@ func clone(character: CharacterData) -> void:
     banned_upgrades = character.banned_upgrades
     starting_weapons = character.starting_weapons
     starting_items = character.starting_items
+
+func duplicate(subresources:=false) -> Resource:
+    var duplication =.duplicate(subresources)
+
+    duplication.is_item_character = is_item_character
+
+    return duplication
 
 func get_category() -> int:
     return Category.ITEM

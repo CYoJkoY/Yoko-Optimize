@@ -98,15 +98,12 @@ func _add_number_to_item(element: InventoryElement) -> void:
 func _on_selections_completed() -> void:
     for player_index in _player_items.size():
         var items = _player_items[player_index]
-
-        for item in items:
-            if !item: continue
-
-            RunData.op_add_starting_item_character(item, player_index)
+        RunData.op_add_starting_items(items, player_index)
 
         if RunData.some_player_has_weapon_slots():
             _change_scene(MenuData.weapon_selection_scene)
         else:
+            RunData.add_starting_items_and_weapons()
             _change_scene(MenuData.difficulty_selection_scene)
 
 func _on_element_focused(element: InventoryElement, inventory_player_index: int, displayPanelData: bool = true) -> void:

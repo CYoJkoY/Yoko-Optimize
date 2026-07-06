@@ -12,9 +12,9 @@ func duplicate(subresources:=false) -> Resource:
 func add_custom_resources() -> void:
     .add_custom_resources()
     if gmo_characters.empty(): gmo_characters = ProgressData.op_update_runtime_gmo_characters()
-    add_if_not_null(ItemService.items, gmo_characters)
+    add_if_not_null(ItemService.gmo_characters, gmo_characters)
 
 func remove_custom_resources() -> void:
     .remove_custom_resources()
     if gmo_characters.empty(): gmo_characters = ProgressData.op_update_runtime_gmo_characters()
-    erase_if_not_null(ItemService.items, gmo_characters)
+    erase_if_not_null(ItemService.gmo_characters, gmo_characters)

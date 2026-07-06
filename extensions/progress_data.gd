@@ -203,10 +203,10 @@ func op_get_runtime_colors() -> Array:
 
 #* =========================== GMO Optimize =========================== *#
 func op_add_gmo_character(gmo_character: ItemCharacterData) -> void:
-    if !ItemService.get_element_safe(ItemService.items, gmo_character.my_id):
-        ItemService.items.append(gmo_character)
+    if !ItemService.get_element_safe(ItemService.gmo_characters, gmo_character.my_id):
+        ItemService.gmo_characters.append(gmo_character)
     else:
-        ModLoaderLog.info("[GMO Optimize] Item Character already exists in items: '%s'" % gmo_character.my_id, "Yoko-Optimize")
+        ModLoaderLog.info("[GMO Optimize] Item Character already exists in gmo_characters: '%s'" % gmo_character.my_id, "Yoko-Optimize")
 
     if optimize_settings["optimize_gmo_characters"].has(gmo_character.my_id): return
 

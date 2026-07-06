@@ -60,7 +60,7 @@ func _init():
         "progress_data.gd",
         # Mod's Contents
         # SETTINGS
-        # SETTING: GMO[ 1/4 ],
+        # SETTING: GMO[ 1/5 ],
         #          rainbo_gold[ 2/2 ]
 
         "secondary_stat_container.gd",
@@ -110,16 +110,19 @@ func _init():
         # SETTING: starting_weapons
 
         "character_selection.gd",
-        # SETTING: GMO[ 2/4 ]
+        # SETTING: GMO[ 2/5 ]
 
         "menu_data.gd",
         # SETTING: starting_items
 
         "player_run_data.gd",
-        # SETTING: GMO[ 3/4 ]
+        # SETTING: GMO[ 3/5 ]
 
         "run_data.gd",
-        # SETTING: GMO[ 4/4 ]
+        # SETTING: GMO[ 4/5 ]
+
+        "item_service.gd"
+        # SETTING: GMO[ 5/5 ]
 
     ]
 
