@@ -39,4 +39,14 @@ func clone(character: CharacterData) -> void:
     starting_items = character.starting_items
 
 func get_category() -> int:
-	return Category.ITEM
+    return Category.ITEM
+
+func serialize() -> Dictionary:
+    var serialized =.serialize()
+    serialized.is_item_character = is_item_character
+
+    return serialized
+
+func deserialize_and_merge(serialized: Dictionary) -> void:
+    .deserialize_and_merge(serialized)
+    is_item_character = serialized.is_item_character

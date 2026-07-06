@@ -4,11 +4,11 @@ var optimize_settings: Dictionary = {}
 var current_opt_color: Array = []
 
 # =========================== Extension =========================== #
-func _init() -> void:
-    _optimize_init()
+func init_settings() -> void:
+    _optimize_init_settings()
 
 # =========================== Custom =========================== #
-func _optimize_init() -> void:
+func _optimize_init_settings() -> void:
     _init_mod_config()
     _load_optimize_settings()
     op_update_runtime_palette()
@@ -146,6 +146,7 @@ func op_get_default_optimize_settings() -> Dictionary:
 func op_save_optimize_settings() -> void:
     _save_optimize_settings()
 
+#* =========================== Gold Color Palette =========================== *#
 func op_update_runtime_palette() -> void:
     current_opt_color.clear()
     var palettes: Dictionary = optimize_settings.get("optimize_palettes", {})
@@ -157,28 +158,6 @@ func op_update_runtime_palette() -> void:
         current_opt_color.append_array(colors)
     if current_opt_color.empty():
         current_opt_color = ["#FFFFFF"]
-
-func op_update_runtime_gmo_characters() -> Array:
-    var gmo_characters_id: Array = optimize_settings.get("optimize_gmo_characters", [])
-    var gmo_characters: Array = []
-    if gmo_characters_id.empty():
-        ModLoaderLog.info("No GMO character IDs configured.", "Yoko-Optimize")
-        return gmo_characters
-
-    ModLoaderLog.info("Updating GMO characters from %d IDs." % [gmo_characters_id.size()], "Yoko-Optimize")
-    for gmo_character_id in gmo_characters_id:
-        var stripped_id: String = gmo_character_id.replace("item_", "")
-        var ori_character: CharacterData = ItemService.get_element_safe(ItemService.characters, stripped_id)
-        if ori_character == null:
-            ModLoaderLog.warning("Original character not found for ID: '%s' (stripped: '%s')" % [gmo_character_id, stripped_id], "Yoko-Optimize")
-            continue
-
-        var gmo_character: ItemCharacterData = ItemCharacterData.new()
-        gmo_character.clone(ori_character)
-        gmo_characters.append(gmo_character)
-
-    ModLoaderLog.info("Generated %d GMO character(s)." % [gmo_characters.size()], "Yoko-Optimize")
-    return gmo_characters
 
 func op_get_palettes() -> Dictionary:
     return optimize_settings.get("optimize_palettes", {})
@@ -222,8 +201,36 @@ func op_update_palette(id: String, new_name: String, new_colors: Array) -> void:
 func op_get_runtime_colors() -> Array:
     return current_opt_color
 
+#* =========================== GMO Optimize =========================== *#
 func op_add_gmo_character(gmo_character: ItemCharacterData) -> void:
+    if !ItemService.get_element_safe(ItemService.items, gmo_character.my_id):
+        ItemService.items.append(gmo_character)
+    else:
+        ModLoaderLog.info("[GMO Optimize] Item Character already exists in items: '%s'" % gmo_character.my_id, "Yoko-Optimize")
+
     if optimize_settings["optimize_gmo_characters"].has(gmo_character.my_id): return
 
     optimize_settings["optimize_gmo_characters"].append(gmo_character.my_id)
     _save_optimize_settings()
+
+func op_update_runtime_gmo_characters() -> Array:
+    var gmo_characters_id: Array = optimize_settings.get("optimize_gmo_characters", [])
+    var gmo_characters: Array = []
+    if gmo_characters_id.empty():
+        ModLoaderLog.info("[GMO Optimize] No GMO character IDs configured.", "Yoko-Optimize")
+        return gmo_characters
+
+    ModLoaderLog.info("[GMO Optimize] Updating GMO characters from %d IDs." % [gmo_characters_id.size()], "Yoko-Optimize")
+    for gmo_character_id in gmo_characters_id:
+        var stripped_id: String = gmo_character_id.replace("item_", "")
+        var ori_character: CharacterData = ItemService.get_element_safe(ItemService.characters, stripped_id)
+        if !ori_character:
+            ModLoaderLog.warning("[GMO Optimize] Original character not found for ID: '%s' (stripped: '%s')" % [gmo_character_id, stripped_id], "Yoko-Optimize")
+            continue
+
+        var gmo_character: ItemCharacterData = ItemCharacterData.new()
+        gmo_character.clone(ori_character)
+        gmo_characters.append(gmo_character)
+
+    ModLoaderLog.info("[GMO Optimize] Generated %d GMO character(s)." % [gmo_characters.size()], "Yoko-Optimize")
+    return gmo_characters

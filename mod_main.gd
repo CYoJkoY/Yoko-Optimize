@@ -19,7 +19,7 @@ func _init():
             "base": "CharacterData",
             "class": "ItemCharacterData",
             "language": "GDScript",
-            "path": "res://mods-unpacked/Yoko-Optimize/content/scripts/item_character.gd"
+            "path": "res://mods-unpacked/Yoko-Optimize/content/scripts/item_character_data.gd"
         },
     ]
 
@@ -60,7 +60,7 @@ func _init():
         "progress_data.gd",
         # Mod's Contents
         # SETTINGS
-        # SETTING: GMO[ 1/3 ],
+        # SETTING: GMO[ 1/4 ],
         #          rainbo_gold[ 2/2 ]
 
         "secondary_stat_container.gd",
@@ -110,17 +110,16 @@ func _init():
         # SETTING: starting_weapons
 
         "character_selection.gd",
-        # SETTING: GMO[ 2/3 ]
+        # SETTING: GMO[ 2/4 ]
 
         "menu_data.gd",
-        # SETTING: starting_items[ 1/2 ]
+        # SETTING: starting_items
+
+        "player_run_data.gd",
+        # SETTING: GMO[ 3/4 ]
 
         "run_data.gd",
-        # SETTING: starting_items[ 2/2 ],
-        #          GMO[ 3/3 ]
-
-        "progress_data_loader_beta.gd",
-        "progress_data_loader_v3.gd",
+        # SETTING: GMO[ 4/4 ]
 
     ]
 

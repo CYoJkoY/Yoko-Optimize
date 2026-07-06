@@ -90,24 +90,19 @@ func _optimize_gmo_on_selections_completed() -> void:
     for player_index in RunData.get_player_count():
         var characters: Array = _player_characters[player_index]
 
-        var selection_characters: Array = []
         for i in range(characters.size()):
             var character: CharacterData = characters[i]
-            if character == null: continue
+            if !character: continue
 
             if i == 0:
                 RunData.add_character(character, player_index)
-                selection_characters.append(character)
             else:
                 var other_character: ItemCharacterData = ItemCharacterData.new()
                 other_character.clone(character)
 
                 ProgressData.op_add_gmo_character(other_character)
 
-                RunData.add_item(other_character, player_index)
-                selection_characters.append(other_character)
-
-        RunData.selected_characters[player_index] = selection_characters
+                RunData.op_add_starting_item_character(other_character, player_index)
 
     if Utils.on_nintendo_nx_or_ounce and RunData.is_coop_run: OS.set_max_controller_count(RunData.get_player_count())
 
