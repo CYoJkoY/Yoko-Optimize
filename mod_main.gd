@@ -1,7 +1,7 @@
 extends Node
 
-const AUTHORNAME_MODNAME_DIR = "Yoko-Optimize"
-const AUTHORNAME_MODNAME_LOG_NAME = "Yoko-Optimize:Main"
+const AUTHORNAME_MODNAME_DIR = "Yoko-Optimize/"
+const AUTHORNAME_MODNAME_LOG_NAME = "Yoko-Optimize"
 
 var mod_dir_path: String = ""
 var content_dir: String = ""
@@ -9,9 +9,9 @@ var ext_dir: String = ""
 
 # =========================== Extension =========================== #
 func _init():
-    mod_dir_path = ModLoaderMod.get_unpacked_dir().plus_file(AUTHORNAME_MODNAME_DIR)
-    content_dir = mod_dir_path.plus_file("content")
-    ext_dir = mod_dir_path.plus_file("extensions")
+    mod_dir_path = ModLoaderMod.get_unpacked_dir() + AUTHORNAME_MODNAME_DIR
+    content_dir = mod_dir_path + "content/"
+    ext_dir = mod_dir_path + "extensions/"
 
     # Add Classes
     install_script_classes()
@@ -76,9 +76,6 @@ func install_script_extensions() -> void:
         # SETTING: number_optimize[ 1/8 ]
         # Secondary Stats' Icons
 
-        "stats_container.gd",
-        # SETTING: tertiary_stats
-
         "melee_weapon.gd",
         # SETTING: set_weapon_transparency[ 1/2 ]
 
@@ -136,5 +133,5 @@ func install_script_extensions() -> void:
     ]
 
     for path in extensions:
-        var extension_path = ext_dir + path
+        var extension_path = ext_dir.plus_file(path)
         ModLoaderMod.install_script_extension(extension_path)
