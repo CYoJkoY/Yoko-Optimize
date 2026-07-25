@@ -112,7 +112,7 @@ func _optimize_set_focus_neighbours() -> void:
             _tertiary_tab.focus_neighbour_top = _tertiary_tab.get_path_to(top_node) if top_node else NodePath("")
         else:
             first_primary_stat.focus_neighbour_top = first_primary_stat.get_path_to(top_node) if top_node else NodePath("")
-    
+
     if focus_neighbour_bottom:
         var bottom_node = get_node(focus_neighbour_bottom) if has_node(focus_neighbour_bottom) else null
         last_primary_stat.focus_neighbour_bottom = last_primary_stat.get_path_to(bottom_node) if bottom_node else NodePath("")
@@ -122,7 +122,7 @@ func _optimize_set_focus_neighbours() -> void:
         _primary_tab.focus_neighbour_left = _primary_tab.get_path_to(left_node) if left_node else NodePath("")
         _secondary_tab.focus_neighbour_left = _secondary_tab.get_path_to(_primary_tab)
         _tertiary_tab.focus_neighbour_left = _tertiary_tab.get_path_to(_secondary_tab)
-    
+
     if focus_neighbour_right:
         var right_node = get_node(focus_neighbour_right) if has_node(focus_neighbour_right) else null
         _primary_tab.focus_neighbour_right = _primary_tab.get_path_to(_secondary_tab)
@@ -136,7 +136,7 @@ func _optimize_reset_focus_neighbours() -> void:
         _primary_tab.set_focus_neighbour(margin, NodePath(""))
         _secondary_tab.set_focus_neighbour(margin, NodePath(""))
         _tertiary_tab.set_focus_neighbour(margin, NodePath(""))
-    
+
     for stat in primary_stats:
         stat.focus_neighbour_top = NodePath("")
         stat.focus_neighbour_bottom = NodePath("")

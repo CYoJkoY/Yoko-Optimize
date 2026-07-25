@@ -14,7 +14,7 @@ func _on_element_pressed(element: InventoryElement, inventory_player_index: int)
 
 func _on_selections_completed() -> void:
     if ProgressData.optimize_settings.optimize_gmo: _optimize_gmo_on_selections_completed()
-    else : ._on_selections_completed()
+    else :._on_selections_completed()
 
 # =========================== Custom =========================== #
 func _optimize_gmo_on_element_focused(element: InventoryElement, inventory_player_index: int, _displayPanelData: bool = true) -> void:

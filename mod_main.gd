@@ -1,26 +1,35 @@
 extends Node
 
-const MYMODNAME_MOD_DIR = "Yoko-Optimize/"
-const MYMODNAME_LOG = "Yoko-Optimize"
+const AUTHORNAME_MODNAME_DIR = "Yoko-Optimize"
+const AUTHORNAME_MODNAME_LOG_NAME = "Yoko-Optimize:Main"
 
-var dir: String = ""
+var mod_dir_path: String = ""
 var content_dir: String = ""
 var ext_dir: String = ""
 
 # =========================== Extension =========================== #
 func _init():
-    dir = ModLoaderMod.get_unpacked_dir() + MYMODNAME_MOD_DIR
-    content_dir = dir + "content/"
-    ext_dir = dir + "extensions/"
-    
+    mod_dir_path = ModLoaderMod.get_unpacked_dir().plus_file(AUTHORNAME_MODNAME_DIR)
+    content_dir = mod_dir_path.plus_file("content")
+    ext_dir = mod_dir_path.plus_file("extensions")
+
     # Add Classes
+    install_script_classes()
+
+    # Add Extensions
+    install_script_extensions()
+
+# =========================== Custom =========================== #
+func install_script_classes() -> void:
     var classes: Array = [
+
         {
             "base": "CharacterData",
             "class": "ItemCharacterData",
             "language": "GDScript",
             "path": "res://mods-unpacked/Yoko-Optimize/content/scripts/item_character_data.gd"
         },
+
     ]
 
     var registered_classes: Array = ProjectSettings.get_setting("_global_script_classes")
@@ -36,7 +45,7 @@ func _init():
     if !classes_to_register.empty():
         ModLoaderMod.register_global_classes_from_array(classes_to_register)
 
-    # Add Extensions
+func install_script_extensions() -> void:
     var extensions: Array = [
         
         "utils.gd",
