@@ -3,11 +3,11 @@ extends "res://singletons/progress_data.gd"
 var optimize_settings: Dictionary = {}
 var current_opt_color: Array = []
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func init_settings() -> void:
     _optimize_init_settings()
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_init_settings() -> void:
     _init_mod_config()
     _load_optimize_settings()
@@ -113,7 +113,7 @@ func _save_optimize_settings() -> void:
     else:
         ModLoaderLog.debug("Settings saved.", "Yoko-Optimize")
 
-# =========================== Method =========================== #
+# ══════════════════════════════════════════ Method ══════════════════════════════════════════ #
 func op_get_default_optimize_settings() -> Dictionary:
     return {
         "optimize_unlock_difficulties": false,
@@ -146,7 +146,7 @@ func op_get_default_optimize_settings() -> Dictionary:
 func op_save_optimize_settings() -> void:
     _save_optimize_settings()
 
-#* =========================== Gold Color Palette =========================== *#
+#* ══════════════════════════════════════════ Gold Color Palette ══════════════════════════════════════════ *#
 func op_update_runtime_palette() -> void:
     current_opt_color.clear()
     var palettes: Dictionary = optimize_settings.get("optimize_palettes", {})
@@ -201,7 +201,7 @@ func op_update_palette(id: String, new_name: String, new_colors: Array) -> void:
 func op_get_runtime_colors() -> Array:
     return current_opt_color
 
-#* =========================== GMO Optimize =========================== *#
+#* ══════════════════════════════════════════ GMO Optimize ══════════════════════════════════════════ *#
 func op_add_gmo_character(gmo_character: ItemCharacterData) -> void:
     if !ItemService.get_element_safe(ItemService.gmo_characters, gmo_character.my_id):
         ItemService.gmo_characters.append(gmo_character)

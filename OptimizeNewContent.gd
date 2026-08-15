@@ -2,7 +2,7 @@ extends "res://mods-unpacked/Yoko-NewContentLoader/NewContent.gd"
 
 var gmo_characters: Array = []
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func duplicate(subresources:=false) -> Resource:
     var duplication =.duplicate(subresources)
     duplication.gmo_characters = gmo_characters.duplicate()

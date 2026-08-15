@@ -1,13 +1,13 @@
 extends "res://items/consumables/consumable.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _ready() -> void:
     _optimize_set_consumable_transparency(ProgressData.optimize_settings.optimize_set_consumable_transparency)
 
 func _physics_process(delta: float) -> void:
     _optimize_physics_process(delta)
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_set_consumable_transparency(alpha_value: float) -> void:
     var clamped_alpha = clamp(alpha_value, 0.0, 1.0)
     modulate.a = clamped_alpha

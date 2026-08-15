@@ -3,7 +3,7 @@ extends "res://ui/menus/run/character_selection.gd"
 const FONT_RESOURCE = preload("res://resources/fonts/actual/base/font_40_outline_thick.tres")
 var _player_gmo_num: int = ProgressData.optimize_settings.optimize_set_gmo_num
 
-# =========================== Extention =========================== #
+# ══════════════════════════════════════════ Extention ══════════════════════════════════════════ #
 func _on_element_focused(element: InventoryElement, inventory_player_index: int, displayPanelData: bool = true) -> void:
     if ProgressData.optimize_settings.optimize_gmo: _optimize_gmo_on_element_focused(element, inventory_player_index, displayPanelData)
     else :._on_element_focused(element, inventory_player_index, displayPanelData)
@@ -16,7 +16,7 @@ func _on_selections_completed() -> void:
     if ProgressData.optimize_settings.optimize_gmo: _optimize_gmo_on_selections_completed()
     else :._on_selections_completed()
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_gmo_on_element_focused(element: InventoryElement, inventory_player_index: int, _displayPanelData: bool = true) -> void:
     var player_index = FocusEmulatorSignal.get_player_index(element)
     if player_index < 0:
@@ -115,7 +115,7 @@ func _optimize_gmo_on_selections_completed() -> void:
             RunData.add_starting_items_and_weapons()
             _change_scene(MenuData.difficulty_selection_scene)
             
-# =========================== Method =========================== #
+# ══════════════════════════════════════════ Method ══════════════════════════════════════════ #
 func op_add_number_to_character(element: InventoryElement) -> void:
     element.set_font(FONT_RESOURCE)
 

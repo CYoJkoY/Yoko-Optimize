@@ -1,4 +1,4 @@
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 extends WindowDialog
 
 signal palette_changed
@@ -15,12 +15,12 @@ onready var preview_container: HFlowContainer = $"%PreviewContainer"
 var hold_data: Dictionary = {}
 var _pending_deletions: Array = []
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _ready() -> void:
     refresh()
     set_process(false)
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func refresh() -> void:
     for child in palette_list.get_children(): child.queue_free()
 
@@ -139,7 +139,7 @@ func _get_color_item(color_id) -> Control:
 
     return null
 
-# =========================== Method =========================== #
+# ══════════════════════════════════════════ Method ══════════════════════════════════════════ #
 func _on_active_toggled(palette_id, pressed) -> void:
     var active: Array = ProgressData.op_get_active_palette_ids()
     match [pressed, active.has(palette_id)]:

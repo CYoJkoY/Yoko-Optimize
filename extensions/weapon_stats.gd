@@ -1,6 +1,6 @@
 extends "res://weapons/weapon_stats/weapon_stats.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_stats: Array, nb_projectiles: int, player_index: int, effects: Array) -> String:
     var dmg_text: String = ""
     if ProgressData.optimize_settings.optimize_number_optimize: dmg_text = _optimize_get_dmg_text_with_scaling_stats(base_stats, p_scaling_stats, nb_projectiles, player_index, effects)
@@ -8,7 +8,7 @@ func get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_stats: Arra
 
     return dmg_text
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_get_dmg_text_with_scaling_stats(base_stats: Resource, p_scaling_stats: Array, nb_projectiles: int, player_index: int, effects: Array) -> String:
     var displayed_damage = damage
 

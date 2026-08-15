@@ -7,7 +7,7 @@ var mod_dir_path: String = ""
 var content_dir: String = ""
 var ext_dir: String = ""
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _init():
     mod_dir_path = ModLoaderMod.get_unpacked_dir() + AUTHORNAME_MODNAME_DIR
     content_dir = mod_dir_path + "content/"
@@ -19,7 +19,7 @@ func _init():
     # Add Extensions
     install_script_extensions()
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func install_script_classes() -> void:
     var classes: Array = [
 

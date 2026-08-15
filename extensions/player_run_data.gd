@@ -3,7 +3,7 @@ extends "res://singletons/player_run_data.gd"
 var optimize_selected_items: Array = []
 var optimize_selected_other_characters: Array = []
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func duplicate(): # ! Avoid class problem
     var copy =.duplicate()
     copy.optimize_selected_items = optimize_selected_items.duplicate()

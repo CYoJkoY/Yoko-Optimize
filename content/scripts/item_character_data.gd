@@ -10,7 +10,7 @@ export(Array, String) var banned_upgrades
 export(Array, Resource) var starting_weapons
 export(Array, Resource) var starting_items
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func clone(character: CharacterData) -> void:
     my_id = "item_" + character.my_id
     my_id_hash = Keys.generate_hash(my_id)

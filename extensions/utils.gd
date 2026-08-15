@@ -9,7 +9,7 @@ const THRESHOLDS = [
     [1000, "K"]
 ]
 
-# =========================== Methods =========================== #
+# ══════════════════════════════════════════ Methods ══════════════════════════════════════════ #
 func opt_format_number(value: int) -> String:
     if value < 1000: return str(value)
 

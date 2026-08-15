@@ -1,10 +1,10 @@
 extends "res://ui/menus/title_screen/title_screen_menus.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _ready():
     _optimize_set_options()
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_set_options() -> void:
     var _optimize_set_options = load("res://mods-unpacked/Yoko-Optimize/content/scenes/set_scene.tscn").instance()
     add_child(_optimize_set_options)

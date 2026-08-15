@@ -3,7 +3,7 @@ extends "res://ui/menus/shop/secondary_stat_container.gd"
 onready var _icon: TextureRect = TextureRect.new()
 onready var _HBoxContainer = $HBoxContainer
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _ready() -> void:
     _icon.expand = true
     _icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
@@ -17,7 +17,7 @@ func update_player_stat(player_index: int) -> void:
     if ProgressData.optimize_settings.optimize_number_optimize:
         _optimize_update_player_stat(player_index)
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_update_player_stat(player_index: int) -> void:
     var stat_value = Utils.get_stat(key_hash, player_index)
     var value_text = Utils.opt_format_number(stat_value as int)

@@ -2,13 +2,13 @@ extends "res://ui/menus/shop/item_description.gd"
 
 onready var _curse_strength_label: Label
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func set_item(item_data: ItemParentData, player_index: int, item_count: int = 1) -> void:
     .set_item(item_data, player_index, item_count)
     _optimize_update_curse_strength_display(item_data)
     _optimize_update_item_character_category_text(item_data)
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_update_curse_strength_display(item_data: ItemParentData) -> void:
     if !ProgressData.optimize_settings.optimize_curse_strength: return
 

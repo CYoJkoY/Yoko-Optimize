@@ -1,6 +1,6 @@
 extends "res://ui/hud/ui_gold.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func update_value(value: int) -> void:
     .update_value(value)
     if ProgressData.optimize_settings.optimize_number_optimize:

@@ -1,13 +1,13 @@
 extends "res://singletons/run_data.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func reset(restart: bool = false) -> void:
     if ProgressData.optimize_settings.optimize_gmo or \
     ProgressData.optimize_settings.optimize_starting_items:
         _optimize_reset(restart)
     else : .reset(restart)
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_reset(restart: bool = false) -> void:
     current_run_accessibility_settings = ProgressData.settings.enemy_scaling.duplicate()
     constant_projectile = ProgressData.settings.constant_projectile_option
@@ -115,7 +115,7 @@ func _optimize_reset(restart: bool = false) -> void:
     LinkedStats.reset()
     ItemService.init_unlocked_pool()
 
-# =========================== Method =========================== #
+# ══════════════════════════════════════════ Method ══════════════════════════════════════════ #
 func op_add_starting_items(item_datas: Array, player_index: int) -> void:
     if item_datas.empty(): return
 

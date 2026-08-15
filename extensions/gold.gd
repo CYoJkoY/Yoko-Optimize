@@ -1,6 +1,6 @@
 extends "res://items/materials/gold.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _ready() -> void:
     _optimize_set_gold_transparency(ProgressData.optimize_settings.optimize_set_gold_transparency)
 
@@ -11,7 +11,7 @@ func drop(pos: Vector2, p_rotation: float, p_push_back_destiation: Vector2) -> v
 func _physics_process(delta: float) -> void:
     _optimize_physics_process(delta)
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_rainbow_gold() -> void:
     var colors: Array = ProgressData.op_get_runtime_colors()
     if colors.empty(): return

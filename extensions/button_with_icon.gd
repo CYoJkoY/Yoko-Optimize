@@ -1,6 +1,6 @@
 extends "res://ui/menus/shop/button_with_icon.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func set_value(value: int, currency: int) -> void:
     .set_value(value, currency)
     if ProgressData.optimize_settings.optimize_number_optimize:

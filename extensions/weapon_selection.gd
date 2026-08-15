@@ -1,6 +1,6 @@
 extends "res://ui/menus/run/weapon_selection.gd"
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _get_unlocked_elements(player_index: int) -> Array:
     var unlocked: Array =._get_unlocked_elements(player_index)
     unlocked = _optimize_starting_weapons_unlock(unlocked)
@@ -13,7 +13,7 @@ func _get_all_possible_elements(player_index: int) -> Array:
 
     return possible_weapons
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_starting_weapons_unlock(unlocked: Array = []) -> Array:
     if ProgressData.optimize_settings.optimize_starting_weapons:
         unlocked = []

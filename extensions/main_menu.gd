@@ -4,13 +4,13 @@ signal optimize_set_button_pressed
 
 onready var buttons_right = $MarginContainer/VBoxContainer/HBoxContainer/ButtonsRight
 
-# =========================== Extension =========================== #
+# ══════════════════════════════════════════ Extension ══════════════════════════════════════════ #
 func _ready() -> void:
     # After init and avoid .init()
     # Equals to init() + .init()
     _optimize_set_button_ready()
 
-# =========================== Custom =========================== #
+# ══════════════════════════════════════════ Custom ══════════════════════════════════════════ #
 func _optimize_set_button_ready() -> void:
     if buttons_right.has_node("OptimizeSetButton"): return
 
